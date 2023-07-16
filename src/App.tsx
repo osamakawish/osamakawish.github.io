@@ -32,7 +32,7 @@ function App() {
         <div className="carousel-inner h-100 w-100">
           <div className="carousel-item w-100 h-100 active">
             <img
-              src="src/assets/lightning.jpg"
+              src="/lightning.jpg"
               className="d-block object-fit-cover position-absolute h-100 w-100"
               alt="..."
             />
@@ -45,7 +45,7 @@ function App() {
           </div>
           <div className="carousel-item w-100 h-100">
             <img
-              src="src/assets/arctic.jpg"
+              src="/arctic.jpg"
               className="d-block object-fit-cover position-absolute h-100 w-100"
               alt="..."
             />
@@ -58,7 +58,7 @@ function App() {
           </div>
           <div className="carousel-item w-100 h-100">
             <img
-              src="src/assets/trees.jpg"
+              src="/trees.jpg"
               className="d-block object-fit-cover position-absolute h-100 w-100"
               alt="..."
             />
