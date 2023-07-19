@@ -1,102 +1,101 @@
+import React, { useState } from "react";
+import {
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption,
+} from "reactstrap";
 import "./App.css";
 
-function App() {
-  return (
-    <>
-      <div
-        id="carousel"
-        className="carousel slide position-absolute w-100 h-100"
+const items = [
+  {
+    src: "lightning.jpg",
+    altText: "Slide 1",
+    caption: "Some representative placeholder content for the first slide.",
+    captionHeader: "First slide label",
+    key: "1",
+  },
+  {
+    src: "arctic.jpg",
+    altText: "Slide 2",
+    caption: "Some representative placeholder content for the second slide.",
+    captionHeader: "Second slide label",
+    key: "2",
+  },
+  {
+    src: "trees.jpg",
+    altText: "Slide 3",
+    caption: "Some representative placeholder content for the third slide.",
+    captionHeader: "Third slide label",
+    key: "3",
+  },
+];
+
+const App = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  const next = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const previous = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const goToIndex = (newIndex: number) => {
+    if (animating) return;
+    setActiveIndex(newIndex);
+  };
+
+  const slides = items.map((item) => {
+    return (
+      <CarouselItem
+        onExiting={() => setAnimating(true)}
+        onExited={() => setAnimating(false)}
+        key={item.src}
       >
-        <div className="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carousel"
-            data-bs-slide-to="0"
-            className="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carousel"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carousel"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
-        <div className="carousel-inner h-100 w-100">
-          <div className="carousel-item w-100 h-100 active">
-            <img
-              src="/lightning.jpg"
-              className="d-block object-fit-cover position-absolute h-100 w-100"
-              alt="..."
-            />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>
-                Some representative placeholder content for the first slide.
-              </p>
-            </div>
-          </div>
-          <div className="carousel-item w-100 h-100">
-            <img
-              src="/arctic.jpg"
-              className="d-block object-fit-cover position-absolute h-100 w-100"
-              alt="..."
-            />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>
-                Some representative placeholder content for the second slide.
-              </p>
-            </div>
-          </div>
-          <div className="carousel-item w-100 h-100">
-            <img
-              src="/trees.jpg"
-              className="d-block object-fit-cover position-absolute h-100 w-100"
-              alt="..."
-            />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>
-                Some representative placeholder content for the third slide.
-              </p>
-            </div>
-          </div>
-        </div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#carousel"
-          data-bs-slide="prev"
-        >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#carousel"
-          data-bs-slide="next"
-        >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
-    </>
+        <img src={item.src} alt={item.altText} className="carousel-image" />
+        <CarouselCaption
+          captionText={item.caption}
+          captionHeader={item.header}
+        />
+      </CarouselItem>
+    );
+  });
+
+  return (
+    <div className="position-absolute w-100 h-100">
+      <Carousel
+        activeIndex={activeIndex}
+        next={next}
+        previous={previous}
+        className="carousel"
+      >
+        <CarouselIndicators
+          items={items}
+          activeIndex={activeIndex}
+          onClickHandler={goToIndex}
+        />
+        {slides}
+        <CarouselControl
+          direction="prev"
+          directionText="Previous"
+          onClickHandler={previous}
+        />
+        <CarouselControl
+          direction="next"
+          directionText="Next"
+          onClickHandler={next}
+        />
+      </Carousel>
+    </div>
   );
-}
+};
 
 export default App;
