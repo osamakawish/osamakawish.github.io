@@ -1,0 +1,11 @@
+
+.button-block {
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    width: auto;
+    bottom: 0.75cm;
+    height: 10px;
+    left: 50%;
+    translate: -50% 0;
+  }

@@ -1,22 +1,43 @@
 import "./App.css";
 import "./components/CarouselSlide";
-import CarouselImage from "./components/CarouselSlide";
+import CarouselSlide from "./components/CarouselSlide";
 import "./components/buttons/CarouselSlideButton";
-import CarouselSlideButton from "./components/buttons/CarouselSlideButton";
 import LeftArrow from "./components/arrows/LeftArrow";
 import RightArrow from "./components/arrows/RightArrow";
+import SlideButtonGroup from "./components/buttons/SlideButtonGroup";
+import { useState } from "react";
 
 function App() {
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  const slides = [
+    <CarouselSlide key={1} imgFile="arctic.jpg" header="A">
+      Afdsvv
+    </CarouselSlide>,
+    <CarouselSlide key={2} imgFile="trees.jpg" header="A">
+      Afdsvv
+    </CarouselSlide>,
+    <CarouselSlide key={3} imgFile="lightning.jpg" header="A">
+      Afdsvv
+    </CarouselSlide>,
+  ];
+
   return (
     <>
-      <CarouselImage imgFile="arctic.jpg" header="A">
-        Afdsvv
-      </CarouselImage>
+      {slides[slideIndex]}
 
-      <CarouselSlideButton />
+      <SlideButtonGroup
+        slides={slides}
+        slideIndex={slideIndex}
+        setSlideIndex={setSlideIndex}
+      />
 
-      <LeftArrow />
-      <RightArrow />
+      <LeftArrow
+        onClick={() => setSlideIndex((slideIndex - 1) % slides.length)}
+      />
+      <RightArrow
+        onClick={() => setSlideIndex((slideIndex + 1) % slides.length)}
+      />
     </>
   );
 }
