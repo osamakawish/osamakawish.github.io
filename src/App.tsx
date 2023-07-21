@@ -1,6 +1,8 @@
 import "./App.css";
 import "./components/CarouselImage";
 import CarouselImage from "./components/CarouselImage";
+import "./components/CarouselSlideButton";
+import CarouselSlideButton from "./components/CarouselSlideButton";
 
 function App() {
   return (
@@ -9,9 +11,7 @@ function App() {
         Afdsvv
       </CarouselImage>
 
-      <svg className="line-svg">
-        <line x1="0" y1="0" x2="80" y2="0" className="horizontalLine" />
-      </svg>
+      <CarouselSlideButton />
     </>
   );
 }

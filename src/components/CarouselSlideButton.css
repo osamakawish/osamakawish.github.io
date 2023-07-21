@@ -1,0 +1,15 @@
+
+.horizontalLine {
+    stroke: white;
+    stroke-width: 3px;
+    position: fixed;
+  }
+  
+  .line-svg {
+    position: fixed;
+    width: 80px;
+    bottom: 0.75cm;
+    height: 10px;
+    left: 50%;
+    translate: -50% 0;
+  }
