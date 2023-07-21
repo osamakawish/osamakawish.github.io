@@ -1,13 +1,13 @@
 import "./App.css";
+import "./components/CarouselImage";
+import CarouselImage from "./components/CarouselImage";
 
 function App() {
   return (
     <>
-      <img src="lightning.jpg" className="carousel-image" alt="lightning" />
-      <div className="rect" />
-      <h1 className="slide-header">
-        REdfvsdvsdfvsfvsfdvsdfvdsfvsdvfsdvsdvfsvdfsvbsd
-      </h1>
+      <CarouselImage imgFile="arctic.jpg" header="A">
+        Afdsvv
+      </CarouselImage>
     </>
   );
 }
