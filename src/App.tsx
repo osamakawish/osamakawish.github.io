@@ -3,6 +3,8 @@ import "./components/CarouselImage";
 import CarouselImage from "./components/CarouselImage";
 import "./components/CarouselSlideButton";
 import CarouselSlideButton from "./components/CarouselSlideButton";
+import LeftArrow from "./components/arrows/LeftArrow";
+import RightArrow from "./components/arrows/RightArrow";
 
 function App() {
   return (
@@ -12,6 +14,9 @@ function App() {
       </CarouselImage>
 
       <CarouselSlideButton />
+
+      <LeftArrow />
+      <RightArrow />
     </>
   );
 }
