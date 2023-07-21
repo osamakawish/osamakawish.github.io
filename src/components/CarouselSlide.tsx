@@ -1,4 +1,4 @@
-import "./CarouselImage.css";
+import "./CarouselSlide.css";
 
 type CarouselImageProps = {
   imgFile: string;
@@ -6,7 +6,7 @@ type CarouselImageProps = {
   children?: string;
 };
 
-function CarouselImage({ imgFile, header, children }: CarouselImageProps) {
+function CarouselSlide({ imgFile, header, children }: CarouselImageProps) {
   return (
     <>
       <img src={imgFile} className="carousel-image" />
@@ -17,4 +17,4 @@ function CarouselImage({ imgFile, header, children }: CarouselImageProps) {
   );
 }
 
-export default CarouselImage;
+export default CarouselSlide;

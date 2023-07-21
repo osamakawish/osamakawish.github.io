@@ -1,8 +1,8 @@
 import "./App.css";
-import "./components/CarouselImage";
-import CarouselImage from "./components/CarouselImage";
-import "./components/CarouselSlideButton";
-import CarouselSlideButton from "./components/CarouselSlideButton";
+import "./components/CarouselSlide";
+import CarouselImage from "./components/CarouselSlide";
+import "./components/buttons/CarouselSlideButton";
+import CarouselSlideButton from "./components/buttons/CarouselSlideButton";
 import LeftArrow from "./components/arrows/LeftArrow";
 import RightArrow from "./components/arrows/RightArrow";
 
