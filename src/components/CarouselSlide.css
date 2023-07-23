@@ -1,36 +1,40 @@
 .carousel-image {
-    object-fit: cover;
-    width: 100vw;
-    max-width: 100vw;
-    height: 100vh;
-    position: fixed;
-    z-index: -1;
-  }
-  
-  .rect {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 5cm;
-    background: linear-gradient(rgba(0,0,0,0.0), rgba(0, 0, 0, 0.822) 15%, rgba(0, 0, 0, 0.959));
-  }
-  
-  .slide-header {
-    font-family: "Times";
-    color:rgb(238, 238, 238);
-    position: fixed;
-    display: flex;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    bottom: 2.5cm;
-  }
+  object-fit: cover;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+}
 
-  .text {
-    color:white;
-    font-size: 200;
-    position: fixed;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    bottom: 1.5cm;
-  }
+.rect {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6cm;
+  background: linear-gradient(rgba(0,0,0,0.0), rgba(0, 0, 0, 0.822) 15%, rgba(0, 0, 0, 0.959));
+}
+
+.slide-header {
+  font-family: "Times";
+  color:rgb(238, 238, 238);
+}
+
+.text {
+  color:white;
+  font-size: 200;
+  text-align: center;
+}
+
+.text-block {
+  position: fixed;
+  left: 50%;
+  height: 4cm;
+  bottom: 0.8cm;
+  transform: translate(-50%, 0%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
