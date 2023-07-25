@@ -5,6 +5,7 @@ import LeftArrow from "./components/arrows/LeftArrow";
 import RightArrow from "./components/arrows/RightArrow";
 import SlideButtonGroup from "./components/buttons/SlideButtonGroup";
 import "./App.css";
+import Navbar from "./components/Navbar";
 
 type ContactButtonProps = {
   url: string;
@@ -136,6 +137,8 @@ function App() {
     <div>Loading...</div>
   ) : (
     <>
+      <Navbar currentPage="Home" />
+
       {slides[slideIndex]}
 
       <SlideButtonGroup

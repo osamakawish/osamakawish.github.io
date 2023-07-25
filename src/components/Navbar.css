@@ -1,0 +1,39 @@
+
+.custom-navbar {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: #888;
+  padding: 6px 12px !important;
+  margin: 0;
+  list-style-type: none;
+  z-index: 1000;
+  width: 100%;
+  justify-content: center;
+}
+
+.custom-navbar li {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  padding: 6px 12px;
+  margin: 0 12px;
+  width: 100px;
+}
+
+/* Only if it doesn't belong to class active-page: */
+.custom-navbar li:hover {
+  color: black;
+  background: #ddd;
+}
+
+.active-page {
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: brown;
+  text-decoration-thickness: 2px;
+  color: #eee;
+  text-underline-offset: 4px;
+}
