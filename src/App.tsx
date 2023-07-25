@@ -11,17 +11,19 @@ type ContactButtonProps = {
   children: ReactNode;
 };
 
-function ContactButton({ url, children }: ContactButtonProps) {
+function LinkButton({ url, children }: ContactButtonProps) {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
-      <button type="submit">{children}</button>
+      <button type="submit" className="link-button">
+        {children}
+      </button>
     </a>
   );
 }
 
 type CarouselSlideData = {
   imgFile: string;
-  header: string;
+  header: ReactNode;
   description: ReactNode;
 };
 
@@ -32,7 +34,11 @@ function App() {
   const slidesInfo: Array<CarouselSlideData> = [
     {
       imgFile: "Portfolio Intro.webp",
-      header: "Osama Kawish",
+      header: (
+        <a href="https://www.github.com/osamakawish" className="slide-header">
+          <h2>Osama Kawish</h2>
+        </a>
+      ),
       description: (
         <>
           <p>
@@ -41,37 +47,48 @@ function App() {
             to digital complexity.
           </p>
           <p id="contact-buttons">
-            <ContactButton url="mailto:osamakawish@gmail.com">
-              Email
-            </ContactButton>
-            <ContactButton url="https://www.linkedin.com/in/osama-kawish-7b0232237/">
+            <LinkButton url="mailto:osamakawish@gmail.com">Email</LinkButton>
+            <LinkButton url="https://www.linkedin.com/in/osama-kawish-7b0232237/">
               LinkedIn
-            </ContactButton>
-            <ContactButton url="https://www.github.com/osamakawish">
-              GitHub
-            </ContactButton>
-            <ContactButton url="https://www.codewars.com/users/osamakawish">
+            </LinkButton>
+            <LinkButton url="https://www.codewars.com/users/osamakawish">
               Codewars
-            </ContactButton>
+            </LinkButton>
           </p>
         </>
       ),
     },
     {
       imgFile: "Animperium Preview.webp",
-      header: "Animation Application",
+      header: (
+        <a
+          href="https://github.com/osamakawish/Animperium"
+          className="slide-header"
+        >
+          <h2>Animation Application</h2>
+        </a>
+      ),
       description: (
-        <p>
-          These are the UI designs for an Animation application I'm currently
-          working on. The goal is to play around and create a simplified user
-          interface for animations. It is being implemented in Visual Studio via
-          C# and WPF.
-        </p>
+        <>
+          <p>
+            These are the UI designs for an Animation application I'm currently
+            working on. The goal is to play around and create a simplified user
+            interface for animations. It is being implemented in Visual Studio
+            via C# and WPF.
+          </p>
+        </>
       ),
     },
     {
       imgFile: "Square API.webp",
-      header: "Voice-Enabled Inventory Management",
+      header: (
+        <a
+          href="https://github.com/osamakawish/SquareHackathonProject"
+          className="slide-header"
+        >
+          <h2>Voice-Enabled Inventory Management</h2>
+        </a>
+      ),
       description: (
         <>
           <p>

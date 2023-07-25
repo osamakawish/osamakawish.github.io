@@ -3,7 +3,7 @@ import "./CarouselSlide.css";
 
 type CarouselImageProps = {
   imgFile: string;
-  header?: string;
+  header?: ReactNode;
   children?: ReactNode;
 };
 
@@ -18,7 +18,7 @@ function CarouselSlide({ imgFile, header, children }: CarouselImageProps) {
       <img src={imgFile} className="carousel-image" />
       <div className="rect" />
       <div className="text-block">
-        <h2 className="slide-header">{header}</h2>
+        {header}
         {children}
       </div>
     </>

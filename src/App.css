@@ -5,11 +5,27 @@
     gap: 12px;
 }
 
-#contact-buttons a button {
+.link-button {
     width: 100px;
-    padding: 3px 12px;
+    padding: 3px 8px;
 }
 
-#contact-buttons a button:hover {
+.link-button:hover {
     background-color: #ccc;
+}
+
+.slide-header {
+    text-decoration: none;
+}
+
+.slide-header h2 {
+    margin-bottom: 0;
+    font-family: "Times";
+    color: rgb(238, 238, 238);
+}
+
+.slide-header:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+    text-decoration-thickness: 2px;
 }
