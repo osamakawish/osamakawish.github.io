@@ -5,12 +5,13 @@ import CarouselSlideButton from "./CarouselSlideButton";
 
 type SlideButtonGroupProps = {
   slides: React.ReactElement<typeof CarouselSlide>[];
-  slideIndex?: number;
+  slideIndex: number;
   setSlideIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export default function SlideButtonGroup({
   slides,
+  slideIndex,
   setSlideIndex,
 }: SlideButtonGroupProps) {
   return (
@@ -18,7 +19,7 @@ export default function SlideButtonGroup({
       {slides.map((_slide, i) => {
         return (
           <div key={i} onClick={() => setSlideIndex(i)}>
-            <CarouselSlideButton />
+            <CarouselSlideButton slideIndex={slideIndex} currentIndex={i} />
           </div>
         );
       })}

@@ -1,11 +1,14 @@
+.horizontalLine {
+  stroke: #ddd;
+  stroke-width: 2;
+}
+
+.horizontalLine-active {
+  stroke: #fff;
+  stroke-width: 6;
+}
 
 .line-svg {
   width: 60px;
   margin: 6px;
 }
-
-.horizontalLine {
-  stroke: white;
-  stroke-width: 3px;
-}
-  

@@ -1,0 +1,15 @@
+
+#contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+#contact-buttons a button {
+    width: 100px;
+    padding: 3px 12px;
+}
+
+#contact-buttons a button:hover {
+    background-color: #ccc;
+}
