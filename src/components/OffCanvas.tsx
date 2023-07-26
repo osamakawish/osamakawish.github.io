@@ -1,6 +1,20 @@
 import { ReactNode } from "react";
 import "./OffCanvas.css";
 
+type OffCanvasContentProps = {
+  children?: ReactNode;
+  header: string;
+};
+
+export function OffCanvasContent({ children, header }: OffCanvasContentProps) {
+  return (
+    <>
+      <h2 className="offcanvas-header">{header}</h2>
+      {children}
+    </>
+  );
+}
+
 type OffCanvasProps = {
   children: ReactNode;
   isOpen: boolean;
@@ -32,7 +46,7 @@ export default function OffCanvas({
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       )}
-      {children}
+      <div className="off-canvas-content">{children}</div>
     </div>
   );
 }

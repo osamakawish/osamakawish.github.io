@@ -11,6 +11,13 @@
   transition: transform 0.5s ease-in-out;
 }
 
+.offcanvas-header {
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .off-canvas-close-button {
   color: white;
   position: absolute;

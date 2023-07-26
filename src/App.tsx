@@ -6,7 +6,7 @@ import RightArrow from "./components/arrows/RightArrow";
 import SlideButtonGroup from "./components/buttons/SlideButtonGroup";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import OffCanvas from "./components/OffCanvas";
+import OffCanvas, { OffCanvasContent } from "./components/OffCanvas";
 
 type LinkButtonProps = {
   url: string;
@@ -27,6 +27,7 @@ type CarouselSlideData = {
   imgFile: string;
   header: ReactNode;
   description: ReactNode;
+  offCanvasDescription?: ReactNode;
 };
 
 function App() {
@@ -72,6 +73,12 @@ function App() {
             </LinkButton>
           </p>
         </>
+      ),
+      // Talk about who you are and what your skills are here in a wee bit more detail,
+      // though not necessarily too much detail. You can also link to your social media
+      // as well as your about page. Also, move all of the link to the off-canvas.
+      offCanvasDescription: (
+        <OffCanvasContent header={"Osama Kawish"}>sfvnkdf</OffCanvasContent>
       ),
     },
     {
@@ -141,7 +148,7 @@ function App() {
       <Navbar currentPage="Home" />
 
       <OffCanvas isOpen={isOffCanvasOpen} setIsOpen={setIsOffCanvasOpen}>
-        caad
+        {slidesInfo[slideIndex].offCanvasDescription}
       </OffCanvas>
 
       {slides[slideIndex]}
