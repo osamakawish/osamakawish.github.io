@@ -6,13 +6,14 @@ import RightArrow from "./components/arrows/RightArrow";
 import SlideButtonGroup from "./components/buttons/SlideButtonGroup";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import OffCanvas from "./components/OffCanvas";
 
-type ContactButtonProps = {
+type LinkButtonProps = {
   url: string;
   children: ReactNode;
 };
 
-function LinkButton({ url, children }: ContactButtonProps) {
+function LinkButton({ url, children }: LinkButtonProps) {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
       <button type="submit" className="link-button">
@@ -31,15 +32,29 @@ type CarouselSlideData = {
 function App() {
   const [slideIndex, setSlideIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
 
+  type HExProps = {
+    children: string;
+  };
+
+  // For "expandable" headers: eg. opens the off-canvas
+  function HEx({ children }: HExProps) {
+    return (
+      <a
+        className="slide-header"
+        onClick={() => setIsOffCanvasOpen(!isOffCanvasOpen)}
+      >
+        <h2>{children}</h2>
+      </a>
+    );
+  }
+
+  // The headings should be able to open/close the off-canvas
   const slidesInfo: Array<CarouselSlideData> = [
     {
       imgFile: "Portfolio Intro.webp",
-      header: (
-        <a href="https://www.github.com/osamakawish" className="slide-header">
-          <h2>Osama Kawish</h2>
-        </a>
-      ),
+      header: <HEx>Osama Kawish</HEx>,
       description: (
         <>
           <p>
@@ -61,14 +76,7 @@ function App() {
     },
     {
       imgFile: "Animperium Preview.webp",
-      header: (
-        <a
-          href="https://github.com/osamakawish/Animperium"
-          className="slide-header"
-        >
-          <h2>Animation Application</h2>
-        </a>
-      ),
+      header: <HEx>Animation Application</HEx>,
       description: (
         <>
           <p>
@@ -82,14 +90,7 @@ function App() {
     },
     {
       imgFile: "Square API.webp",
-      header: (
-        <a
-          href="https://github.com/osamakawish/SquareHackathonProject"
-          className="slide-header"
-        >
-          <h2>Voice-Enabled Inventory Management</h2>
-        </a>
-      ),
+      header: <HEx>Voice-Enabled Inventory Management</HEx>,
       description: (
         <>
           <p>
@@ -138,6 +139,10 @@ function App() {
   ) : (
     <>
       <Navbar currentPage="Home" />
+
+      <OffCanvas isOpen={isOffCanvasOpen} setIsOpen={setIsOffCanvasOpen}>
+        caad
+      </OffCanvas>
 
       {slides[slideIndex]}
 
