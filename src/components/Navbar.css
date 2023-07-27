@@ -24,15 +24,13 @@
 }
 
 /* Only if it doesn't belong to class active-page: */
-.custom-navbar li:hover {
+.custom-navbar li:not(.active-page):hover {
   color: black;
   background: #ddd;
 }
 
 .active-page {
   font-weight: bold;
-  text-decoration: underline;
-  text-decoration-color: brown;
   text-decoration-thickness: 2px;
   color: #eee;
   text-underline-offset: 4px;
