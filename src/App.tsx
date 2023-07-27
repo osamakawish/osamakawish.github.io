@@ -7,7 +7,7 @@ import {
 import Navbar from "./components/Navbar";
 import HomePage from "./components/home/Home";
 import Blog from "./components/blog/Blog";
-import AboutMe from "./components/about/about-me";
+import AboutMe from "./components/about/AboutMe";
 import { pagePathsToTitles } from "./constants";
 
 function App() {
