@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./components/home/Home";
 import Blog from "./components/blog/Blog";
 import AboutMe from "./components/about/about-me";
+import { pagePathsToTitles } from "./constants";
 
 function App() {
   return (
@@ -17,15 +18,9 @@ function App() {
   );
 }
 
-const pageTitles: { [key: string]: string } = {
-  "/": "Home",
-  "/blog": "Blog",
-  "/about": "About Me",
-};
-
 function AppWithRouter() {
   const location = useLocation();
-  const currentPage = pageTitles[location.pathname] || "Unknown Page";
+  const currentPage = pagePathsToTitles[location.pathname] || "Unknown Page";
 
   return (
     <>

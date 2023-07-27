@@ -1,10 +1,8 @@
 
 .custom-navbar {
-  position: fixed;
+  position: sticky;
   display: flex;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
   background: black;
   color: #888;
   padding: 6px 12px !important;
@@ -34,4 +32,9 @@
   text-decoration-thickness: 2px;
   color: #eee;
   text-underline-offset: 4px;
+}
+
+.custom-navbar li a {
+  text-decoration: none;
+  color: inherit;
 }
