@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import "./OffCanvas.css";
 
 type OffCanvasContentProps = {
@@ -26,8 +26,29 @@ export default function OffCanvas({
   isOpen,
   setIsOpen,
 }: OffCanvasProps) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (ref.current && !(ref.current as any).contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      // Clean up on unmount
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, setIsOpen]);
+
   return (
-    <div className={`off-canvas ${isOpen ? "off-canvas-open" : ""}`}>
+    <div ref={ref} className={`off-canvas ${isOpen ? "off-canvas-open" : ""}`}>
       {isOpen && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
