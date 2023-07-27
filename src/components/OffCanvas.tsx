@@ -9,7 +9,7 @@ type OffCanvasContentProps = {
 export function OffCanvasContent({ children, header }: OffCanvasContentProps) {
   return (
     <>
-      <h2 className="offcanvas-header">{header}</h2>
+      <h3 className="offcanvas-header">{header}</h3>
       {children}
     </>
   );
@@ -35,10 +35,6 @@ export default function OffCanvas({
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#ddd"
-          strokeWidth="1.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
           className="off-canvas-close-button"
           onClick={() => setIsOpen(false)}
         >

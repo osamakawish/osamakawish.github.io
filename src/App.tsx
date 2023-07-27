@@ -94,6 +94,14 @@ function App() {
           </p>
         </>
       ),
+      offCanvasDescription: (
+        <OffCanvasContent header={"Animation Application"}>
+          Some stuff abotu the animation application. Go into more detail about
+          the app. Also, talk about the technologies used to build it, and so
+          on. Again, make sure to link to the github repo here. It'll make the
+          page a lot cleaner.
+        </OffCanvasContent>
+      ),
     },
     {
       imgFile: "Square API.webp",
@@ -108,6 +116,12 @@ function App() {
             management.
           </p>
         </>
+      ),
+      offCanvasDescription: (
+        <OffCanvasContent header={"Voice-Enabled Inventory Management"}>
+          Go into detail here regarding the project. Talk about the technologies
+          used the difficulties faced, new things that were learned, etc.
+        </OffCanvasContent>
       ),
     },
   ];

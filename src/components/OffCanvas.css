@@ -3,7 +3,7 @@
   height: 100vh;
   width: min(9cm, 80vw);
   z-index: 1001;
-  color: #fff;
+  color: #eee;
   background-color: #181818;
   padding: 24px;
   box-shadow: 5px 5px 20px black;
@@ -16,14 +16,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: #444 1px solid;
 }
 
 .off-canvas-close-button {
-  color: white;
+  stroke: rgb(255, 255, 255);
   position: absolute;
   top: 0;
   right: 0;
-  margin: 20px;
+  margin: 16px;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .off-canvas-open {
