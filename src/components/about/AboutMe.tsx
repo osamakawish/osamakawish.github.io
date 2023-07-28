@@ -1,5 +1,6 @@
 import React from "react";
 
+// For this, I should essentially just implement a blog post page.
 function AboutMe() {
   return (
     <div>

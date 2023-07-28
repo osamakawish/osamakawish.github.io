@@ -9,6 +9,7 @@ import HomePage from "./components/home/Home";
 import Blog from "./components/blog/Blog";
 import AboutMe from "./components/about/AboutMe";
 import { pagePathsToTitles } from "./constants";
+import "./App.css";
 
 function App() {
   return (
