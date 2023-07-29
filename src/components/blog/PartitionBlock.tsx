@@ -1,8 +1,8 @@
 import "./Miniblog.css";
 
-type MiniblogProps = {};
+type PartitionBlockProps = {};
 
-export default function Miniblog({}: MiniblogProps) {
+export default function PartitionBlock({}: PartitionBlockProps) {
   return (
     <>
       <div className="partitioned-block">
