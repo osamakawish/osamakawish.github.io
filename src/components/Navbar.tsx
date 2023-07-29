@@ -14,9 +14,20 @@ export default function Navbar({ currentPage }: NavbarProps) {
     pageTitle: string;
     pagePath: string;
   }) {
+    const isActivePage = currentPage === pageTitle;
+
     return (
-      <li className={currentPage == pageTitle ? "active-page" : ""}>
-        <Link to={pagePath}>{pageTitle}</Link>
+      <li className={isActivePage ? "active-page" : ""}>
+        {isActivePage ? (
+          <span>{pageTitle}</span>
+        ) : (
+          <Link
+            to={pagePath}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            {pageTitle}
+          </Link>
+        )}
       </li>
     );
   }
