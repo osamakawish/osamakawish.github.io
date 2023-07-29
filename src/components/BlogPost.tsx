@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import "./BlogPost.css";
 
-type BlogPostProps = {
+export type BlogPostProps = {
   previewImgFile: string;
   title: string;
   showAuthorImg?: boolean;

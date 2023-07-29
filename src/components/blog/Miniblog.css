@@ -1,0 +1,23 @@
+
+.partitioned-block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: min(95%, 1000px);
+    margin-bottom: 20px;
+    text-align: justify;
+    line-height: 1.15;
+    border: 1px solid #444;
+    margin: 12px;
+    box-shadow: 5px 5px 5px #080808;
+    width: 600px;
+}
+
+.partitioned-block > * {
+  padding: 12px;
+  margin: 0;
+}
+
+.partitioned-block > :nth-child(odd ) {
+  background-color: #222;
+}
