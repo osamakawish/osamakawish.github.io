@@ -7,6 +7,7 @@ import SlideButtonGroup from "./buttons/SlideButtonGroup";
 import "./Home.css";
 import OffCanvas, { OffCanvasContent } from "./OffCanvas";
 import LinkButton from "../LinkButton";
+import { useNavigate } from "react-router-dom";
 
 type CarouselSlideData = {
   imgFile: string;
@@ -22,14 +23,21 @@ function Home() {
 
   type HExProps = {
     children: string;
+    navigateLink?: string;
   };
 
   // For "expandable" headers: eg. opens the off-canvas
-  function HEx({ children }: HExProps) {
+  function HEx({ navigateLink, children }: HExProps) {
+    const navigate = useNavigate();
+
     return (
       <a
         className="slide-header"
-        onClick={() => setIsOffCanvasOpen(!isOffCanvasOpen)}
+        onClick={
+          navigateLink
+            ? () => navigate(navigateLink)
+            : () => setIsOffCanvasOpen(true)
+        }
       >
         <h2>{children}</h2>
       </a>
@@ -40,7 +48,7 @@ function Home() {
   const slidesInfo: Array<CarouselSlideData> = [
     {
       imgFile: "Portfolio Intro.webp",
-      header: <HEx>Osama Kawish</HEx>,
+      header: <HEx navigateLink="/about">Osama Kawish</HEx>,
       description: (
         <>
           <p>
