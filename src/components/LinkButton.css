@@ -1,0 +1,8 @@
+.link-button {
+  width: 100px;
+  padding: 3px 8px;
+}
+
+.link-button:hover {
+  background-color: #ccc;
+}

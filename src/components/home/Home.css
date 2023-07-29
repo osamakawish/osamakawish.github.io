@@ -1,18 +1,8 @@
 
-
 #contact-buttons {
     display: flex;
     justify-content: center;
     gap: 12px;
-}
-
-.link-button {
-    width: 100px;
-    padding: 3px 8px;
-}
-
-.link-button:hover {
-    background-color: #ccc;
 }
 
 .slide-header {

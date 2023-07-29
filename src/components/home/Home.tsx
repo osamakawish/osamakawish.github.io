@@ -6,21 +6,7 @@ import RightArrow from "./arrows/RightArrow";
 import SlideButtonGroup from "./buttons/SlideButtonGroup";
 import "./Home.css";
 import OffCanvas, { OffCanvasContent } from "./OffCanvas";
-
-type LinkButtonProps = {
-  url: string;
-  children: ReactNode;
-};
-
-function LinkButton({ url, children }: LinkButtonProps) {
-  return (
-    <a href={url} target="_blank" rel="noopener noreferrer">
-      <button type="submit" className="link-button">
-        {children}
-      </button>
-    </a>
-  );
-}
+import LinkButton from "../LinkButton";
 
 type CarouselSlideData = {
   imgFile: string;
