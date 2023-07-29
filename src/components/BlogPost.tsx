@@ -26,9 +26,12 @@ export default function BlogPost({
         className="post-content-flex"
         style={{ top: showAuthor ? "240px" : "180px" }}
       >
-        <h1>{title}</h1>
-        {date && <p className="blog-date">{date.toDateString()}</p>}
-        {children}
+        <div className="post-content">
+          <h1>{title}</h1>
+          {date && <p className="blog-date">{date.toDateString()}</p>}
+          <div className="blog-children">{children}</div>
+        </div>
+        <div className="spacer-xl" />
       </div>
     </>
   );

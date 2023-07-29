@@ -6,3 +6,27 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Times New Roman', Times, serif;
 }
+
+/* Webkit browsers like Chrome, Safari */
+::-webkit-scrollbar {
+    width: 6px;
+    /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    /* Color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    /* Color of the thumb */
+    border-radius: 3px;
+    /* Radius for the thumb */
+}
+
+/* Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+}
