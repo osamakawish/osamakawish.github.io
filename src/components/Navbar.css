@@ -16,8 +16,7 @@
 .custom-navbar li {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-  padding: 6px 12px;
-  margin: 0 12px;
+  margin: 3px 12px;
   width: 100px;
 }
 
@@ -32,9 +31,11 @@
   text-decoration-thickness: 2px;
   color: #eee;
   text-underline-offset: 4px;
+  padding: 3px 12px;
 }
 
 .custom-navbar li a {
+  padding: 3px 12px;
   display: block;
   text-decoration: none;
   color: inherit;
