@@ -1,4 +1,4 @@
-import "./Miniblog.css";
+import "./PartitionBlock.css";
 
 type PartitionBlockProps = {};
 
