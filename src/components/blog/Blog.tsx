@@ -1,5 +1,4 @@
 // Blog.js
-import React from "react";
 import PartitionBlock from "./PartitionBlock";
 import "./Blog.css";
 import BlogPreview from "./BlogPreview";
