@@ -7,7 +7,7 @@ function AboutMe() {
   return (
     <BlogPost
       title="Osama Kawish"
-      previewImgFile={"./about-bg.webp"}
+      previewImgFile={"/about-bg.webp"}
       showAuthorImg={true}
       date={new Date("2023-07-28")}
     >

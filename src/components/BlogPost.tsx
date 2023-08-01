@@ -20,13 +20,25 @@ export default function BlogPost({
   contentFile,
 }: BlogPostProps) {
   const [content, setContent] = useState<string>("");
-  const { postId } = useParams();
+  const [error, setError] = useState<Error | null>(null);
+  const { id } = useParams();
 
   useEffect(() => {
-    fetch(contentFile || `./blog/${postId}.html`)
-      .then((response) => response.text())
-      .then((text) => setContent(text));
-  }, [postId]);
+    fetch(contentFile || `/blog/${id}.html`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then((text) => setContent(text))
+      .catch((error) => setError(error));
+  }, [id, contentFile]);
+
+  // If there's an error, render an error message
+  if (error) {
+    return <div>Error loading post: {error.message}</div>;
+  }
 
   const renderedContent = content ? (
     <div dangerouslySetInnerHTML={{ __html: content }} />
@@ -38,7 +50,7 @@ export default function BlogPost({
     <>
       <div className="top-images">
         <img className="preview-img" src={previewImgFile} />
-        {showAuthor && <img className="osama-portrait" src="./osama.webp" />}
+        {showAuthor && <img className="osama-portrait" src="/osama.webp" />}
       </div>
       <div
         className="post-content-flex"

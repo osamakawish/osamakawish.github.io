@@ -1,18 +1,16 @@
 [
   {
-    "id": "2023-08-01-1-test",
+    "id": "2023-07-31-1-test",
     "title": "The Animation Application",
     "date": "2023-08-01",
-    "previewImgFile": "about-bg.webp",
-    "showAuthorImg": false,
-    "contentFile": "./blog/2023-08-01-1-test.html"
+    "previewImgFile": "/about-bg.webp",
+    "contentFile": "/blog/post/2023-07-31-1-test.html"
   },
   {
     "id": "2023-07-31-1-test",
     "title": "ABDvdfsv",
     "date": "2023-08-01",
-    "previewImgFile": "about-bg.webp",
-    "showAuthorImg": false,
-    "contentFile": "./blog/2023-07-31-1-test.html"
+    "previewImgFile": "/about-bg.webp",
+    "contentFile": "/blog/post/2023-07-31-1-test.html"
   }
 ]
