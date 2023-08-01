@@ -30,6 +30,7 @@ function AppWithRouter() {
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<AboutMe />} />
+        <Route path="/blog/:postId" element={<Blog />} />
       </Routes>
     </>
   );
