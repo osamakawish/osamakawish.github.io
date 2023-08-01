@@ -1,5 +1,6 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import "./BlogPost.css";
+import { useParams } from "react-router-dom";
 
 export type BlogPostProps = {
   previewImgFile: string;
@@ -7,6 +8,7 @@ export type BlogPostProps = {
   showAuthorImg?: boolean;
   date?: Date;
   children?: ReactNode;
+  contentFile?: string;
 };
 
 export default function BlogPost({
@@ -15,7 +17,23 @@ export default function BlogPost({
   showAuthorImg: showAuthor = false,
   date,
   children,
+  contentFile,
 }: BlogPostProps) {
+  const [content, setContent] = useState<string>("");
+  const { postId } = useParams();
+
+  useEffect(() => {
+    fetch(contentFile || `./blog/${postId}.html`)
+      .then((response) => response.text())
+      .then((text) => setContent(text));
+  }, [postId]);
+
+  const renderedContent = content ? (
+    <div dangerouslySetInnerHTML={{ __html: content }} />
+  ) : (
+    children
+  );
+
   return (
     <>
       <div className="top-images">
@@ -29,7 +47,7 @@ export default function BlogPost({
         <div className="post-content">
           <h1>{title}</h1>
           {date && <p className="blog-date">{date.toDateString()}</p>}
-          <div className="blog-children">{children}</div>
+          <div className="blog-children">{renderedContent}</div>
         </div>
         <div className="spacer-xl" />
       </div>
