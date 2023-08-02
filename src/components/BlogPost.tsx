@@ -24,6 +24,7 @@ export default function BlogPost({
   const [error, setError] = useState<Error | null>(null);
   const { id } = useParams();
 
+  console.log("id:", id);
   if (id === undefined) {
     return <div>Invalid blog post ID</div>;
   }

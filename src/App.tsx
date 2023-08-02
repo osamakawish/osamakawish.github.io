@@ -3,6 +3,7 @@ import {
   Route,
   Routes,
   useLocation,
+  useParams,
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./components/home/Home";
@@ -32,24 +33,29 @@ function AppWithRouter() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<Blog />} />
-        {blogPosts.map((post) => (
-          <Route
-            key={post.id}
-            path={`/blog/post/:id`}
-            element={
-              <BlogPost
-                previewImgFile={post.previewImgFile}
-                title={post.title}
-                date={new Date(post.id.slice(0, 10))}
-                contentFile={`/blog/post/${post.id}.html`}
-              />
-            }
-          />
-        ))}
+        <Route path="/blog/post/:id" element={<BlogPostWrapper />} />
         <Route path="/about" element={<AboutMe />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
+  );
+}
+
+function BlogPostWrapper() {
+  const { id } = useParams();
+  const post = blogPosts.find((post) => post.id === id);
+
+  if (!post) {
+    return <div>Invalid blog post ID</div>;
+  }
+
+  return (
+    <BlogPost
+      previewImgFile={post.previewImgFile}
+      title={post.title}
+      date={new Date(post.id.slice(0, 10))}
+      contentFile={`/blog/post/${post.id}.html`}
+    />
   );
 }
 
