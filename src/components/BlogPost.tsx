@@ -23,6 +23,10 @@ export default function BlogPost({
   const [error, setError] = useState<Error | null>(null);
   const { id } = useParams();
 
+  if (id === undefined) {
+    return <div>Invalid blog post ID</div>;
+  }
+
   useEffect(() => {
     fetch(contentFile || `/blog/${id}.html`)
       .then((response) => {

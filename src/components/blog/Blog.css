@@ -1,8 +1,26 @@
 
-.page-content {
+#blog-page {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;  
+  align-items: start;
+  width: min(90%, 800px);
+  overflow: hidden;
+}
+
+.page-content h1 {
+  margin: 12px 0;
+  align-self: flex-start;
+}
+
+.latest-blogs-previewed {
+  overflow-x: scroll;
+  display: flex;
   width: 100%;
 }

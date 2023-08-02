@@ -12,6 +12,7 @@ import { pagePathsToTitles } from "./constants";
 import blogPosts from "./components/blog/blog-metadata.json";
 import "./App.css";
 import BlogPost from "./components/BlogPost";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function AppWithRouter() {
       <Navbar currentPage={currentPage} />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/blog/*" element={<Blog />} />
+        <Route path="/blog" element={<Blog />} />
         {blogPosts.map((post) => (
           <Route
             key={post.id}
@@ -39,13 +40,14 @@ function AppWithRouter() {
               <BlogPost
                 previewImgFile={post.previewImgFile}
                 title={post.title}
-                date={new Date(post.date)}
-                contentFile={post.contentFile}
+                date={new Date(post.id.slice(0, 10))}
+                contentFile={`/blog/post/${post.id}.html`}
               />
             }
           />
         ))}
         <Route path="/about" element={<AboutMe />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

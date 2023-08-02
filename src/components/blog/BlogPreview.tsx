@@ -1,22 +1,29 @@
 import "./BlogPreview.css";
 
-type BlogPreviewProps = {};
+type BlogPreviewProps = {
+  previewImgFile: string;
+  title: string;
+  children: React.ReactNode;
+  postFileName?: string;
+};
 
-export default function BlogPreview({}: BlogPreviewProps) {
+export default function BlogPreview({
+  previewImgFile,
+  title,
+  children,
+  postFileName,
+}: BlogPreviewProps) {
   return (
     <>
-      <div className="blog-preview">
-        <img className="blog-preview-img" src="/about-bg.webp" />
-        <div className="blog-preview-content">
-          <h4>Blog Preview</h4>
-          <p>
-            Pellentesque habitant morbi tristique senectus et netus et malesuada
-            fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
-            ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
-            egestas semper.
-          </p>
+      <a href={`blog/post/${postFileName}`} className="noLinkBlock">
+        <div className="blog-preview">
+          <img className="blog-preview-img" src={previewImgFile} />
+          <div className="blog-preview-content">
+            <h4 className="blog-preview-header">{title}</h4>
+            {children}
+          </div>
         </div>
-      </div>
+      </a>
     </>
   );
 }

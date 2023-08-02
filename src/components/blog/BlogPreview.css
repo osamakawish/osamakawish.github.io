@@ -12,6 +12,13 @@
   padding: 0;
   box-shadow: 5px 5px 5px #080808;
   margin: 12px;
+  min-width: 200px;
+}
+
+.blog-preview:hover {
+  box-shadow: 0 0 0 #080808;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
 }
 
 .blog-preview-img {
@@ -19,6 +26,10 @@
   object-fit: cover;
   width: 100%;
   height: 50px;
+}
+
+.blog-preview-header {
+  font-size: large;
 }
 
 .blog-preview-content {
@@ -34,4 +45,9 @@
 
 .blog-preview-content p {
   text-align: justify;
+}
+
+.noLinkBlock {
+  color: inherit;
+  text-decoration: none;
 }
