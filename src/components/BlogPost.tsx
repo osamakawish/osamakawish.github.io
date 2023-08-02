@@ -9,6 +9,7 @@ export type BlogPostProps = {
   date?: Date;
   children?: ReactNode;
   contentFile?: string;
+  useKaTeX?: boolean;
 };
 
 export default function BlogPost({
@@ -28,7 +29,7 @@ export default function BlogPost({
   }
 
   useEffect(() => {
-    fetch(contentFile || `/blog/${id}.html`)
+    fetch(contentFile || `/blog/post/${id}.html`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

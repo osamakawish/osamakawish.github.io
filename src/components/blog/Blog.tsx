@@ -39,12 +39,15 @@ export default function Blog() {
               the goal of being far more affordable.
             </p>
           </BlogPreview>
-          <BlogPreview title="Blog Preview" previewImgFile="/about-bg.webp">
+          <BlogPreview
+            title="Square Hackathon"
+            previewImgFile="/about-bg.webp"
+            postFileName="2023-08-02-5-square-hackathon"
+          >
             <p>
-              Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
-              vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-              amet quam egestas semper.
+              The Square Hackathon in which I used WPF, Naudio, and Azure Speech
+              Services to implement an inventory system combined with the use of
+              a voice assistant.
             </p>
           </BlogPreview>
           <BlogPreview title="Blog Preview" previewImgFile="/about-bg.webp">

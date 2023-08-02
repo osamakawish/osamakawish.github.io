@@ -1,0 +1,104 @@
+<p>
+  When I applied for the Square Hackathon in June 2023 via DevPost, I had a very
+  little understanding of the Square API or Hackathons in general. I had past
+  experience implementing public APIs, but never for a full-scale project that I
+  also had to publish. I had no clue how to publish an application, no clue how
+  to use the Square API, but I decided to take on the challenge in the hopes of
+  seeing what I can do and learn anyways. And although the project was
+  completely unsuccessful at achieving what I wanted, I learned a lot from the
+  experience.
+</p>
+<p>
+  When I found out about the Hackathon, I had 40 days to build my project,
+  publish it, make a short YouTube video about it, all of which had proven to be
+  incredibly challenging, but again, something that I learned a lot from.
+  However, I managed to build an application that could accumulate inventory
+  data manually for the user.
+</p>
+<p>
+  Taking on the challenge was a fun experience. The application that I planned
+  to make had to be useful, and I had to use modern technologies in some way, as
+  that was the entire purpose of the Hackathon. My integration with the Square
+  API was a simple inventory system, but one which could be manipulated through
+  a voice assistant.
+</p>
+<p>
+  Since I only had 40 days to work on it, I had to stick to what I knew as much
+  as possible. So I decided to go with WPF (Windows Presentation Foundation) for
+  making the application, and C# as my programming language. This is a framework
+  that I've become well adapted to and know how to use for the purposes of
+  making a desktop application.
+</p>
+<p>
+  So, I got to work on the application and first developed a basic manual
+  inventory system for the desktop using the Square API's sandbox system. I had
+  to learn and implement the Square API, which was entirely new to me. In fact,
+  it was the first e-commerce API I had ever worked with. The system was
+  different, as the API uses classes for CatalogObjects, which are used
+  essentially everywhere. However, the solid thing is that it was
+  well-documented.
+</p>
+<p>
+  During the development of this manual component, I had to learn to construct
+  "catalog items," which are, as you'd expect, items that are in your
+  inventory/catalog. The issue that I ran into here was that creating a catalog
+  item had some required parameters, and it wasn't completely well-documented as
+  to what these required parameters were. For example, you need at least one
+  item variation to create a catalog item in the Square API, but this wasn't
+  mentioned in the documentation, and so I had to figure it out the hard way.
+  This was the first of many hurdles that I had to overcome.
+</p>
+<p>
+  The next hurdle was debugging the API connection, as there were various
+  requirements regarding how the id had to be passed to the API. For example,
+  when a CatalogObject id is defined for the first time, it is preceded by a
+  hash "#". Secondly, the API then modifies this id and turns it into a random
+  arrangement of letters and numbers, which you then have to retrieve. This was
+  a bit confusing at first, but I managed to figure it out.
+</p>
+<p>
+  All this, and we have only covered the manual component of the API. Note the
+  underlying complexity here: Before you could even <i>submit</i> a catalog
+  object, there were numerous different requirements that had to be met that
+  weren't clearly specified by the API. Combined with the string formatting
+  requirements for ids, for example, just learning the API was a challenge in
+  itself.
+</p>
+<p>
+  The next component was the voice assistant. I had to learn how to use the
+  speech-to-text services provided by Microsoft Azure for two reasons: (1) it
+  allowed me to debug the voice assistant and how it was interpreting the
+  speech, and (2) I was able to use it to caption the text.
+</p>
+<p>
+  I had very little time left to implement the voice assistant and very little
+  experience with cloud services such as Azure. This, combined with the fact
+  that the challenge required all submissions to post publicly shared videos to
+  go with our submissions, meant that I had to publish what I could, make the
+  video, and republish it as quickly as possible. In this timeframe, I also had
+  to learn to publish a desktop application, which I had also never done before.
+</p>
+<p>
+  I quickly hashed together a simple YouTube video for the submission, and got
+  going on the recording services. The main hurdle implementing the speech
+  services was to figure out how to encrypt the keys that were used in the
+  application. The approach I used was to keep it simple by using environment
+  variables. These are not perfectly safe, but security wasn't the purpose of
+  the application, and I had to get it done quickly.
+</p>
+<p>
+  Then came the point in which I had to implement the audio itself. I first had
+  to simply test the audio and see how it would play out. I learned to use Azure
+  speech-to-text services, but ran into one final hurdle: the audio was
+  misinterpreting what I was saying completely. I was using a fairly advanced
+  microphone, and I made sure to record myself and listened to my own audio to
+  ensure I was speaking clearly. However, the speech-to-text services were still
+  not getting the audio right.
+</p>
+<p>
+  Trying to fix this issue took several days, and I never managed to get it to
+  work. I definitely didn't have time to switch to a different speech-to-text
+  service. I published what I had and submitted it to the Square Hackathon. I
+  was disappointed that I couldn't get the voice assistant to work, but I
+  learned a lot from the experience.
+</p>

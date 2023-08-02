@@ -35,7 +35,7 @@ function AppWithRouter() {
         {blogPosts.map((post) => (
           <Route
             key={post.id}
-            path={`/blog/post/${post.id}`}
+            path={`/blog/post/:id`}
             element={
               <BlogPost
                 previewImgFile={post.previewImgFile}
