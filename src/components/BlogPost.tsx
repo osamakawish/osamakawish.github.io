@@ -30,6 +30,7 @@ export default function BlogPost({
   }
 
   useEffect(() => {
+    // Fetch the content as you were doing before
     fetch(contentFile || `/blog/post/${id}.html`)
       .then((response) => {
         if (!response.ok) {
@@ -39,7 +40,12 @@ export default function BlogPost({
       })
       .then((text) => setContent(text))
       .catch((error) => setError(error));
-  }, [id, contentFile]);
+
+    // Add this part to reprocess the content with MathJax
+    if (window.MathJax) {
+      window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub]);
+    }
+  }, [id, contentFile, content]); // Notice that I added 'content' to the dependencies
 
   // If there's an error, render an error message
   if (error) {

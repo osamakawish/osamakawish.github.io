@@ -4,14 +4,14 @@ type BlogPreviewProps = {
   previewImgFile: string;
   title: string;
   children: React.ReactNode;
-  postFileName?: string;
+  fileId?: string;
 };
 
 export default function BlogPreview({
   previewImgFile,
   title,
   children,
-  postFileName,
+  fileId: postFileName,
 }: BlogPreviewProps) {
   return (
     <>

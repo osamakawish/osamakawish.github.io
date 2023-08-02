@@ -31,7 +31,7 @@ export default function Blog() {
           <BlogPreview
             title="Animation Application"
             previewImgFile="/about-bg.webp"
-            postFileName="2023-08-01-1-animperium"
+            fileId="2023-08-01-1-animperium"
           >
             <p>
               An animation application with intermedia complexity - not as
@@ -42,7 +42,7 @@ export default function Blog() {
           <BlogPreview
             title="Square Hackathon"
             previewImgFile="/about-bg.webp"
-            postFileName="2023-08-02-5-square-hackathon"
+            fileId="2023-08-02-5-square-hackathon"
           >
             <p>
               The Square Hackathon in which I used WPF, Naudio, and Azure Speech
@@ -50,12 +50,14 @@ export default function Blog() {
               a voice assistant.
             </p>
           </BlogPreview>
-          <BlogPreview title="Blog Preview" previewImgFile="/about-bg.webp">
+          <BlogPreview
+            title="Bezier Turning Points"
+            previewImgFile="/about-bg.webp"
+            fileId="2023-08-02-2-bezier-turning-points"
+          >
             <p>
-              Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
-              vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-              amet quam egestas semper.
+              I calculate the turning points of a cubic Bezier to evaluate its
+              bounding box.
             </p>
           </BlogPreview>
           <BlogPreview title="Blog Preview" previewImgFile="/about-bg.webp">

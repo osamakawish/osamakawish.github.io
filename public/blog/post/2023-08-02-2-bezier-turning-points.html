@@ -1,0 +1,20 @@
+<p>
+  In graphics applications, it is mainly Cubic Bezier curves that are used.
+  Cubic Bezier curves are defined by the following equation:
+</p>
+<p>
+  \[ \mathbf{B}(t) = (1-t)^3 \mathbf{P}_0 + 3(1-t)^2t \mathbf{Q}_0 +
+  3(1-t)t^2\mathbf{Q}_1 + t^3\mathbf{P}_1 \]
+</p>
+<p>
+  These are two dimensional curves that go from a point \(\mathbf{P}_0\) to some
+  other point \(\mathbf{P}_1\). The points \(\mathbf{Q}_0\) and \(\mathbf{Q}_1\)
+  are the control points, and they manipulate the shape of the curve.
+</p>
+<p>
+  When trying to code vector shapes such as Bezier curves, computing their
+  bounding rectangle is important, as this allows the graphics computations to
+  efficient understand where to begin evaluating the curve and its coloring
+  from. If it didn't have a boundary rectangle, then each individual pixel on
+  the screen would have to be checked to see it's part of the curve or not.
+</p>
