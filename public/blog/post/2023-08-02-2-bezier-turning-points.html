@@ -95,21 +95,77 @@
   arithmetic operations here are just element-wise vector operations on numbers:
   the subtractions, additions, square roots, products, and divisions.
 </p>
-<p>Now to simplify $\mathbf{T}$:</p>
+<p>
+  The code from here is straightforward. We apply the above values and compute
+  \mathbf{T} directly in code. Further simplification doesn't help us much.
+  Though I've left the below derivation for those who are interested.
+</p>
 <p>
   \[ \begin{align*} \mathbf{B}^2 & = ( \mathbf{P}_0 - 2\mathbf{Q}_0 +
   \mathbf{Q}_1 )^2 = ( \mathbf{P}_0 - 2\mathbf{Q}_0 + \mathbf{Q}_1 )(
   \mathbf{P}_0 - 2\mathbf{Q}_0 + \mathbf{Q}_1 ) \\ & = (\mathbf{P}_0^2 -
-  2\mathbf{P}_0\mathbf{Q}_0 + \mathbf{P}_0\mathbf{Q}_1)
-  -2(\mathbf{P}_0\mathbf{Q}_0 - 2\mathbf{Q}_0^2 + \mathbf{Q}_0\mathbf{Q}_1) +
-  (\mathbf{Q}_1\mathbf{P}_0 ) \end{align*} \]
+  2\mathbf{P}_0\mathbf{Q}_0 + \mathbf{P}_0\mathbf{Q}_1) -2( \mathbf{P}_0
+  \mathbf{Q}_0 - 2\mathbf{Q}_0^2 + \mathbf{Q}_0\mathbf{Q}_1) + ( \mathbf{Q}_1
+  \mathbf{P}_0 -2\mathbf{Q}_0\mathbf{Q}_1 + \mathbf{Q}_1^2 ) \\ & = (
+  \mathbf{P}_0^2 + 4\mathbf{Q}_0^2 + \mathbf{Q}_1^2 ) + 2 ( - 2\mathbf{P}_0
+  \mathbf{Q}_0 + \mathbf{P}_0\mathbf{Q}_1 - 2\mathbf{Q}_0 \mathbf{Q}_1) \\
+  \mathbf{A} \mathbf{C} & = (-\mathbf{P}_0 + 2\mathbf{Q}_0 - 3\mathbf{Q}_1 +
+  \mathbf{P}_1) (-\mathbf{P}_0 + \mathbf{Q}_0) \\ & = \mathbf{P}_0^2 - 2
+  \mathbf{P}_0 \mathbf{Q}_0 + 3 \mathbf{P}_0 \mathbf{Q}_1 -\mathbf{P}_0
+  \mathbf{P}_1 - \mathbf{P}_0 \mathbf{Q}_0 + 2 \mathbf{Q}_0^2 - 3 \mathbf{Q}_0
+  \mathbf{Q}_1 + \mathbf{Q}_0 \mathbf{P}_1 \\ & = (\mathbf{P}_0^2 + 2
+  \mathbf{Q}_0^2 ) + ( -3 \mathbf{P}_0 \mathbf{Q}_0 + 3 \mathbf{P}_0
+  \mathbf{Q}_1 - \mathbf{P}_0 \mathbf{P}_1 - 3 \mathbf{Q}_0 \mathbf{Q}_1 +
+  \mathbf{Q}_0 \mathbf{P}_1 ) \\ & = (\mathbf{P}_0^2 + 2 \mathbf{Q}_0^2 ) + 3 (
+  -\mathbf{P}_0 \mathbf{Q}_0 + \mathbf{P}_0 \mathbf{Q}_1 - \mathbf{Q}_0
+  \mathbf{Q}_1 ) - (\mathbf{P}_0 \mathbf{P}_1 + \mathbf{Q}_0 \mathbf{P}_1) \\
+  \mathbf{B}^2 - \mathbf{A} \mathbf{C} & = (2 \mathbf{Q}_0^2 + \mathbf{Q}_1^2) +
+  (-7 \mathbf{P}_0 \mathbf{Q}_0 + 5 \mathbf{P}_0 \mathbf{Q}_1 - 7 \mathbf{Q}_0
+  \mathbf{Q}_1) + (\mathbf{P}_0 \mathbf{P}_1 + \mathbf{Q}_0 \mathbf{P}_1)
+  \end{align*} \]
 </p>
-
 <p>
-  \[ \begin{align*} \mathbf{T} & = \frac{\mathbf{B} \pm \sqrt{ \mathbf{B}^2 -
-  \mathbf{AC} }}{\mathbf{A}} \\ & = \frac{ (\mathbf{P}_0 - 2\mathbf{Q}_0 +
-  \mathbf{Q}_1) \pm \sqrt{ (\mathbf{P}_0 - 2\mathbf{Q}_0 + \mathbf{Q}_1)^2 -
-  (-\mathbf{P}_0 + 2\mathbf{Q}_0 - 3\mathbf{Q}_1 + \mathbf{P}_1) (-\mathbf{P}_0
-  + \mathbf{Q}_0) } }{ -\mathbf{P}_0 + 2\mathbf{Q}_0 - 3\mathbf{Q}_1 +
-  \mathbf{P}_1 } \end{align*} \]
+  Due to the square roots and the above not simplifying into a nice square, the
+  computations will only get uglier if we try to simplify further. So we'll just
+  apply the values for $\mathbf{A}$, $\mathbf{B}$ and $\mathbf{C}$ directly in
+  code.
 </p>
+<div class="center-content">
+  <div class="code-block">
+    <p>
+      <span class="funcDefWord">def</span>
+      <span class="funcName">zeros</span>(<span class="funcParam">p0</span>,
+      <span class="funcParam">q0</span>, <span class="funcParam">q1</span>,
+      <span class="funcParam">p1</span>):
+    </p>
+    <div style="padding-left: 4ch">
+      <p>
+        <span class="varName">a</span> = - <span class="funcParam">p0</span> + 2
+        * <span class="funcParam">q0</span> - 3 *
+        <span class="funcParam">q1</span> + <span class="funcParam">p1</span>
+      </p>
+      <p>
+        <span class="varName">b</span> = <span class="funcParam">p0</span> - 2 *
+        <span class="funcParam">q0</span> + <span class="funcParam">q1</span>
+      </p>
+      <p>
+        <span class="varName">c</span> = - <span class="funcParam">p0</span> +
+        <span class="funcParam">q0</span>
+      </p>
+      <p style="margin-top: 1.5ch">
+        <span class="varName">d</span> =
+        <span class="funcImported">sqrt</span>(<span class="varName">b</span> *
+        <span class="varName">b</span> - <span class="varName">a</span> *
+        <span class="varName">c</span>)
+      </p>
+      <p>
+        <span class="funcReturnWord">return</span> ((<span class="varName"
+          >b</span
+        >
+        - <span class="varName">d</span>) / <span class="varName">a</span>,
+        (<span class="varName">b</span> + <span class="varName">d</span>) /
+        <span class="varName">a</span>);
+      </p>
+    </div>
+  </div>
+</div>

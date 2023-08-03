@@ -1,33 +1,43 @@
 body {
-    background: #141414 !important;
-    color: #ddd !important;
+  background: #141414 !important;
+  color: #ddd !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Times New Roman', Times, serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Times New Roman", Times, serif;
 }
 
 /* Webkit browsers like Chrome, Safari */
 ::-webkit-scrollbar {
-    width: 4px;
-    /* Width of the scrollbar */
-    height: 4px;
+  width: 4px;
+  /* Width of the scrollbar */
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
-    /* Color of the track */
+  background: transparent;
+  /* Color of the track */
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #8888;
-    /* Color of the thumb */
-    border-radius: 0;
-    /* Radius for the thumb */
+  background: #8888;
+  /* Color of the thumb */
+  border-radius: 0;
+  /* Radius for the thumb */
 }
 
 /* Firefox */
 html {
-    scrollbar-width: thin;
-    scrollbar-color: #8888 transparent;
+  scrollbar-width: thin;
+  scrollbar-color: #8888 transparent;
+}
+
+.spacer-xl {
+  height: 160px;
+  background-color: aqua;
 }

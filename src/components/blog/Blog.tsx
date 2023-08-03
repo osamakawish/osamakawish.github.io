@@ -57,7 +57,8 @@ export default function Blog() {
           >
             <p>
               I calculate the turning points of a cubic Bezier to evaluate its
-              bounding box.
+              bounding box. This information is useful for computing the
+              bounding rectangles of Bezier Curves.
             </p>
           </BlogPreview>
           <BlogPreview title="Blog Preview" previewImgFile="/about-bg.webp">
@@ -85,6 +86,58 @@ export default function Blog() {
         </PartitionBlock>
         For now, just make a bunch of miniposts here. Later, we'll make a
         separate page for each post.
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/aVwxzDHniEw"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/3izFMB91K_Q"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/p8u_k2LIZyo"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/AE4yzLCuc3A"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/ltLUadnCyi0"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/x09IsbVZeXo"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+        <div className="spacer-xl"></div>
       </div>
     </div>
   );
