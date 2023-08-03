@@ -17,4 +17,99 @@
   efficient understand where to begin evaluating the curve and its coloring
   from. If it didn't have a boundary rectangle, then each individual pixel on
   the screen would have to be checked to see it's part of the curve or not.
+  Furthermore, these bounding rectangle computations are also used to determine
+  the selection rectangle for when the curve is selected, or if its bounds are
+  within the bounds of the selection attempted by the cursor.
+</p>
+<p>
+  To compute the bounding rectangle, we find the turning points of the curve.
+  These are the points where the derivative of the curve is zero. The derivative
+  of the cubic bezier is:
+</p>
+<p>
+  \[ \begin{align*} \mathbf{B}'(t) & = -3(1-t)^2 \mathbf{P}_0 + 3( -2(1-t)t +
+  (1-t)^2 ) \mathbf{Q}_0 + 3( -t^2 + 2t(1-t) )\mathbf{Q}_1 + 3t^2\mathbf{P}_1 \\
+  & = -3(1-t)^2 \mathbf{P}_0 + 3( -2t + t^2 + t^2 - 2t + 1 ) \mathbf{Q}_0 +
+  3(-t^2 +2t - 2t^2) \mathbf{Q}_1 + 3t^2\mathbf{P}_1 \\ & = (-3t^2 +6t -3)
+  \mathbf{P}_0 + ( 6t^2 -12t + 3 ) \mathbf{Q}_0 + (-9t^2 +6t) \mathbf{Q}_1 +
+  3t^2\mathbf{P}_1 \\ & = (-3\mathbf{P}_0 + 6\mathbf{Q}_0 - 9\mathbf{Q}_1 +
+  3\mathbf{P}_1)t^2 + (6\mathbf{P}_0 - 12\mathbf{Q}_0 + 6 \mathbf{Q}_1 )t +
+  (-3\mathbf{P}_0 + 3\mathbf{Q}_0) \\ & = 3[(-\mathbf{P}_0 + 2\mathbf{Q}_0 -
+  3\mathbf{Q}_1 + \mathbf{P}_1)t^2 + 2(\mathbf{P}_0 - 2\mathbf{Q}_0 +
+  \mathbf{Q}_1 )t + (-\mathbf{P}_0 + \mathbf{Q}_0)] \\ & = 3[\mathbf{A}t^2 +
+  2\mathbf{B} t + \mathbf{C}] \end{align*} \] where $\mathbf{A}$, $\mathbf{B}$
+  and $\mathbf{C}$ are the vector coefficients simplfied from their respected
+  brackets:
+</p>
+<p>
+  \[ \begin{align*} \mathbf{A} & = -\mathbf{P}_0 + 2\mathbf{Q}_0 - 3\mathbf{Q}_1
+  + \mathbf{P}_1 \\ \mathbf{B} & = \mathbf{P}_0 - 2\mathbf{Q}_0 + \mathbf{Q}_1
+  \\ \mathbf{C} & = -\mathbf{P}_0 + \mathbf{Q}_0 \end{align*} \]
+</p>
+<p>
+  From this simplification, we have a quadratic formula which will be computed
+  through element-wise vector operations. That is, products of two vectors will
+  be defined as $(a_x, a_y) \cdot (b_x, b_y) = (a_xb_x, a_yb_y)$, as opposed to
+  either the dot product or cross product. This is because this definition is
+  simply more convenient for our derivation. We similarly define an element-wise
+  division of vectors, for the duration of this derivation: $(a_x, a_y) / (b_x,
+  b_y) = (a_x/b_x, a_y/b_y)$.
+</p>
+<p>By the quadratic formula, we want that $\mathbf{B}'(t) = 0$, so we have:</p>
+<p>
+  \[ \begin{align*} 0 & = 3[\mathbf{A}t^2 + 2\mathbf{B} t + \mathbf{C}] \\ 0 & =
+  \mathbf{A}t^2 + 2\mathbf{B} t + \mathbf{C} \\ 0 & = t^2 + 2
+  \frac{\mathbf{B}}{\mathbf{A}}t + \frac{ \mathbf{C} }{ \mathbf{A} } = t^2 + 2
+  \mathbf{B}^* t + \mathbf{C}^* \end{align*} \]
+</p>
+<p>
+  where $\mathbf{B}^* = \mathbf{B} / \mathbf{A}$ and $\mathbf{C}^* = \mathbf{C}
+  / \mathbf{A}$. We'll complete the square to simplify:
+</p>
+<p>
+  \[ \begin{align*} 0 & = (t + \mathbf{B}^*)^2 - (\mathbf{B}^*)^2 + \mathbf{C}^*
+  \\ (t + \mathbf{B}^*)^2 & = (\mathbf{B}^*)^2 - \mathbf{C}^* \\ t & =
+  \mathbf{B}^* \pm \sqrt{ (\mathbf{B}^*)^2 - \mathbf{C}^* } = \frac{\mathbf{B}
+  \pm \sqrt{ \mathbf{B}^2 - \mathbf{AC} }}{\mathbf{A}} \end{align*} \]
+</p>
+<p>
+  Let's clarify what it is we've done this for. This above derivation will give
+  us 4 separate equations for $t$, two for the horizontal turning points, and
+  two for the vertical turning points. We then compare these turning points with
+  $\mathbf{P}_0$ and $\mathbf{P}_1$ to find the minimum and maximum values for
+  the curve. The turning points, can be paired up for the $x$ and $y$
+  coordinates to give us vector equations.
+</p>
+<p>
+  Since the $t$ values will essentially give us the turning points of the Bezier
+  curve, one pair for each coordinate, let us rewrite it in terms of a vector
+  $\mathbf{T}$:
+</p>
+<p>
+  \[ \mathbf{T} = \frac{\mathbf{B} \pm \sqrt{ \mathbf{B}^2 - \mathbf{AC}
+  }}{\mathbf{A}} \]
+</p>
+<p>
+  Not much of a change, besides the fact we're now looking at system of two
+  equations which we've condensed into vector form. Again, keep in mind all
+  arithmetic operations here are just element-wise vector operations on numbers:
+  the subtractions, additions, square roots, products, and divisions.
+</p>
+<p>Now to simplify $\mathbf{T}$:</p>
+<p>
+  \[ \begin{align*} \mathbf{B}^2 & = ( \mathbf{P}_0 - 2\mathbf{Q}_0 +
+  \mathbf{Q}_1 )^2 = ( \mathbf{P}_0 - 2\mathbf{Q}_0 + \mathbf{Q}_1 )(
+  \mathbf{P}_0 - 2\mathbf{Q}_0 + \mathbf{Q}_1 ) \\ & = (\mathbf{P}_0^2 -
+  2\mathbf{P}_0\mathbf{Q}_0 + \mathbf{P}_0\mathbf{Q}_1)
+  -2(\mathbf{P}_0\mathbf{Q}_0 - 2\mathbf{Q}_0^2 + \mathbf{Q}_0\mathbf{Q}_1) +
+  (\mathbf{Q}_1\mathbf{P}_0 ) \end{align*} \]
+</p>
+
+<p>
+  \[ \begin{align*} \mathbf{T} & = \frac{\mathbf{B} \pm \sqrt{ \mathbf{B}^2 -
+  \mathbf{AC} }}{\mathbf{A}} \\ & = \frac{ (\mathbf{P}_0 - 2\mathbf{Q}_0 +
+  \mathbf{Q}_1) \pm \sqrt{ (\mathbf{P}_0 - 2\mathbf{Q}_0 + \mathbf{Q}_1)^2 -
+  (-\mathbf{P}_0 + 2\mathbf{Q}_0 - 3\mathbf{Q}_1 + \mathbf{P}_1) (-\mathbf{P}_0
+  + \mathbf{Q}_0) } }{ -\mathbf{P}_0 + 2\mathbf{Q}_0 - 3\mathbf{Q}_1 +
+  \mathbf{P}_1 } \end{align*} \]
 </p>
