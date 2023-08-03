@@ -1,4 +1,3 @@
-
 #blog-page {
   display: flex;
   justify-content: center;
@@ -8,7 +7,7 @@
 
 .page-content {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   align-items: start;
   width: min(90%, 800px);
   overflow: hidden;
@@ -19,8 +18,38 @@
   align-self: flex-start;
 }
 
-.latest-blogs-previewed {
+.x-content-list {
+  display: flex;
   overflow-x: scroll;
+  width: 100%;
+}
+
+.x-content-list div.video-wrapper {
+  flex: 0 0 480px; /* This sets the basis for the flex items */
+  height: 0;
+  padding-top: 40%; /* This gives us a 16:9 aspect ratio */
+  position: relative;
+  margin: 12px 24px;
+}
+
+.x-content-list iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#youtube-video-list {
+  background: #0c0c0c;
+  border-radius: 12px;
+}
+
+.blogpage-section-header {
+  color: #fff;
   display: flex;
   width: 100%;
+  margin-top: 36px !important;
+  position: relative;
+  left: 12px;
 }

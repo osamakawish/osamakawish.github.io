@@ -6,28 +6,32 @@ import { useEffect } from "react";
 
 export default function Blog() {
   useEffect(() => {
-    const scrollContainer = document.querySelector(
-      ".latest-blogs-previewed"
-    ) as HTMLElement;
+    const scrollContainers = document.querySelectorAll(
+      ".x-content-list"
+    ) as NodeListOf<HTMLElement>;
 
-    if (scrollContainer) {
-      const scrollHandler = (e: WheelEvent) => {
-        e.preventDefault();
-        scrollContainer.scrollLeft += e.deltaY;
-      };
+    const scrollHandler = (e: WheelEvent) => {
+      e.preventDefault();
+      (e.currentTarget as HTMLElement).scrollLeft += e.deltaY;
+    };
 
+    scrollContainers.forEach((scrollContainer) => {
       scrollContainer.addEventListener("wheel", scrollHandler);
+    });
 
-      // Cleanup on component unmount
-      return () => scrollContainer.removeEventListener("wheel", scrollHandler);
-    }
+    // Cleanup on component unmount
+    return () => {
+      scrollContainers.forEach((scrollContainer) => {
+        scrollContainer.removeEventListener("wheel", scrollHandler);
+      });
+    };
   }, []);
 
   return (
     <div id="blog-page">
       <div className="page-content">
-        <h1>Featured</h1>
-        <div className="latest-blogs-previewed">
+        <h1 className="blogpage-section-header">Featured</h1>
+        <div className="x-content-list">
           <BlogPreview
             title="Animation Application"
             previewImgFile="/about-bg.webp"
@@ -70,7 +74,70 @@ export default function Blog() {
             </p>
           </BlogPreview>
         </div>
-        <PartitionBlock>
+        <h1 className="blogpage-section-header">Favourite Youtube Videos</h1>
+        <div className="x-content-list" id="youtube-video-list">
+          <div className="video-wrapper">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/aVwxzDHniEw"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+          <div className="video-wrapper">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/3izFMB91K_Q"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+          <div className="video-wrapper">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/p8u_k2LIZyo"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+          <div className="video-wrapper">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/AE4yzLCuc3A"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+          <div className="video-wrapper">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/ltLUadnCyi0"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+          <div className="video-wrapper">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/x09IsbVZeXo"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+        {/* <PartitionBlock>
           <p>
             Pellentesque habitant morbi tristique senectus et netus et malesuada
             fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
@@ -83,60 +150,7 @@ export default function Blog() {
             egestas semper. Aenean ultricies mi vitae est. Mauris placerat
             eleifend leo.
           </p>
-        </PartitionBlock>
-        For now, just make a bunch of miniposts here. Later, we'll make a
-        separate page for each post.
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/aVwxzDHniEw"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        ></iframe>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/3izFMB91K_Q"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        ></iframe>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/p8u_k2LIZyo"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        ></iframe>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/AE4yzLCuc3A"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        ></iframe>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/ltLUadnCyi0"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        ></iframe>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/x09IsbVZeXo"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        ></iframe>
+        </PartitionBlock> */}
         <div className="spacer-xl"></div>
       </div>
     </div>
