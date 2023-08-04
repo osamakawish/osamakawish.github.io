@@ -1,16 +1,24 @@
-
 .rightArrow {
-    fill: transparent;
-    stroke: white;
-    stroke-width: 2px;
-    position: fixed;
-    box-shadow: 1cm;
-  }
-  
-  .rightArrow-svg {
-    position: fixed;
-    right: 0.75cm;
-    top: 50%;
-    translate: 0% -50%;
-    width:24px;
-  }
+  fill: transparent;
+  stroke: white;
+  stroke-width: 2px;
+  position: fixed;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
+}
+
+.rightArrow-svg {
+  position: fixed;
+  right: 0.75cm;
+  top: 50%;
+  translate: 0% -50%;
+  width: 24px;
+  transition: transform 0.3s ease;
+}
+
+.rightArrow-svg:hover .rightArrow {
+  filter: none;
+}
+
+.rightArrow-svg:hover {
+  transform: scale(1.2);
+}

@@ -1,16 +1,24 @@
-
 .leftArrow {
   fill: transparent;
   stroke: white;
   stroke-width: 2px;
   position: fixed;
-  box-shadow: 1cm;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
 }
-  
+
 .leftArrow-svg {
   position: fixed;
   left: 0.75cm;
   top: 50%;
   translate: 0% -50%;
-  width:24px;
+  width: 24px;
+  transition: transform 0.3s ease;
+}
+
+.leftArrow-svg:hover .leftArrow {
+  filter: none;
+}
+
+.leftArrow-svg:hover {
+  transform: scale(1.2);
 }

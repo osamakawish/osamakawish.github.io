@@ -42,6 +42,11 @@ export default function Blog() {
               simple as Windows Movie Maker, but not as complex as Blender, with
               the goal of being far more affordable.
             </p>
+            <p>
+              The future plan for this application is to allow the use of both
+              self-made and community-made plugins and scripts to extend its
+              functionality.
+            </p>
           </BlogPreview>
           <BlogPreview
             title="Square Hackathon"
@@ -52,6 +57,12 @@ export default function Blog() {
               The Square Hackathon in which I used WPF, Naudio, and Azure Speech
               Services to implement an inventory system combined with the use of
               a voice assistant.
+            </p>
+            <p>
+              It offers basic manipulation of the business inventory through
+              manual means, allowing users to add, remove, and view items in
+              their own inventory. In addition, it also allows users to use the
+              voice assistant to manipulate the inventory more conveniently.
             </p>
           </BlogPreview>
           <BlogPreview
@@ -65,14 +76,14 @@ export default function Blog() {
               bounding rectangles of Bezier Curves.
             </p>
           </BlogPreview>
-          <BlogPreview title="Blog Preview" previewImgFile="/about-bg.webp">
+          {/* <BlogPreview title="Blog Preview" previewImgFile="/about-bg.webp">
             <p>
               Pellentesque habitant morbi tristique senectus et netus et
               malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
               vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
               amet quam egestas semper.
             </p>
-          </BlogPreview>
+          </BlogPreview> */}
         </div>
         <h1 className="blogpage-section-header">Favourite Youtube Videos</h1>
         <div className="x-content-list" id="youtube-video-list">
