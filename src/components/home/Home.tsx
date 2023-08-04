@@ -18,7 +18,7 @@ type CarouselSlideData = {
 
 function Home() {
   const [slideIndex, setSlideIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [nextSlideIndex, setNextSlideIndex] = useState<number | null>(null);
   const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
 
   type HExProps = {
@@ -119,28 +119,16 @@ function Home() {
     },
   ];
 
-  // This effect runs once on mount and preloads all images
   useEffect(() => {
-    const loadImages = async () => {
-      const promises = slidesInfo.map((slide) => {
-        return new Promise((resolve, reject) => {
-          const img = new Image();
-          img.src = slide.imgFile;
-          img.onload = resolve;
-          img.onerror = reject;
-        });
-      });
+    if (nextSlideIndex !== null) {
+      const timer = setTimeout(() => {
+        setSlideIndex(nextSlideIndex);
+        setNextSlideIndex(null);
+      }, 500); // Match the duration of your CSS transition
 
-      try {
-        await Promise.all(promises);
-        setIsLoading(false); // All images are loaded, we can stop showing the loading state
-      } catch (error) {
-        console.error("Failed to preload images", error);
-      }
-    };
-
-    loadImages();
-  }, [slidesInfo]);
+      return () => clearTimeout(timer);
+    }
+  }, [nextSlideIndex]);
 
   const slides = slidesInfo.map((slide, index) => (
     <CarouselSlide key={index} imgFile={slide.imgFile} header={slide.header}>
@@ -148,15 +136,32 @@ function Home() {
     </CarouselSlide>
   ));
 
-  return isLoading ? (
-    <div>Loading...</div>
-  ) : (
+  return (
     <>
       <OffCanvas isOpen={isOffCanvasOpen} setIsOpen={setIsOffCanvasOpen}>
         {slidesInfo[slideIndex].offCanvasDescription}
       </OffCanvas>
 
-      {slides[slideIndex]}
+      <div className="carousel-container">
+        <CarouselSlide
+          key={slideIndex}
+          imgFile={slidesInfo[slideIndex].imgFile}
+          header={slidesInfo[slideIndex].header}
+          className={nextSlideIndex !== null ? "fade-out" : "fade-in"}
+        >
+          {slidesInfo[slideIndex].description}
+        </CarouselSlide>
+        {nextSlideIndex !== null && (
+          <CarouselSlide
+            key={nextSlideIndex}
+            imgFile={slidesInfo[nextSlideIndex].imgFile}
+            header={slidesInfo[nextSlideIndex].header}
+            className="fade-in"
+          >
+            {slidesInfo[nextSlideIndex].description}
+          </CarouselSlide>
+        )}
+      </div>
 
       <SlideButtonGroup
         slides={slides}
@@ -166,11 +171,12 @@ function Home() {
 
       <LeftArrow
         onClick={() =>
-          setSlideIndex((slideIndex - 1 + slides.length) % slides.length)
+          setNextSlideIndex((slideIndex - 1 + slides.length) % slides.length)
         }
       />
+
       <RightArrow
-        onClick={() => setSlideIndex((slideIndex + 1) % slides.length)}
+        onClick={() => setNextSlideIndex((slideIndex + 1) % slides.length)}
       />
     </>
   );

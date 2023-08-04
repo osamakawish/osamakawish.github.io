@@ -72,8 +72,17 @@ export default function Blog() {
           >
             <p>
               I calculate the turning points of a cubic Bezier to evaluate its
-              bounding box. This information is useful for computing the
-              bounding rectangles of Bezier Curves.
+              bounding box.
+            </p>
+            <p>
+              This information is useful for computing the bounding rectangles
+              of Bezier Curves, which is useful for making computations for
+              collision detection and speeding up computations for graphics
+              rendering.
+            </p>
+            <p>
+              Bounding rectangle computations are also used for determining the
+              selection rectangles when the Bezier Curves are selected.
             </p>
           </BlogPreview>
           {/* <BlogPreview title="Blog Preview" previewImgFile="/about-bg.webp">

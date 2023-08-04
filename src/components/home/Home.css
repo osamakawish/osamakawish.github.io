@@ -1,22 +1,31 @@
-
 #contact-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 
 .slide-header {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .slide-header h2 {
-    margin-bottom: 0;
-    font-family: "Times";
-    color: rgb(238, 238, 238);
+  margin-bottom: 0;
+  font-family: "Times";
+  color: rgb(238, 238, 238);
 }
 
 .slide-header:hover {
-    text-decoration: underline;
-    text-decoration-color: white;
-    text-decoration-thickness: 2px;
+  text-decoration: underline;
+  text-decoration-color: white;
+  text-decoration-thickness: 2px;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
