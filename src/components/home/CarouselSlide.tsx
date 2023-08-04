@@ -5,9 +5,15 @@ type CarouselImageProps = {
   imgFile: string;
   header?: ReactNode;
   children?: ReactNode;
+  className?: string;
 };
 
-function CarouselSlide({ imgFile, header, children }: CarouselImageProps) {
+function CarouselSlide({
+  imgFile,
+  header,
+  children,
+  className,
+}: CarouselImageProps) {
   useEffect(() => {
     const img = new Image();
     img.src = imgFile;
@@ -15,11 +21,13 @@ function CarouselSlide({ imgFile, header, children }: CarouselImageProps) {
 
   return (
     <>
-      <img src={imgFile} className="carousel-image" />
-      <div className="rect" />
-      <div className="text-block">
-        {header}
-        {children}
+      <div className={className}>
+        <img src={imgFile} className="carousel-image" />
+        <div className="rect" />
+        <div className="text-block">
+          {header}
+          {children}
+        </div>
       </div>
     </>
   );
