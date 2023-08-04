@@ -1,5 +1,4 @@
 // Blog.js
-import PartitionBlock from "./PartitionBlock";
 import "./Blog.css";
 import BlogPreview from "./BlogPreview";
 import { useEffect } from "react";
