@@ -30,7 +30,6 @@ export default function BlogPost({
   }
 
   useEffect(() => {
-    // Fetch the content as you were doing before
     fetch(contentFile || `/blog/post/${id}.html`)
       .then((response) => {
         if (!response.ok) {
@@ -38,14 +37,21 @@ export default function BlogPost({
         }
         return response.text();
       })
-      .then((text) => setContent(text))
-      .catch((error) => setError(error));
+      .then((text) => {
+        setContent(text);
 
-    // Add this part to reprocess the content with MathJax
-    if (window.MathJax) {
-      window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub]);
-    }
-  }, [id, contentFile, content]); // Notice that I added 'content' to the dependencies
+        // This part triggers Prism to re-scan the document for new code blocks
+        if (window.Prism) {
+          window.Prism.highlightAll();
+        }
+
+        // Add this part to reprocess the content with MathJax, if you use it
+        if (window.MathJax) {
+          window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub]);
+        }
+      })
+      .catch((error) => setError(error));
+  }, [id, contentFile]); // I removed 'content' from the dependencies
 
   // If there's an error, render an error message
   if (error) {

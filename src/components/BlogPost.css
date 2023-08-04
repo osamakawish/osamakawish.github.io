@@ -44,6 +44,16 @@
   margin-top: 24px;
 }
 
+pre {
+  background-color: #121212 !important; /* Darker background */
+  border: none !important; /* Remove border if any */
+  box-shadow: 0 0 1rem #000;
+}
+
+code {
+  color: #f8f8f8 !important; /* Lighter text */
+}
+
 .code-block {
   display: flex;
   flex-direction: column;

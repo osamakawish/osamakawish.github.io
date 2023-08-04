@@ -5,6 +5,9 @@ declare global {
         Queue: (commands: any[]) => void;
       };
     };
+    Prism: {
+      highlightAll: () => void;
+    };
   }
 }
 

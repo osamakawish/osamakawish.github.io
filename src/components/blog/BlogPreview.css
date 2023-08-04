@@ -2,15 +2,15 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 200px;
-  height: 240px;
+  width: 300px;
+  height: 360px;
   background: #000;
   overflow: hidden;
   /* border: #080808 3px solid; */
   border-radius: 20px;
   padding: 0;
   /* box-shadow: 5px 5px 5px #080808; */
-  margin: 6px;
+  margin: 12px;
   min-width: 200px;
 }
 
@@ -30,14 +30,14 @@
 }
 
 .blog-preview-header {
-  font-size: large;
+  font-size: x-large;
 }
 
 .blog-preview-content {
   display: flex;
   flex-direction: column;
   flex: 1;
-  font-size: small;
+  font-size: medium;
   padding: 12px;
   line-height: 1.15;
   overflow: hidden;
@@ -46,7 +46,7 @@
 }
 
 .blog-preview-content p {
-  text-align: justify;
+  text-align: left;
 }
 
 .noLinkBlock {

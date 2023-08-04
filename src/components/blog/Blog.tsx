@@ -30,7 +30,7 @@ export default function Blog() {
   return (
     <div id="blog-page">
       <div className="page-content">
-        <h1 className="blogpage-section-header">Featured</h1>
+        <h1 className="blogpage-section-header">Featured Posts</h1>
         <div className="x-content-list">
           <BlogPreview
             title="Animation Application"

@@ -131,41 +131,11 @@
   code.
 </p>
 <div class="center-content">
-  <div class="code-block">
-    <p>
-      <span class="funcDefWord">def</span>
-      <span class="funcName">zeros</span>(<span class="funcParam">p0</span>,
-      <span class="funcParam">q0</span>, <span class="funcParam">q1</span>,
-      <span class="funcParam">p1</span>):
-    </p>
-    <div style="padding-left: 4ch">
-      <p>
-        <span class="varName">a</span> = - <span class="funcParam">p0</span> + 2
-        * <span class="funcParam">q0</span> - 3 *
-        <span class="funcParam">q1</span> + <span class="funcParam">p1</span>
-      </p>
-      <p>
-        <span class="varName">b</span> = <span class="funcParam">p0</span> - 2 *
-        <span class="funcParam">q0</span> + <span class="funcParam">q1</span>
-      </p>
-      <p>
-        <span class="varName">c</span> = - <span class="funcParam">p0</span> +
-        <span class="funcParam">q0</span>
-      </p>
-      <p style="margin-top: 1.5ch">
-        <span class="varName">d</span> =
-        <span class="funcImported">sqrt</span>(<span class="varName">b</span> *
-        <span class="varName">b</span> - <span class="varName">a</span> *
-        <span class="varName">c</span>)
-      </p>
-      <p>
-        <span class="funcReturnWord">return</span> ((<span class="varName"
-          >b</span
-        >
-        - <span class="varName">d</span>) / <span class="varName">a</span>,
-        (<span class="varName">b</span> + <span class="varName">d</span>) /
-        <span class="varName">a</span>);
-      </p>
-    </div>
-  </div>
+  <pre><code class="language-python">def zeros(p0, q0, q1, p1):
+    a = - p0 + 2 * q0 - 3 * q1 + p1
+    b = p0 - 2 * q0 + q1
+    c = - p0 + q0
+    d = sqrt(b * b - a * c)
+    return ((b - d) / a, (b + d) / a);
+</code></pre>
 </div>
