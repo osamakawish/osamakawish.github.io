@@ -15,7 +15,6 @@ type CarouselSlideData = {
 function Home() {
   const [slideIndex, setSlideIndex] = useState(0);
   const [nextSlideIndex, setNextSlideIndex] = useState<number | null>(null);
-  const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
 
   type HExProps = {
     children: string;
@@ -29,11 +28,9 @@ function Home() {
     return (
       <a
         className="slide-header"
-        onClick={
-          navigateLink
-            ? () => navigate(navigateLink)
-            : () => setIsOffCanvasOpen(true)
-        }
+        onClick={() => {
+          if (navigateLink) navigate(navigateLink);
+        }}
       >
         <h1>{children}</h1>
       </a>
