@@ -23,7 +23,7 @@ function CarouselSlide({
     <>
       <div className={className}>
         <img src={imgFile} className="carousel-image" />
-        <div className="rect" />
+        {/* <div className="rect" /> */}
         <div className="text-block">
           {header}
           {children}

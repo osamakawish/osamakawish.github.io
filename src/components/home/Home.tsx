@@ -39,7 +39,7 @@ function Home() {
             : () => setIsOffCanvasOpen(true)
         }
       >
-        <h2>{children}</h2>
+        <h1>{children}</h1>
       </a>
     );
   }
