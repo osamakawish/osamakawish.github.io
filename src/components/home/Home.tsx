@@ -1,8 +1,6 @@
 import { ReactNode, useEffect, useState } from "react";
 import CarouselSlide from "./CarouselSlide";
 import "./buttons/CarouselSlideButton";
-import LeftArrow from "./arrows/LeftArrow";
-import RightArrow from "./arrows/RightArrow";
 import SlideButtonGroup from "./buttons/SlideButtonGroup";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
