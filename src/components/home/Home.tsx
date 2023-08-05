@@ -5,8 +5,6 @@ import LeftArrow from "./arrows/LeftArrow";
 import RightArrow from "./arrows/RightArrow";
 import SlideButtonGroup from "./buttons/SlideButtonGroup";
 import "./Home.css";
-import OffCanvas, { OffCanvasContent } from "./OffCanvas";
-import LinkButton from "../LinkButton";
 import { useNavigate } from "react-router-dom";
 
 type CarouselSlideData = {
@@ -52,31 +50,20 @@ function Home() {
       description: (
         <>
           <p>
-            Mastering C#, Python, Typescript, HTML, CSS, and React, I deliver
-            robust software solutions. Explore to discover the elegance I bring
-            to digital complexity.
-          </p>
-          <p id="contact-buttons">
-            <LinkButton url="mailto:osamakawish@gmail.com">Email</LinkButton>
-            <LinkButton url="https://www.linkedin.com/in/osama-kawish-7b0232237/">
-              LinkedIn
-            </LinkButton>
-            <LinkButton url="https://www.codewars.com/users/osamakawish">
-              Codewars
-            </LinkButton>
+            I am a proficient software developer who can use a variety of
+            technologies: Python, C#, HTML, CSS, TypeScript, React. This webpage
+            itself was made with HTML/CSS + TypeScript + React.
           </p>
         </>
-      ),
-      // Talk about who you are and what your skills are here in a wee bit more detail,
-      // though not necessarily too much detail. You can also link to your social media
-      // as well as your about page. Also, move all of the link to the off-canvas.
-      offCanvasDescription: (
-        <OffCanvasContent header={"Osama Kawish"}>sfvnkdf</OffCanvasContent>
       ),
     },
     {
       imgFile: "Animperium Preview.webp",
-      header: <HEx>Animation Application</HEx>,
+      header: (
+        <HEx navigateLink="/blog/post/2023-08-01-1-animperium">
+          Animation Application
+        </HEx>
+      ),
       description: (
         <>
           <p>
@@ -87,18 +74,14 @@ function Home() {
           </p>
         </>
       ),
-      offCanvasDescription: (
-        <OffCanvasContent header={"Animation Application"}>
-          Some stuff abotu the animation application. Go into more detail about
-          the app. Also, talk about the technologies used to build it, and so
-          on. Again, make sure to link to the github repo here. It'll make the
-          page a lot cleaner.
-        </OffCanvasContent>
-      ),
     },
     {
       imgFile: "Square API.webp",
-      header: <HEx>Voice-Enabled Inventory Management</HEx>,
+      header: (
+        <HEx navigateLink="/blog/post/2023-08-02-5-square-hackathon">
+          Voice-Enabled Inventory Management
+        </HEx>
+      ),
       description: (
         <>
           <p>
@@ -109,12 +92,6 @@ function Home() {
             management.
           </p>
         </>
-      ),
-      offCanvasDescription: (
-        <OffCanvasContent header={"Voice-Enabled Inventory Management"}>
-          Go into detail here regarding the project. Talk about the technologies
-          used the difficulties faced, new things that were learned, etc.
-        </OffCanvasContent>
       ),
     },
   ];
@@ -138,10 +115,6 @@ function Home() {
 
   return (
     <>
-      <OffCanvas isOpen={isOffCanvasOpen} setIsOpen={setIsOffCanvasOpen}>
-        {slidesInfo[slideIndex].offCanvasDescription}
-      </OffCanvas>
-
       <div className="carousel-container">
         <CarouselSlide
           key={slideIndex}
