@@ -142,15 +142,21 @@ function Home() {
         setSlideIndex={setSlideIndex}
       />
 
-      <LeftArrow
+      <img
+        src="/icons/left-arrow.png"
+        className="left arrow-button"
         onClick={() =>
           setNextSlideIndex((slideIndex - 1 + slides.length) % slides.length)
         }
       />
-
-      <RightArrow
+      <img
+        src="/icons/right-arrow.png"
+        className="right arrow-button"
         onClick={() => setNextSlideIndex((slideIndex + 1) % slides.length)}
       />
+      {/* <LeftArrow /> */}
+
+      {/* <RightArrow /> */}
     </>
   );
 }
