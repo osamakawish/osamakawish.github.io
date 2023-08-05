@@ -1,11 +1,10 @@
 declare global {
   interface Window {
     MathJax: {
-      Hub: {
-        Queue: (commands: any[]) => void;
-      };
+      typeset: () => void;
     };
     Prism: {
+      highlightElement: (element: Element) => void;
       highlightAll: () => void;
     };
   }

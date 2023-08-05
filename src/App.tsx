@@ -54,7 +54,7 @@ function BlogPostWrapper() {
       previewImgFile={post.previewImgFile}
       title={post.title}
       date={new Date(post.id.slice(0, 10))}
-      contentFile={`/blog/post/${post.id}.html`}
+      // contentFile={`/blog/post/${post.id}.html`}
     />
   );
 }

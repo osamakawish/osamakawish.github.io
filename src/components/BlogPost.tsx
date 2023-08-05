@@ -8,7 +8,7 @@ export type BlogPostProps = {
   showAuthorImg?: boolean;
   date?: Date;
   children?: ReactNode;
-  contentFile?: string;
+  // contentFile?: string;
   useKaTeX?: boolean;
 };
 
@@ -18,40 +18,44 @@ export default function BlogPost({
   showAuthorImg: showAuthor = false,
   date,
   children,
-  contentFile,
-}: BlogPostProps) {
+}: // contentFile,
+BlogPostProps) {
   const [content, setContent] = useState<string>("");
   const [error, setError] = useState<Error | null>(null);
   const { id } = useParams();
 
-  console.log("id:", id);
   if (id === undefined) {
     return <div>Invalid blog post ID</div>;
   }
 
   useEffect(() => {
-    fetch(contentFile || `/blog/post/${id}.html`)
+    fetch(`/blog/post/${id}.html`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         return response.text();
       })
-      .then((text) => {
-        setContent(text);
-
-        // This part triggers Prism to re-scan the document for new code blocks
-        if (window.Prism) {
-          window.Prism.highlightAll();
-        }
-
-        // Add this part to reprocess the content with MathJax, if you use it
-        if (window.MathJax) {
-          window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub]);
-        }
+      .then((html) => {
+        setContent(html);
       })
       .catch((error) => setError(error));
-  }, [id, contentFile]); // I removed 'content' from the dependencies
+  }, [id]);
+
+  useEffect(() => {
+    if (!content) return;
+
+    // Query the document for the specific code blocks you want to highlight
+    const codeBlocks = document.querySelectorAll("pre code");
+    if (window.Prism) {
+      codeBlocks.forEach((element) => window.Prism.highlightElement(element));
+    }
+
+    // This will run after the content is set, giving React a chance to render it
+    if (window.MathJax) {
+      window.MathJax.typeset();
+    }
+  }, [content]); // Dependency on content ensures this runs after content changes
 
   // If there's an error, render an error message
   if (error) {

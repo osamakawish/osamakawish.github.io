@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./BlogPreview.css";
 
 type BlogPreviewProps = {
@@ -15,7 +16,7 @@ export default function BlogPreview({
 }: BlogPreviewProps) {
   return (
     <>
-      <a href={`blog/post/${postFileName}`} className="noLinkBlock">
+      <Link to={`/blog/post/${postFileName}`} className="noLinkBlock">
         <div className="blog-preview">
           <img className="blog-preview-img" src={previewImgFile} />
           <div className="blog-preview-content">
@@ -23,7 +24,7 @@ export default function BlogPreview({
             {children}
           </div>
         </div>
-      </a>
+      </Link>
     </>
   );
 }

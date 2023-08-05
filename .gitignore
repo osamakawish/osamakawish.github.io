@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # Afdesign files that allow modification of images
-*.afdesign
+# *.afdesign
