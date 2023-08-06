@@ -6,6 +6,10 @@
   \[ \mathbf{B}(t) = (1-t)^3 \mathbf{P}_0 + 3(1-t)^2t \mathbf{Q}_0 +
   3(1-t)t^2\mathbf{Q}_1 + t^3\mathbf{P}_1 \]
 </p>
+<pre><code class="language-python">def bezier(p0, q0, q1, p1):
+    return lambda t : (1-t)**3 * p0 + 3*(1-t)**2 * t * q0 \
+                      + 3*(1-t) * t**2 * q1 + t**3 * p1
+</code></pre>
 <p>
   These are two dimensional curves that go from a point \(\mathbf{P}_0\) to some
   other point \(\mathbf{P}_1\). The points \(\mathbf{Q}_0\) and \(\mathbf{Q}_1\)
@@ -130,12 +134,62 @@
   apply the values for $\mathbf{A}$, $\mathbf{B}$ and $\mathbf{C}$ directly in
   code.
 </p>
-<div class="center-content">
-  <pre><code class="language-python">def zeros(p0, q0, q1, p1):
+<pre><code class="language-python">def turning_points_t(p0, q0, q1, p1):
     a = - p0 + 2 * q0 - 3 * q1 + p1
     b = p0 - 2 * q0 + q1
     c = - p0 + q0
     d = sqrt(b * b - a * c)
     return ((b - d) / a, (b + d) / a);
 </code></pre>
-</div>
+<p>
+  Again, as a reminder, the above code gets applied twice: once for the
+  x-coordinate, and once for the y-coordinate. It however, only provides the
+  $t$-values for the turning points. These turning points need to then be
+  compared with the start and end points: $\mathbf{P}_0$ and $\mathbf{P}_1$
+  respectively.
+</p>
+<p>
+  Furthermore, these values must be between 0 and 1. If they are not, then they
+  are not part of the drawn Bezier curve, and are therefore ignored. Thus, we
+  need to compare the following 4 points, and get the minimum and maximum in
+  both x- and y-coordinates:
+</p>
+<p>
+  \[ \{ \mathbf{P}_0, \mathbf{B}(\mathbf{T}[0]), \mathbf{B}(\mathbf{T}[1]),
+  \mathbf{P}_1 \} \]
+</p>
+<p>
+  We can however, ignore if they are below zero or above one. We will work
+  around this as shown:
+</p>
+<pre><code class="language-python"># 'bezier' is defined earlier
+def bounds(p0, r, s, p1):
+    # r and s are bezier(t), where t are the turning points
+    lo = min(p0, r, s, p1)
+    hi = max(p0, r, s, p1)
+
+    return (lo, hi)
+</code></pre>
+<p>
+  And yet again, the above code applies once to the x-coordinate, and once to
+  the y-coordinate.
+</p>
+<p>Putting it all together, we get the following:</p>
+<!-- Note: need to replace the turning points with the 4 values, to implement once for each coordinate. -->
+<pre><code class="language-python">def bezier_bounds(p0, q0, q1, q1):
+    bezier = lambda t: (1 - t) ** 3 * p0 + 3 * (1 - t) ** 2 * t * q0 \
+                        + 3 * (1 - t) * t ** 2 * q1 + t ** 3 * p1
+
+    # We'll use a local function to compute the turning points, 
+    # as we no longer need to pass in the parameters
+    def turning_points_t():
+        a = - p0 + 2 * q0 - 3 * q1 + p1
+        b = p0 - 2 * q0 + q1
+        c = - p0 + q0
+        d = sqrt(b * b - a * c)
+        return ((b - d) / a, (b + d) / a);
+
+    t = turning_points_t()
+    r_x, s_x = bezier(t[0]).x, bezier(t[1]).x
+
+</code></pre>
