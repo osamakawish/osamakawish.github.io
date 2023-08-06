@@ -4,6 +4,8 @@ import BlogPreview from "./BlogPreview";
 import { useEffect } from "react";
 
 export default function Blog() {
+  console.log("Blog rendering");
+
   useEffect(() => {
     const scrollContainers = document.querySelectorAll(
       ".x-content-list"
@@ -33,7 +35,7 @@ export default function Blog() {
         <div className="x-content-list">
           <BlogPreview
             title="Animation Application"
-            previewImgFile="public/blog/images/2023-08-01-1-animperium.webp"
+            previewImgFile="/blog/images/2023-08-01-1-animperium.webp"
             fileId="2023-08-01-1-animperium"
           >
             <p>
@@ -49,7 +51,7 @@ export default function Blog() {
           </BlogPreview>
           <BlogPreview
             title="Square Hackathon"
-            previewImgFile="public/blog/images/2023-08-02-5-square-hackathon.webp"
+            previewImgFile="/blog/images/2023-08-02-5-square-hackathon.webp"
             fileId="2023-08-02-5-square-hackathon"
           >
             <p>
