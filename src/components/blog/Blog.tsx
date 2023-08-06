@@ -1,10 +1,13 @@
 // Blog.js
 import "./Blog.css";
 import BlogPreview from "./BlogPreview";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import VideoModal, { VideoThumbnail } from "./VideoModal";
 
 export default function Blog() {
   console.log("Blog rendering");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState("");
 
   useEffect(() => {
     const scrollContainers = document.querySelectorAll(
@@ -27,6 +30,16 @@ export default function Blog() {
       });
     };
   }, []);
+
+  function openVideo(videoId: string) {
+    setCurrentVideo(videoId);
+    setIsModalOpen(true);
+  }
+
+  function closeVideo() {
+    setIsModalOpen(false);
+    setCurrentVideo("");
+  }
 
   return (
     <div id="blog-page">
@@ -89,6 +102,8 @@ export default function Blog() {
         </div>
         <h1 className="blogpage-section-header">Favourite Youtube Videos</h1>
         <div className="x-content-list" id="youtube-video-list">
+          <VideoThumbnail openVideo={openVideo} videoId={"aVwxzDHniEw"} />
+
           <div className="video-wrapper">
             <iframe
               width="560"
@@ -98,6 +113,7 @@ export default function Blog() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
+            <div className="video-overlay"></div>
           </div>
           <div className="video-wrapper">
             <iframe
@@ -108,6 +124,7 @@ export default function Blog() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
+            <div className="video-overlay"></div>
           </div>
           <div className="video-wrapper">
             <iframe
@@ -118,6 +135,7 @@ export default function Blog() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
+            <div className="video-overlay"></div>
           </div>
           <div className="video-wrapper">
             <iframe
@@ -138,6 +156,7 @@ export default function Blog() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
+            <div className="video-overlay"></div>
           </div>
           <div className="video-wrapper">
             <iframe
@@ -148,6 +167,7 @@ export default function Blog() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
+            <div className="video-overlay"></div>
           </div>
         </div>
         {/* <PartitionBlock>
