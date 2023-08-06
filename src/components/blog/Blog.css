@@ -27,6 +27,7 @@
   width: 100%;
   background: #0c0c0c;
   border-radius: 12px;
+  overflow-y: hidden;
 }
 
 .x-content-list div.video-wrapper {
