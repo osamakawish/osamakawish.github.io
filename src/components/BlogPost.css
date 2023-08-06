@@ -68,36 +68,3 @@ code {
   justify-self: center;
   box-shadow: 0 0 0.5rem #000;
 }
-
-.code-block p {
-  margin: 2px 0;
-}
-
-.center-content {
-  display: flex;
-  justify-content: center;
-}
-
-.code-block .funcDefWord {
-  color: rgb(224, 120, 73);
-}
-
-.code-block .funcName {
-  color: rgb(81, 254, 58);
-}
-
-.code-block .funcImported {
-  color: rgb(119, 240, 113);
-}
-
-.code-block .funcParam {
-  color: rgb(106, 176, 237);
-}
-
-.code-block .varName {
-  color: rgb(111, 222, 222);
-}
-
-.code-block .funcReturnWord {
-  color: rgb(246, 154, 62);
-}
