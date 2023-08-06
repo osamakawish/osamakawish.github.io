@@ -4,6 +4,15 @@ import BlogPreview from "./BlogPreview";
 import { useEffect, useState } from "react";
 import VideoModal, { VideoThumbnail } from "./VideoModal";
 
+const videoIds = [
+  "aVwxzDHniEw",
+  "3izFMB91K_Q",
+  "p8u_k2LIZyo",
+  "AE4yzLCuc3A",
+  "ltLUadnCyi0",
+  "x09IsbVZeXo",
+];
+
 export default function Blog() {
   console.log("Blog rendering");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -102,73 +111,9 @@ export default function Blog() {
         </div>
         <h1 className="blogpage-section-header">Favourite Youtube Videos</h1>
         <div className="x-content-list" id="youtube-video-list">
-          <VideoThumbnail openVideo={openVideo} videoId={"aVwxzDHniEw"} />
-
-          <div className="video-wrapper">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/aVwxzDHniEw"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
-            <div className="video-overlay"></div>
-          </div>
-          <div className="video-wrapper">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/3izFMB91K_Q"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
-            <div className="video-overlay"></div>
-          </div>
-          <div className="video-wrapper">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/p8u_k2LIZyo"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
-            <div className="video-overlay"></div>
-          </div>
-          <div className="video-wrapper">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/AE4yzLCuc3A"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
-          </div>
-          <div className="video-wrapper">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/ltLUadnCyi0"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
-            <div className="video-overlay"></div>
-          </div>
-          <div className="video-wrapper">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/x09IsbVZeXo"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
-            <div className="video-overlay"></div>
-          </div>
+          {videoIds.map((videoId) => (
+            <VideoThumbnail openVideo={openVideo} videoId={videoId} />
+          ))}
         </div>
         {/* <PartitionBlock>
           <p>
@@ -186,6 +131,11 @@ export default function Blog() {
         </PartitionBlock> */}
         <div className="spacer-xl"></div>
       </div>
+      <VideoModal
+        isOpen={isModalOpen}
+        videoId={currentVideo}
+        onClose={closeVideo}
+      />
     </div>
   );
 }

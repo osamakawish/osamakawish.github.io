@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./VideoModal.css";
 
 type VideoThumbnailProps = {
@@ -13,9 +14,6 @@ export function VideoThumbnail({ videoId, openVideo }: VideoThumbnailProps) {
         src={`https://img.youtube.com/vi/${videoId}/sddefault.jpg`}
         alt="Video Thumbnail"
       />
-      <div className="play-icon">
-        <img src="/icons/youtube-play.png" />
-      </div>
     </div>
   );
 }
@@ -31,6 +29,38 @@ export default function VideoModal({
   videoId,
   onClose,
 }: VideoModalProps) {
+  console.log("Modal isOpen:", isOpen);
+
+  useEffect(() => {
+    function handleKeydown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    }
+
+    function handleOutsideClick(event: Event) {
+      const target = event.target as HTMLElement;
+      if (
+        target.closest(".modal-overlay") &&
+        !target.closest(".video-container")
+      ) {
+        onClose();
+      }
+    }
+
+    const overlayElement = document.querySelector(".modal-overlay");
+
+    if (isOpen) {
+      window.addEventListener("keydown", handleKeydown);
+      overlayElement?.addEventListener("click", handleOutsideClick);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleKeydown);
+      overlayElement?.removeEventListener("click", handleOutsideClick);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
@@ -39,12 +69,11 @@ export default function VideoModal({
         <iframe
           width="560"
           height="315"
-          src={`https://www.youtube.com/embed/${videoId}`}
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
           title="YouTube video player"
           allowFullScreen
         ></iframe>
       </div>
-      <button onClick={onClose}>Close</button>
     </div>
   );
 }
