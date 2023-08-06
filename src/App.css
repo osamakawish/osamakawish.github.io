@@ -15,20 +15,19 @@ h6 {
 /* Webkit browsers like Chrome, Safari */
 ::-webkit-scrollbar {
   width: 4px;
-  /* Width of the scrollbar */
   height: 4px;
 }
 
+/* Color of the track */
 ::-webkit-scrollbar-track {
   background: transparent;
-  /* Color of the track */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8888;
   /* Color of the thumb */
-  border-radius: 0;
+  background: #8888;
   /* Radius for the thumb */
+  border-radius: 6px;
 }
 
 /* Firefox */

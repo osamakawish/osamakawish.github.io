@@ -30,17 +30,17 @@
   transition: opacity 0.5s ease;
 }
 
-.arrow-button {
+.arrow-btnx {
+  filter: drop-shadow(2px 2px 6px 12px rgba(215, 64, 64, 0.8));
   position: fixed;
   top: 50%;
   transform: translate(0%, -50%);
-  filter: drop-shadow(2px 2px 6px 30px rgba(0, 0, 0, 0.8));
   width: 48px;
   transition: transform 0.3s ease;
 }
 
-.arrow-button:hover {
-  transform: translate(0%, -50%) scale(1.2);
+.arrow-btnx:hover {
+  transform: translate(0%, -50%) scale(1.5);
 }
 
 .left {
