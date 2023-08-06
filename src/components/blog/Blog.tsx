@@ -33,7 +33,7 @@ export default function Blog() {
         <div className="x-content-list">
           <BlogPreview
             title="Animation Application"
-            previewImgFile="/about-bg.webp"
+            previewImgFile="public/blog/images/2023-08-01-1-animperium.webp"
             fileId="2023-08-01-1-animperium"
           >
             <p>
@@ -49,7 +49,7 @@ export default function Blog() {
           </BlogPreview>
           <BlogPreview
             title="Square Hackathon"
-            previewImgFile="/about-bg.webp"
+            previewImgFile="public/blog/images/2023-08-02-5-square-hackathon.webp"
             fileId="2023-08-02-5-square-hackathon"
           >
             <p>
@@ -66,7 +66,7 @@ export default function Blog() {
           </BlogPreview>
           <BlogPreview
             title="Bezier Turning Points"
-            previewImgFile="/about-bg.webp"
+            previewImgFile="/blog/images/2023-08-02-2-bezier-turning-points.webp"
             fileId="2023-08-02-2-bezier-turning-points"
           >
             <p>
@@ -84,14 +84,6 @@ export default function Blog() {
               selection rectangles when the Bezier Curves are selected.
             </p>
           </BlogPreview>
-          {/* <BlogPreview title="Blog Preview" previewImgFile="/about-bg.webp">
-            <p>
-              Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
-              vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-              amet quam egestas semper.
-            </p>
-          </BlogPreview> */}
         </div>
         <h1 className="blogpage-section-header">Favourite Youtube Videos</h1>
         <div className="x-content-list" id="youtube-video-list">
