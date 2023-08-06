@@ -32,7 +32,7 @@ BlogPostProps) {
 
   useEffect(() => {
     console.log("2: Initiating fetch request.");
-    fetch(`/blog/post/${id}.html`)
+    fetch(`/blog/blog-posts/${id}.html`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

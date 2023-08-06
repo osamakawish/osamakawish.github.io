@@ -12,11 +12,11 @@ export default function BlogPreview({
   previewImgFile,
   title,
   children,
-  fileId: postFileName,
+  fileId,
 }: BlogPreviewProps) {
   return (
     <>
-      <Link to={`/blog/post/${postFileName}`} className="noLinkBlock">
+      <Link to={`/blog/post/${fileId}`} className="noLinkBlock">
         <div className="blog-preview">
           <img className="blog-preview-img" src={previewImgFile} />
           <div className="blog-preview-content">

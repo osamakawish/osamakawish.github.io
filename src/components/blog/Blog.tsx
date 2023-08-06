@@ -88,7 +88,7 @@ export default function Blog() {
           </BlogPreview>
         </div>
         <h1 className="blogpage-section-header">Favourite Youtube Videos</h1>
-        <div className="x-content-list" id="youtube-video-list">
+        {/* <div className="x-content-list" id="youtube-video-list">
           <div className="video-wrapper">
             <iframe
               width="560"
@@ -149,7 +149,7 @@ export default function Blog() {
               allowFullScreen
             ></iframe>
           </div>
-        </div>
+        </div> */}
         {/* <PartitionBlock>
           <p>
             Pellentesque habitant morbi tristique senectus et netus et malesuada

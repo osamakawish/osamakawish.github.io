@@ -39,7 +39,6 @@ function AppWithRouter() {
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/post/:id" element={<BlogPostWrapper />} />
-        <Route path="/blog/post/test" element={<div>Test Post</div>} />
         <Route path="/about" element={<AboutMe />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
@@ -48,10 +47,14 @@ function AppWithRouter() {
 }
 
 function BlogPostWrapper() {
+  console.log("BlogPostWrapper rendering");
+
   const { id } = useParams();
   const post = blogPosts.find((post) => post.id === id);
 
+  console.log(`BlogPostWrapper log 2: id: ${id}, post: ${post}`);
   const location = useLocation();
+
   useEffect(() => {
     console.log("Current route:", location.pathname);
   }, [location]);
@@ -60,6 +63,7 @@ function BlogPostWrapper() {
     return <div>Invalid blog post ID</div>;
   }
 
+  console.log("BlogPostWrapper log 3: Returning BlogPost.");
   return (
     <BlogPost
       previewImgFile={post.previewImgFile}
