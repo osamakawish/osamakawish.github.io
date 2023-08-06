@@ -34,3 +34,30 @@
   flex-direction: column;
   justify-content: center;
 }
+
+@media screen and (max-width: 768px) {
+  .carousel-image {
+    transform: translate(-50%, 0%);
+    top: 5%;
+    left: 50%;
+    width: 90%;
+    height: 60%;
+  }
+
+  .text-block {
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 60px;
+    padding: 12px;
+    justify-content: end;
+  }
+
+  .text-block h1 {
+    font-size: 40px;
+  }
+
+  .text-block p {
+    font-size: medium;
+  }
+}

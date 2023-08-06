@@ -20,16 +20,13 @@ function CarouselSlide({
   }, [imgFile]);
 
   return (
-    <>
-      <div className={className}>
-        <img src={imgFile} className="carousel-image" />
-        {/* <div className="rect" /> */}
-        <div className="text-block">
-          {header}
-          {children}
-        </div>
+    <div className={`carousel-slide ${className || ""}`}>
+      <img src={imgFile} className="carousel-image" />
+      <div className="text-block">
+        {header}
+        {children}
       </div>
-    </>
+    </div>
   );
 }
 

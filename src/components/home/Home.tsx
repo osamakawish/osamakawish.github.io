@@ -149,9 +149,6 @@ function Home() {
         className="right arrow-btnx"
         onClick={() => setNextSlideIndex((slideIndex + 1) % slides.length)}
       />
-      {/* <LeftArrow /> */}
-
-      {/* <RightArrow /> */}
     </>
   );
 }
