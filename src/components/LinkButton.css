@@ -1,10 +1,28 @@
 .link-button {
-  width: 100px;
+  width: 120px;
   padding: 3px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: transparent;
+  color: #ccc;
 }
 
 .link-button:hover {
-  background-color: #ccc;
+  background: #ccc;
+  color: black;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.icon {
+  height: 20px; /* or any other appropriate size */
+  width: 20px;
+  margin: 6px; /* some spacing between the icon and the text */
+  vertical-align: middle; /* align the icon with the text */
 }
 
 @media only screen and (max-width: 380px) {

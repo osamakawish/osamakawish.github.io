@@ -70,13 +70,25 @@ function AboutMe() {
               useful and practical applications with my skills.
             </p>
             <div className="about-links">
-              <LinkButton url="mailto:osamakawish@gmail.com">Email</LinkButton>
-              <LinkButton url="https://www.linkedin.com/in/osama-kawish-7b0232237/">
+              <LinkButton
+                url="mailto:osamakawish@gmail.com"
+                icon="/icons/gmail.svg"
+              >
+                Email
+              </LinkButton>
+              <LinkButton
+                url="https://www.linkedin.com/in/osama-kawish-7b0232237/"
+                icon="/icons/linkedin.png"
+              >
                 LinkedIn
               </LinkButton>
-              <LinkButton url="https://www.codewars.com/users/osamakawish">
+              <LinkButton
+                url="https://www.codewars.com/users/osamakawish"
+                icon="https://www.codewars.com/packs/assets/logo.f607a0fb.svg"
+              >
                 Codewars
               </LinkButton>
+              {/* Add Github */}
             </div>
           </div>
         </div>
