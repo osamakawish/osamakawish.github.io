@@ -88,7 +88,12 @@ function AboutMe() {
               >
                 Codewars
               </LinkButton>
-              {/* Add Github */}
+              <LinkButton
+                url="https://github.com/osamakawish"
+                icon="/icons/github.png"
+              >
+                GitHub
+              </LinkButton>
             </div>
           </div>
         </div>

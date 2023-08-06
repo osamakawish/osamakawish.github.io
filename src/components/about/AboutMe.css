@@ -1,8 +1,8 @@
-
 .about-links {
   display: flex;
   justify-content: center;
   margin-top: 64px;
+  flex-wrap: wrap;
 }
 
 .about-links button {
