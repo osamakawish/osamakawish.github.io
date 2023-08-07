@@ -10,11 +10,11 @@ import HomePage from "./components/home/Home";
 import Blog from "./components/blog/Blog";
 import AboutMe from "./components/about/AboutMe";
 import { pagePathsToTitles } from "./constants";
-import blogPosts from "./components/blog/blog-metadata.json";
 import "./App.css";
 import BlogPost from "./components/BlogPost";
 import NotFound from "./components/NotFound";
 import { useEffect } from "react";
+import { blogPosts } from "./BlogPostData";
 
 function App() {
   console.log("App rendering 1");
@@ -50,7 +50,12 @@ function BlogPostWrapper() {
   console.log("BlogPostWrapper rendering");
 
   const { id } = useParams();
-  const post = blogPosts.find((post) => post.id === id);
+
+  if (!id) {
+    return <div>Invalid blog post ID</div>;
+  }
+
+  const post = blogPosts[id];
 
   console.log(`BlogPostWrapper log 2: id: ${id}, post: ${post}`);
   const location = useLocation();
@@ -68,7 +73,7 @@ function BlogPostWrapper() {
     <BlogPost
       previewImgFile={post.previewImgFile}
       title={post.title}
-      date={new Date(post.id.slice(0, 10))}
+      date={new Date(id.slice(0, 10))}
     />
   );
 }

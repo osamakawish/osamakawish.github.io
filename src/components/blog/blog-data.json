@@ -1,0 +1,25 @@
+{
+  "2023-08-02-5-square-hackathon": {
+    "title": "Square Hackathon Project",
+    "previewImgFile": "/blog/images/2023-08-02-5-square-hackathon.webp",
+    "previewText": [
+      "The Square Hackathon in which I used WPF, Naudio, and Azure Speech Services to implement an inventory system combined with the use of a voice assistant.",
+      "It offers basic manipulation of the business inventory through manual means, allowing users to add, remove, and view items in their own inventory. In addition, it also allows users to use the voice assistant to manipulate the inventory more conveniently."
+    ]
+  },
+  "2023-08-01-1-animperium": {
+    "title": "The Animation Application",
+    "previewImgFile": "/blog/images/2023-08-01-1-animperium.webp",
+    "previewText": [
+      "An animation application with intermedia complexity - not as simple as Windows Movie Maker, but not as complex as Blender, with the goal of being far more affordable."
+    ]
+  },
+  "2023-08-02-2-bezier-turning-points": {
+    "title": "Bezier Turning Points",
+    "previewImgFile": "/blog/images/2023-08-02-2-bezier-turning-points.webp",
+    "previewText": [
+      "I calculate the turning points of a cubic Bezier to evaluate its bounding box.",
+      "This information is useful for computing the bounding rectangles of Bezier Curves, which is useful for making computations for collision detection and speeding up computations for graphics rendering."
+    ]
+  }
+}

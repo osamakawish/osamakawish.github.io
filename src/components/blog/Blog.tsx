@@ -55,59 +55,9 @@ export default function Blog() {
       <div className="page-content">
         <h1 className="blogpage-section-header">Featured Posts</h1>
         <div className="x-content-list">
-          <BlogPreview
-            title="Animation Application"
-            previewImgFile="/blog/images/2023-08-01-1-animperium.webp"
-            fileId="2023-08-01-1-animperium"
-          >
-            <p>
-              An animation application with intermedia complexity - not as
-              simple as Windows Movie Maker, but not as complex as Blender, with
-              the goal of being far more affordable.
-            </p>
-            <p>
-              The future plan for this application is to allow the use of both
-              self-made and community-made plugins and scripts to extend its
-              functionality.
-            </p>
-          </BlogPreview>
-          <BlogPreview
-            title="Square Hackathon"
-            previewImgFile="/blog/images/2023-08-02-5-square-hackathon.webp"
-            fileId="2023-08-02-5-square-hackathon"
-          >
-            <p>
-              The Square Hackathon in which I used WPF, Naudio, and Azure Speech
-              Services to implement an inventory system combined with the use of
-              a voice assistant.
-            </p>
-            <p>
-              It offers basic manipulation of the business inventory through
-              manual means, allowing users to add, remove, and view items in
-              their own inventory. In addition, it also allows users to use the
-              voice assistant to manipulate the inventory more conveniently.
-            </p>
-          </BlogPreview>
-          <BlogPreview
-            title="Bezier Turning Points"
-            previewImgFile="/blog/images/2023-08-02-2-bezier-turning-points.webp"
-            fileId="2023-08-02-2-bezier-turning-points"
-          >
-            <p>
-              I calculate the turning points of a cubic Bezier to evaluate its
-              bounding box.
-            </p>
-            <p>
-              This information is useful for computing the bounding rectangles
-              of Bezier Curves, which is useful for making computations for
-              collision detection and speeding up computations for graphics
-              rendering.
-            </p>
-            <p>
-              Bounding rectangle computations are also used for determining the
-              selection rectangles when the Bezier Curves are selected.
-            </p>
-          </BlogPreview>
+          <BlogPreview id="2023-08-01-1-animperium" />
+          <BlogPreview id="2023-08-02-5-square-hackathon" />
+          <BlogPreview id="2023-08-02-2-bezier-turning-points" />
         </div>
         <h1 className="blogpage-section-header">Favourite Youtube Videos</h1>
         <div className="x-content-list" id="youtube-video-list">
