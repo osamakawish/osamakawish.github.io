@@ -13,6 +13,12 @@ const videoIds = [
   "x09IsbVZeXo",
 ];
 
+const previewBlogs = [
+  "2023-08-01-1-animperium",
+  "2023-08-02-5-square-hackathon",
+  "2023-08-02-2-bezier-turning-points",
+];
+
 export default function Blog() {
   console.log("Blog rendering");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -55,9 +61,9 @@ export default function Blog() {
       <div className="page-content">
         <h1 className="blogpage-section-header">Featured Posts</h1>
         <div className="x-content-list">
-          <BlogPreview id="2023-08-01-1-animperium" />
-          <BlogPreview id="2023-08-02-5-square-hackathon" />
-          <BlogPreview id="2023-08-02-2-bezier-turning-points" />
+          {previewBlogs.map((id) => (
+            <BlogPreview id={id} />
+          ))}
         </div>
         <h1 className="blogpage-section-header">Favourite Youtube Videos</h1>
         <div className="x-content-list" id="youtube-video-list">
@@ -65,20 +71,6 @@ export default function Blog() {
             <VideoThumbnail openVideo={openVideo} videoId={videoId} />
           ))}
         </div>
-        {/* <PartitionBlock>
-          <p>
-            Pellentesque habitant morbi tristique senectus et netus et malesuada
-            fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
-            ultricies eget, aaaaaaaaaa
-          </p>
-          <p>
-            Pellentesque habitant morbi tristique senectus et netus et malesuada
-            fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
-            ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
-            egestas semper. Aenean ultricies mi vitae est. Mauris placerat
-            eleifend leo.
-          </p>
-        </PartitionBlock> */}
         <div className="spacer-xl"></div>
       </div>
       <VideoModal

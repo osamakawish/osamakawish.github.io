@@ -84,7 +84,7 @@ function AboutMe() {
                 url="mailto:osamakawish@gmail.com"
                 icon="/icons/gmail.svg"
               >
-                Email
+                Gmail
               </LinkButton>
               <LinkButton
                 url="https://www.linkedin.com/in/osama-kawish-7b0232237/"
