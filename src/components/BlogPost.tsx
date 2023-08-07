@@ -1,25 +1,13 @@
 import { ReactNode, useEffect, useState } from "react";
 import "./BlogPost.css";
 import { useParams } from "react-router-dom";
+import { blogPosts, GetDateFromId } from "../BlogPostData";
 
 export type BlogPostProps = {
-  previewImgFile: string;
-  title: string;
-  showAuthorImg?: boolean;
-  date?: Date;
-  children?: ReactNode;
-  // contentFile?: string;
-  useKaTeX?: boolean;
+  postId: string;
 };
 
-export default function BlogPost({
-  previewImgFile,
-  title,
-  showAuthorImg: showAuthor = false,
-  date,
-  children,
-}: // contentFile,
-BlogPostProps) {
+export default function BlogPost() {
   const [content, setContent] = useState<string>("");
   const [error, setError] = useState<Error | null>(null);
   const { id } = useParams();
@@ -29,6 +17,8 @@ BlogPostProps) {
   if (id === undefined) {
     return <div>Invalid blog post ID</div>;
   }
+
+  const post = blogPosts[id];
 
   useEffect(() => {
     console.log("2: Initiating fetch request.");
@@ -70,11 +60,10 @@ BlogPostProps) {
     return <div>Error loading post: {error.message}</div>;
   }
 
-  const renderedContent = content ? (
-    <div dangerouslySetInnerHTML={{ __html: content }} />
-  ) : (
-    children
-  );
+  const renderedContent = <div dangerouslySetInnerHTML={{ __html: content }} />;
+
+  const { title, previewImgFile } = post;
+  const date = GetDateFromId(id);
 
   return (
     <>
@@ -84,11 +73,12 @@ BlogPostProps) {
           src={previewImgFile}
           alt="a cover image for this blog post"
         />
-        {showAuthor && <img className="osama-portrait" src="/osama.webp" />}
+        {/* {showAuthor && <img className="osama-portrait" src="/osama.webp" />} */}
       </div>
       <div
         className="post-content-flex"
-        style={{ top: showAuthor ? "240px" : "180px" }}
+        style={{ top: "180px" }}
+        // style={{ top: showAuthor ? "240px" : "180px" }}
       >
         <div className="post-content">
           <h1>{title}</h1>

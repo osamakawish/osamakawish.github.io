@@ -1,4 +1,4 @@
-import blogPostsJson from "./components/blog/blog-data.json";
+import blogPostsJson from "./blog-data.json";
 
 export type BlogPostData = {
   previewImgFile: string;
@@ -13,3 +13,7 @@ export type BlogPostDictionary = {
 };
 
 export const blogPosts: BlogPostDictionary = blogPostsJson;
+
+export function GetDateFromId(postId: string) {
+  return new Date(postId.slice(0, 10));
+}

@@ -69,13 +69,7 @@ function BlogPostWrapper() {
   }
 
   console.log("BlogPostWrapper log 3: Returning BlogPost.");
-  return (
-    <BlogPost
-      previewImgFile={post.previewImgFile}
-      title={post.title}
-      date={new Date(id.slice(0, 10))}
-    />
-  );
+  return <BlogPost />;
 }
 
 export default App;
