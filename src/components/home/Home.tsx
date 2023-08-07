@@ -3,7 +3,7 @@ import CarouselSlide from "./CarouselSlide";
 import "./buttons/CarouselSlideButton";
 import SlideButtonGroup from "./buttons/SlideButtonGroup";
 import "./Home.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 type CarouselSlideData = {
   imgFile: string;
@@ -26,14 +26,15 @@ function Home() {
     const navigate = useNavigate();
 
     return (
-      <a
+      <Link
+        to={navigateLink || ""}
         className="slide-header"
         onClick={() => {
           if (navigateLink) navigate(navigateLink);
         }}
       >
         <h1>{children}</h1>
-      </a>
+      </Link>
     );
   }
 

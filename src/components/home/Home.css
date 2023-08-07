@@ -15,9 +15,11 @@
 }
 
 .slide-header:hover {
-  text-decoration: underline;
-  text-decoration-color: white;
-  text-decoration-thickness: 2px;
+  font-weight: 800;
+  text-decoration: underline !important ;
+  text-decoration-color: #888 !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 6px;
 }
 
 .fade-in {
