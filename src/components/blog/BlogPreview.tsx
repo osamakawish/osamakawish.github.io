@@ -18,7 +18,11 @@ export default function BlogPreview({
     <>
       <Link to={`/blog/post/${fileId}`} className="noLinkBlock">
         <div className="blog-preview">
-          <img className="blog-preview-img" src={previewImgFile} />
+          <img
+            className="blog-preview-img"
+            src={previewImgFile}
+            alt={`cover image for the blog: ${title}`}
+          />
           <div className="blog-preview-content">
             <h4 className="blog-preview-header">{title}</h4>
             {children}

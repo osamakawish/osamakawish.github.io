@@ -10,8 +10,18 @@ function AboutMe() {
   return (
     <>
       <div className="top-images">
-        <img className="preview-img" src={previewImgFile} />
-        {showAuthorImg && <img className="osama-portrait" src="/osama.webp" />}
+        <img
+          className="preview-img"
+          src={previewImgFile}
+          alt="night stars as a cover background"
+        />
+        {showAuthorImg && (
+          <img
+            className="osama-portrait"
+            src="/osama.webp"
+            alt="a portrait of me, Osama Kawish"
+          />
+        )}
       </div>
       <div
         className="post-content-flex"

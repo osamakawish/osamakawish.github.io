@@ -79,7 +79,11 @@ BlogPostProps) {
   return (
     <>
       <div className="top-images">
-        <img className="preview-img" src={previewImgFile} />
+        <img
+          className="preview-img"
+          src={previewImgFile}
+          alt="a cover image for this blog post"
+        />
         {showAuthor && <img className="osama-portrait" src="/osama.webp" />}
       </div>
       <div

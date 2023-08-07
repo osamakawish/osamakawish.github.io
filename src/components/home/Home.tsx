@@ -144,11 +144,13 @@ function Home() {
         onClick={() =>
           setNextSlideIndex((slideIndex - 1 + slides.length) % slides.length)
         }
+        alt="left arrow button for previous slide"
       />
       <img
         src="/icons/right-arrow.png"
         className="right arrow-btnx"
         onClick={() => setNextSlideIndex((slideIndex + 1) % slides.length)}
+        alt="right arrow button for next slide"
       />
     </>
   );
