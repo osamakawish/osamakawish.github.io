@@ -20,5 +20,6 @@ export type BlogPostDictionary = {
 export const blogPosts: BlogPostDictionary = blogPostsJson;
 
 export function GetDateFromId(postId: string) {
-  return new Date(postId.slice(0, 10));
+  const [year, month, day] = postId.slice(0, 10).split("-");
+  return new Date(+year, +month - 1, +day);
 }

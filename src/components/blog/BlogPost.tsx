@@ -94,10 +94,11 @@ export default function BlogPost() {
     return <div>Error loading post: {error.message}</div>;
   }
 
-  const renderedContent = <div dangerouslySetInnerHTML={{ __html: content }} />;
+  const renderedContent = <div />;
 
   const { title, previewImgFile } = post;
   const date = GetDateFromId(id);
+  console.log(`BlogPost log 5: date is ${date}, id is ${id}.`);
 
   return (
     <>
@@ -122,7 +123,10 @@ export default function BlogPost() {
               <LinkButton key={name} name={name} url={url} />
             ))}
           </div>
-          <div className="blog-children">{renderedContent}</div>
+          <div
+            className="blog-children"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
         </div>
         <div className="spacer-xl" />
       </div>
