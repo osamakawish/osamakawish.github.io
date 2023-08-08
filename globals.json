@@ -3,6 +3,18 @@
     "github": {
       "icon": "/icons/github.png",
       "text": "GitHub"
+    },
+    "gmail": {
+      "icon": "/icons/gmail.svg",
+      "text": "Gmail"
+    },
+    "linkedin": {
+      "icon": "/icons/linkedin.png",
+      "text": "LinkedIn"
+    },
+    "codewars": {
+      "icon": "https://www.codewars.com/packs/assets/logo.f607a0fb.svg",
+      "text": "Codewars"
     }
   }
 }

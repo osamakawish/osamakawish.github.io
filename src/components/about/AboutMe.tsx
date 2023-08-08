@@ -4,8 +4,14 @@ import LinkButton from "../LinkButton";
 function AboutMe() {
   const title = "Osama Kawish";
   const previewImgFile = "/about-bg.webp";
-  const showAuthorImg = true;
   const date = new Date("2023-07-28");
+
+  const links: [string, string][] = [
+    ["gmail", "mailto:osamakawish@gmail.com"],
+    ["linkedin", "https://www.linkedin.com/in/osama-kawish-7b0232237/"],
+    ["codewars", "https://www.codewars.com/users/osamakawish"],
+    ["github", "https://github.com/osamakawish"],
+  ];
 
   return (
     <>
@@ -15,21 +21,23 @@ function AboutMe() {
           src={previewImgFile}
           alt="night stars as a cover background"
         />
-        {showAuthorImg && (
-          <img
-            className="osama-portrait"
-            src="/osama.webp"
-            alt="a portrait of me, Osama Kawish"
-          />
-        )}
+        <img
+          className="osama-portrait"
+          src="/osama.webp"
+          alt="a portrait of me, Osama Kawish"
+        />
       </div>
-      <div
-        className="post-content-flex"
-        style={{ top: showAuthorImg ? "240px" : "180px" }}
-      >
+      <div className="post-content-flex" style={{ top: "240px" }}>
         <div className="post-content">
-          <h1>{title}</h1>
-          {date && <p className="blog-date">{date.toDateString()}</p>}
+          <div className="header-content">
+            <h1>{title}</h1>
+            {date && <p className="blog-date">{date.toDateString()}</p>}
+            <div className="about-links">
+              {links.map(([name, url]) => (
+                <LinkButton key={name} name={name} url={url} />
+              ))}
+            </div>
+          </div>
           <div className="blog-children">
             <p>
               I am a proficient software developer who is fluent in .Net/C# and
@@ -79,32 +87,6 @@ function AboutMe() {
               learn more about Machine Learning and AI. I prefer to build more
               useful and practical applications with my skills.
             </p>
-            <div className="about-links">
-              <LinkButton
-                url="mailto:osamakawish@gmail.com"
-                icon="/icons/gmail.svg"
-              >
-                Gmail
-              </LinkButton>
-              <LinkButton
-                url="https://www.linkedin.com/in/osama-kawish-7b0232237/"
-                icon="/icons/linkedin.png"
-              >
-                LinkedIn
-              </LinkButton>
-              <LinkButton
-                url="https://www.codewars.com/users/osamakawish"
-                icon="https://www.codewars.com/packs/assets/logo.f607a0fb.svg"
-              >
-                Codewars
-              </LinkButton>
-              <LinkButton
-                url="https://github.com/osamakawish"
-                icon="/icons/github.png"
-              >
-                GitHub
-              </LinkButton>
-            </div>
           </div>
         </div>
         <div className="spacer-xl" />

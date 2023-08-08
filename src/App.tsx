@@ -11,7 +11,7 @@ import Blog from "./components/blog/Blog";
 import AboutMe from "./components/about/AboutMe";
 import { pagePathsToTitles } from "./constants";
 import "./App.css";
-import BlogPost from "./components/BlogPost";
+import BlogPost from "./components/blog/BlogPost";
 import NotFound from "./components/NotFound";
 import { useEffect } from "react";
 import { blogPosts } from "./BlogPostData";

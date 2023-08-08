@@ -1,10 +1,17 @@
 .about-links {
   display: flex;
   justify-content: center;
-  margin-top: 64px;
+  margin-top: 6px;
   flex-wrap: wrap;
 }
 
 .about-links button {
   margin: 0 12px;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

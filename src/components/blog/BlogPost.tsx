@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "./BlogPost.css";
 import { useParams } from "react-router-dom";
-import { blogPosts, GetDateFromId } from "../BlogPostData";
-import LinkButton from "./LinkButton";
-import { links } from "../../globals";
+import { blogPosts, GetDateFromId } from "../../BlogPostData";
+import LinkButton from "../LinkButton";
+// import { links } from "../../../globals";
 
 export type BlogPostProps = {
   postId: string;
@@ -115,18 +115,15 @@ export default function BlogPost() {
         // style={{ top: showAuthor ? "240px" : "180px" }}
       >
         <div className="post-content">
-          <h1>{title}</h1>
-          {date && <p className="blog-date">{date.toDateString()}</p>}
+          <div className="header-content">
+            <h1>{title}</h1>
+            {date && <p className="blog-date">{date.toDateString()}</p>}
+            {Object.entries(post.links).map(([name, url]) => (
+              <LinkButton key={name} name={name} url={url} />
+            ))}
+          </div>
           <div className="blog-children">{renderedContent}</div>
         </div>
-        {Object.entries(post.links).map(([name, url]) => (
-          <LinkButton
-            key={name}
-            url={url}
-            icon={links[name].icon}
-            children={links[name].text}
-          />
-        ))}
         <div className="spacer-xl" />
       </div>
     </>
