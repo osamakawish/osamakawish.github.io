@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./BlogPost.css";
 import { useParams } from "react-router-dom";
 import { blogPosts, GetDateFromId } from "../BlogPostData";
