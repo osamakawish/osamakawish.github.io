@@ -53,6 +53,38 @@ export default function BlogPost() {
       console.log("4.2: Typesetting with MathJax.");
       window.MathJax.typeset();
     }
+
+    // Scroll horizontally on math blocks
+    const scrollableElements = [
+      ...document.querySelectorAll(".code-block"),
+      ...document.querySelectorAll(".math-block"),
+    ] as HTMLElement[];
+
+    const scrollHandler = (e: WheelEvent) => {
+      const target = e.currentTarget as HTMLElement;
+
+      if (target.scrollWidth > target.clientWidth) {
+        // Check if horizontal scrollbar is present
+        e.preventDefault();
+        target.scrollLeft += e.deltaY;
+        console.log("Scrolling horizontally");
+      }
+      // If not, let the default scroll behavior take place.
+    };
+
+    scrollableElements.forEach((elem) => {
+      // Check if horizontal scrollbar is present on the math block
+      if (elem.scrollWidth > elem.clientWidth) {
+        elem.addEventListener("wheel", scrollHandler);
+      }
+    });
+
+    // Cleanup: Remove the event listener when the component is unmounted
+    return () => {
+      scrollableElements.forEach((elem) => {
+        elem.removeEventListener("wheel", scrollHandler);
+      });
+    };
   }, [content]); // Dependency on content ensures this runs after content changes
 
   // If there's an error, render an error message

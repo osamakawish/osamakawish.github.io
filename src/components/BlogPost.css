@@ -33,6 +33,7 @@
   align-items: center;
   width: min(90%, 600px);
   text-align: justify;
+  overflow: auto;
 }
 
 .blog-date {
@@ -42,6 +43,7 @@
 
 .blog-children {
   margin-top: 24px;
+  max-width: 100%;
 }
 
 pre {
@@ -54,17 +56,8 @@ code {
   color: #f8f8f8 !important; /* Lighter text */
 }
 
+.math-block,
 .code-block {
-  display: flex;
-  flex-direction: column;
-  background: #111;
-  color: #ddd;
-  padding: 1rem;
-  /* border-radius: 0.5rem; */
-  margin: 1rem 0;
-  font-family: "Consolas", Consolas, monospace;
-  line-height: 1.05;
-  width: fit-content;
-  justify-self: center;
-  box-shadow: 0 0 0.5rem #000;
+  overflow-y: hidden;
+  overflow-x: auto;
 }

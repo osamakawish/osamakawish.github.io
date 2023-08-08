@@ -2,11 +2,13 @@
   In graphics applications, it is mainly Cubic Bezier curves that are used.
   Cubic Bezier curves are defined by the following equation:
 </p>
-<p>
+<p class="math-block">
   \[ \mathbf{B}(t) = (1-t)^3 \mathbf{P}_0 + 3(1-t)^2t \mathbf{Q}_0 +
   3(1-t)t^2\mathbf{Q}_1 + t^3\mathbf{P}_1 \]
 </p>
-<pre><code class="language-python">def bezier(p0, q0, q1, p1):
+<pre
+  class="code-block"
+><code class="language-python">def bezier(p0, q0, q1, p1):
     return lambda t : (1-t)**3 * p0 + 3*(1-t)**2 * t * q0 \
                       + 3*(1-t) * t**2 * q1 + t**3 * p1
 </code></pre>
@@ -30,7 +32,7 @@
   These are the points where the derivative of the curve is zero. The derivative
   of the cubic bezier is:
 </p>
-<p>
+<p class="math-block">
   \[ \begin{align*} \mathbf{B}'(t) & = -3(1-t)^2 \mathbf{P}_0 + 3( -2(1-t)t +
   (1-t)^2 ) \mathbf{Q}_0 + 3( -t^2 + 2t(1-t) )\mathbf{Q}_1 + 3t^2\mathbf{P}_1 \\
   & = -3(1-t)^2 \mathbf{P}_0 + 3( -2t + t^2 + t^2 - 2t + 1 ) \mathbf{Q}_0 +
@@ -41,11 +43,13 @@
   (-3\mathbf{P}_0 + 3\mathbf{Q}_0) \\ & = 3[(-\mathbf{P}_0 + 2\mathbf{Q}_0 -
   3\mathbf{Q}_1 + \mathbf{P}_1)t^2 + 2(\mathbf{P}_0 - 2\mathbf{Q}_0 +
   \mathbf{Q}_1 )t + (-\mathbf{P}_0 + \mathbf{Q}_0)] \\ & = 3[\mathbf{A}t^2 +
-  2\mathbf{B} t + \mathbf{C}] \end{align*} \] where $\mathbf{A}$, $\mathbf{B}$
-  and $\mathbf{C}$ are the vector coefficients simplfied from their respected
-  brackets:
+  2\mathbf{B} t + \mathbf{C}] \end{align*} \]
 </p>
 <p>
+  where $\mathbf{A}$, $\mathbf{B}$ and $\mathbf{C}$ are the vector coefficients
+  simplfied from their respected brackets:
+</p>
+<p class="math-block">
   \[ \begin{align*} \mathbf{A} & = -\mathbf{P}_0 + 2\mathbf{Q}_0 - 3\mathbf{Q}_1
   + \mathbf{P}_1 \\ \mathbf{B} & = \mathbf{P}_0 - 2\mathbf{Q}_0 + \mathbf{Q}_1
   \\ \mathbf{C} & = -\mathbf{P}_0 + \mathbf{Q}_0 \end{align*} \]
@@ -60,7 +64,7 @@
   b_y) = (a_x/b_x, a_y/b_y)$.
 </p>
 <p>By the quadratic formula, we want that $\mathbf{B}'(t) = 0$, so we have:</p>
-<p>
+<p class="math-block">
   \[ \begin{align*} 0 & = 3[\mathbf{A}t^2 + 2\mathbf{B} t + \mathbf{C}] \\ 0 & =
   \mathbf{A}t^2 + 2\mathbf{B} t + \mathbf{C} \\ 0 & = t^2 + 2
   \frac{\mathbf{B}}{\mathbf{A}}t + \frac{ \mathbf{C} }{ \mathbf{A} } = t^2 + 2
@@ -70,7 +74,7 @@
   where $\mathbf{B}^* = \mathbf{B} / \mathbf{A}$ and $\mathbf{C}^* = \mathbf{C}
   / \mathbf{A}$. We'll complete the square to simplify:
 </p>
-<p>
+<p class="math-block">
   \[ \begin{align*} 0 & = (t + \mathbf{B}^*)^2 - (\mathbf{B}^*)^2 + \mathbf{C}^*
   \\ (t + \mathbf{B}^*)^2 & = (\mathbf{B}^*)^2 - \mathbf{C}^* \\ t & =
   \mathbf{B}^* \pm \sqrt{ (\mathbf{B}^*)^2 - \mathbf{C}^* } = \frac{\mathbf{B}
@@ -89,7 +93,7 @@
   curve, one pair for each coordinate, let us rewrite it in terms of a vector
   $\mathbf{T}$:
 </p>
-<p>
+<p class="math-block">
   \[ \mathbf{T} = \frac{\mathbf{B} \pm \sqrt{ \mathbf{B}^2 - \mathbf{AC}
   }}{\mathbf{A}} \]
 </p>
@@ -101,10 +105,10 @@
 </p>
 <p>
   The code from here is straightforward. We apply the above values and compute
-  \mathbf{T} directly in code. Further simplification doesn't help us much.
+  $\mathbf{T}$ directly in code. Further simplification doesn't help us much.
   Though I've left the below derivation for those who are interested.
 </p>
-<p>
+<p class="math-block">
   \[ \begin{align*} \mathbf{B}^2 & = ( \mathbf{P}_0 - 2\mathbf{Q}_0 +
   \mathbf{Q}_1 )^2 = ( \mathbf{P}_0 - 2\mathbf{Q}_0 + \mathbf{Q}_1 )(
   \mathbf{P}_0 - 2\mathbf{Q}_0 + \mathbf{Q}_1 ) \\ & = (\mathbf{P}_0^2 -
@@ -134,7 +138,9 @@
   apply the values for $\mathbf{A}$, $\mathbf{B}$ and $\mathbf{C}$ directly in
   code.
 </p>
-<pre><code class="language-python">def turning_points_t(p0, q0, q1, p1):
+<pre
+  class="code-block"
+><code class="language-python">def turning_points_t(p0, q0, q1, p1):
     a = - p0 + 2 * q0 - 3 * q1 + p1
     b = p0 - 2 * q0 + q1
     c = - p0 + q0
@@ -154,7 +160,7 @@
   need to compare the following 4 points, and get the minimum and maximum in
   both x- and y-coordinates:
 </p>
-<p>
+<p class="math-block">
   \[ \{ \mathbf{P}_0, \mathbf{B}(\mathbf{T}[0]), \mathbf{B}(\mathbf{T}[1]),
   \mathbf{P}_1 \} \]
 </p>
@@ -162,7 +168,7 @@
   We can however, ignore if they are below zero or above one. We will work
   around this as shown:
 </p>
-<pre><code class="language-python">def bounds(p0, r, s, p1):
+<pre class="code-block"><code class="language-python">def bounds(p0, r, s, p1):
     # r and s are bezier(t), where t are the turning points
     lo = min(p0, r, s, p1)
     hi = max(p0, r, s, p1)
@@ -174,7 +180,9 @@
   the y-coordinate.
 </p>
 <p>Putting it all together, we get the following:</p>
-<pre><code class="language-python">def bezier_bounds(p0, q0, q1, q1):
+<pre
+  class="code-block"
+><code class="language-python">def bezier_bounds(p0, q0, q1, q1):
     bezier = lambda t: (1 - t) ** 3 * p0 + 3 * (1 - t) ** 2 * t * q0 \
                         + 3 * (1 - t) * t ** 2 * q1 + t ** 3 * p1
 
