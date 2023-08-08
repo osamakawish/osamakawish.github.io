@@ -61,11 +61,15 @@ code {
 .code-block {
   overflow-y: hidden;
   overflow-x: auto;
-  padding: 0 1rem;
+  /* padding: 0 1rem; */
   box-shadow: 0 0 1rem #000;
   width: 95%;
   align-self: center;
   justify-self: center;
+}
+
+.math-block .MJX-TEX {
+  margin: 0 24px !important;
 }
 
 .header-content {
