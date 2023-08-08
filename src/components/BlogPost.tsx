@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "./BlogPost.css";
 import { useParams } from "react-router-dom";
 import { blogPosts, GetDateFromId } from "../BlogPostData";
+import LinkButton from "./LinkButton";
+import { links } from "../../globals";
 
 export type BlogPostProps = {
   postId: string;
@@ -117,6 +119,14 @@ export default function BlogPost() {
           {date && <p className="blog-date">{date.toDateString()}</p>}
           <div className="blog-children">{renderedContent}</div>
         </div>
+        {Object.entries(post.links).map(([name, url]) => (
+          <LinkButton
+            key={name}
+            url={url}
+            icon={links[name].icon}
+            children={links[name].text}
+          />
+        ))}
         <div className="spacer-xl" />
       </div>
     </>

@@ -1,11 +1,16 @@
 import blogPostsJson from "./blog-data.json";
 
+export type Links = {
+  [name: string]: string;
+};
+
 export type BlogPostData = {
   previewImgFile: string;
   title: string;
   category: string;
   tags: string[];
   previewText: string[];
+  links: Links;
 };
 
 export type BlogPostDictionary = {
