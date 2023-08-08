@@ -94,8 +94,6 @@ export default function BlogPost() {
     return <div>Error loading post: {error.message}</div>;
   }
 
-  const renderedContent = <div />;
-
   const { title, previewImgFile } = post;
   const date = GetDateFromId(id);
   console.log(`BlogPost log 5: date is ${date}, id is ${id}.`);
