@@ -37,7 +37,7 @@
   position: fixed;
   top: 50%;
   transform: translate(0%, -50%);
-  width: 48px;
+  width: min(5%, 48px);
   transition: transform 0.3s ease;
 }
 

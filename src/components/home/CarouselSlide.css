@@ -3,7 +3,7 @@
   width: 55%;
   height: 90%;
   position: fixed;
-  right: 42%;
+  /* right: 42%; */
   top: 50%;
   transform: translate(0%, -50%);
   z-index: -1;
@@ -32,13 +32,13 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
 }
 
 @media screen and (max-width: 768px) {
   .carousel-image {
     transform: translate(-50%, 0%);
-    top: 5%;
+    top: 18px;
     left: 50%;
     width: 90%;
     height: 60%;
@@ -48,13 +48,13 @@
     width: 90%;
     left: 50%;
     transform: translate(-50%, 0);
-    bottom: 60px;
+    bottom: 30px;
     padding: 12px;
-    justify-content: end;
+    justify-content: center;
   }
 
   .text-block h1 {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .text-block p {
