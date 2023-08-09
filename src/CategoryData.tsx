@@ -5,6 +5,7 @@ type DataByCategory = {
 export const categoryColors: DataByCategory = {
   Project: "#f66",
   Algorithm: "#6b6",
+  Idea: "#fb6",
 };
 
 export const categoryPlurals: DataByCategory = {

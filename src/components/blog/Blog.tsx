@@ -14,6 +14,7 @@ const videoIds = [
 ];
 
 const previewBlogs = [
+  "2023-08-08-1-euclid-complex-multiplication",
   "2023-08-01-1-animperium",
   "2023-08-02-5-square-hackathon",
   "2023-08-02-2-bezier-turning-points",

@@ -1,4 +1,15 @@
 {
+  "2023-08-08-1-euclid-complex-multiplication": {
+    "title": "Complex Multiplication in Euclidean Geometry",
+    "previewImgFile": "/blog/images/2023-08-08-1-euclid-complex-multiplication.webp",
+    "category": "Idea",
+    "tags": [],
+    "previewText": [
+      "I multiply two distinct numbers in the complex plane using only a straightedge and compass, according to the rules of Euclidean Geometry.",
+      "I did it with various restrictions, particularly so that it can be taught to middle school students and high school students."
+    ],
+    "links": {}
+  },
   "2023-08-08-1-harmonic-operator-research": {
     "title": "The Harmonic Operator",
     "previewImgFile": "",

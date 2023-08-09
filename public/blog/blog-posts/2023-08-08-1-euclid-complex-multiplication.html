@@ -1,0 +1,188 @@
+<!-- Take the euclidean mutliplication latex file and convert it into html  -->
+<h2>Introduction</h2>
+<p>
+  Throughout this proof, I will not use the \( re^{i\theta} \) formulation of
+  complex coordinates, to keep things straightforward. The goal here is to
+  develop a construction that could have been developed before such a
+  formulation was known.
+</p>
+<p>
+  I prefer to make this proof as "primitive" as possible, for a variety of
+  reasons:
+</p>
+<ol>
+  <li>It develops an intuition regarding complex multiplication,</li>
+  <li>
+    It shows that if complex numbers were discovered earlier, that
+    multiplication of complex numbers could still have been defined the way we
+    use them today.
+  </li>
+  <li>
+    It will allow for an earlier introduction to complex multiplication in
+    education, which may prove to be useful.
+  </li>
+</ol>
+<p>
+  For these reasons, I prefer to refrain from using concepts that are too
+  advanced, such as trigonometric functions or matrix multiplication - or at
+  least I will not rely on those concepts directly. I will mention matrices
+  briefly however, only to make the connection between the Euclidean
+  construction of the product of complex numbers, and the usual algebraic
+  product that we use. The use of linear transformation severely simplifies the
+  proof.
+</p>
+<h2>Notation</h2>
+<p>
+  Lines in complex plane will be denotes via a pair of complex numbers \( (x, y)
+  \), where both \( x \) and \( y \) are complex. This denotes the line from \(
+  x \) to \( y \).
+</p>
+<p>
+  The length of a line \( (x,y) \), or it's distance from the origin of the
+  complex plane \( O(0,0) \), is denoted \( |(x,y)| \).
+</p>
+<p>
+  Triangles will be denoted with 3 complex numbers \( \triangle(x, y, z) \).
+  Again, the 3 variables are the vertices defining the triangle.
+</p>
+<p>
+  Similarity of triangles is stated via "\( \sim \)": \( \triangle(u,v,w) \sim
+  \triangle(x,y,z) \).
+</p>
+<p>
+  Congruency is declared via "\( \cong \)": \( \triangle(u,v,w) \cong
+  \triangle(x,y,z) \).
+</p>
+<p>
+  Functions are declared via the usual notation \( F(x)=y \). Specific mappings
+  of a function will use the notation \( F:a\mapsto b \).
+</p>
+<h2>Underlying Intuition</h2>
+<p>
+  The intuition remains much the same as the computing the product of real
+  numbers via classical Euclidean Geometry: To compute \( a\cdot b \), create a
+  linear mapping \( T \) such that \( T:1\mapsto a \). Then apply the same
+  linear mapping to \( b \). The main difference: our attention is towards
+  complex numbers rather than real numbers.
+</p>
+<p>
+  Recall that any linear mapping \( T \) conserves scaling (ie. \( T(x) \) such
+  that \( T(cx)=cT(x) \)). If \( T \) maps \( T:1\mapsto a \), then it also maps
+  \( T:b\mapsto ab \) since \( T(b)=T(1\cdot b)=T(1)\cdot b = ab \). Euclidean
+  constructions that multiply lengths of line segments focus on producing such
+  transformations. I am applying this logic to complex numbers, but working with
+  Euclidean constructions to make things straightforward and as elementary as
+  possible.
+</p>
+<p>
+  It is this geometric definition that I will provide that I believe is more
+  fitting to cover our modern notion of multiplication, one that includes
+  complex numbers.
+</p>
+<h2>Euclidean Construction</h2>
+<p>Let \( a \) and \( b \) be 2 complex numbers.</p>
+<ol>
+  <li>Mark points 0, 1, \( a \), and \( b \), on the complex plane.</li>
+  <li>
+    <p>Draw triangles \( \triangle(0,1,a) \) and \( \triangle(0,1,b) \).</p>
+    <img
+      style="width: 480px"
+      src="/blog/images/2023-08-02-1-euclid-complex-multiplication/1 Triangles.webp"
+      alt="Triangles triangle (0, 1, a) and triangle (0, 1, b) in the complex plane."
+    />
+  </li>
+  <li>
+    <p>
+      Draw circle centred at \( 0 \), using the line \( (0,1) \) as your radius.
+      Mark the intersection with the line \( (0,a) \) as \( 1' \). Extend \(
+      (0,a) \) if necessary.
+    </p>
+    <img
+      style="width: 480px"
+      src="/blog/images/2023-08-02-1-euclid-complex-multiplication/2 Unit Circle.webp"
+      alt="Drawing unit circle to find point 1 prime"
+    />
+  </li>
+  <li>
+    <p>
+      Measure lines \( r=|(0,b)| \) and \( s=|(1,b)| \) with a compass. Then,
+      draw a circle of radius \( r \) with centre \( 0 \), and another circle
+      about radius \( s \) with centre \( 1' \). Mark this intersection as \(
+      1'b \).
+    </p>
+    <img
+      style="width: 480px"
+      src="/blog/images/2023-08-02-1-euclid-complex-multiplication/3 SSS y1prime.webp"
+      alt="Finding 1 prime y in the complex plane."
+    />
+    <p>
+      Note that by side-side-side, \( \triangle(0,1,b) \cong \triangle(0,1',1'b)
+      \), as \( |(0,1)|=|(0,1')| \), \( |(1,b)|=|(1',1'b)| \), and \(
+      |(0,b)|=|(0,1'b)| \).
+    </p>
+  </li>
+  <li>
+    <p>
+      Draw a line parallel to \( (1',1'b) \) that intersects with line \(
+      (0,1'b) \). Extend \( (0,1'b) \) if necessary. Mark the point of
+      intersection of these lines as \( z \).
+    </p>
+    <img
+      style="width: 480px"
+      src="/blog/images/2023-08-02-1-euclid-complex-multiplication/4 Result.webp"
+      alt="Finding the point z in the complex plane"
+    />
+  </li>
+</ol>
+<h2>Algebraic Proof of Construction</h2>
+<p>
+  Claim: \( z=a\cdot b \). That is, \( z \) is the complex product of the
+  numbers \( a=a_0 + ia_1 \) and \( b=b_0 + ib_1 \) in the complex plane. More
+  specifically,
+</p>
+<p class="math-block">
+  \[ z=ab=(a_0+ia_1)(b_0+ib_1)=(a_0b_0 -a_1b_1) + i(a_1b_0 + a_0b_1) \]
+</p>
+<p>
+  Although the Euclidean construction in the previous section can be treated as
+  a definition, I'd like to ensure that it corresponds to our usual notion of a
+  product of two complex numbers.
+</p>
+<p>
+  This proof will first determine a linear transformation \( T \) such as \(
+  T:1\mapsto a \) (which will capture the rotation and scaling simultaneously -
+  as opposed to in individual steps as in the construction).
+</p>
+<p>The transformation will take the following form:</p>
+<span class="math-block"> \[ T(x,y) = (Ax-By, Bx+Ay) \] </span>
+<p>
+  I will ignore proving that this preserves scaling and rotations as that can be
+  covered in linear algebra courses, given that this corresponds to the
+  transformation matrix corresponding to a scaling and rotation combined:
+</p>
+<span class="math-block">
+  \[ \begin{pmatrix} A & -B \\ B & A \end{pmatrix} = (A^2 + B^2) \begin{pmatrix}
+  \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} \]
+</span>
+<p>
+  Using a function \(T:\mathbf{R}^2\to\mathbf{R}^2\) as defined by \(T(x,y)\)
+  rather than a scaled rotation matrix allows us to skip the need for
+  introducing trigonometry or linear algebra, as the same linear transformation
+  involving rotations and scaling was applied on all 3 points of
+  \(\triangle(0,1,b)\).
+</p>
+<p>
+  Returning to the proof, we first map \(1\mapsto a=(a_0,a_1)\) (as done in the
+  construction):
+</p>
+<span class="math-block"> \[ T(1,0) = (A-0,B+0) = (A,B) = (a_0, a_1) \] </span>
+<p>This gives us our coefficients. Thus:</p>
+<span class="math-block"> \[ T(x,y) = (a_0x - a_1y, a_1x + a_0y) \] </span>
+<p>Applying it to \(b\):</p>
+<span class="math-block">
+  \[ T(b_0, b_1) = (a_0b_0 - a_1b_1, a_1b_0 + a_0b_1) \]
+</span>
+<p>
+  In the complex plane, this corresponds to \(z=(a_0b_0 -a_1b_1) + i(a_1b_0 +
+  a_0b_1)\), which is what we desired.
+</p>
