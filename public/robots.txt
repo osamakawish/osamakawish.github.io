@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /blog/post/2023-08-08-1-harmonic-operator-research
