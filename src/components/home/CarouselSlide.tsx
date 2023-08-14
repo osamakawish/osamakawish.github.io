@@ -21,7 +21,11 @@ function CarouselSlide({
 
   return (
     <div className={`carousel-slide ${className || ""}`}>
-      <img src={imgFile} className="carousel-image" />
+      <img
+        src={imgFile}
+        className="carousel-image"
+        alt="carousel image associated with this slide"
+      />
       <div className="text-block">
         {header}
         {children}
