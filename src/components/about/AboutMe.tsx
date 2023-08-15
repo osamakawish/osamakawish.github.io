@@ -8,7 +8,7 @@ function AboutMe() {
 
   const links: [string, string][] = [
     ["gmail", "mailto:osamakawish@gmail.com"],
-    ["linkedin", "https://www.linkedin.com/in/osama-kawish-7b0232237/"],
+    ["linkedin", "https://www.linkedin.com/in/osama-kawish/"],
     ["codewars", "https://www.codewars.com/users/osamakawish"],
     ["github", "https://github.com/osamakawish"],
   ];
