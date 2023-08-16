@@ -1,21 +1,5 @@
 import DOMPurify from "dompurify";
-
-const langShortForms: { [key: string]: string } = {
-  cpp: "c++",
-  cs: "c#",
-  fs: "f#",
-  objc: "objective-c",
-  vb: "visual basic",
-  py: "python",
-  js: "javascript",
-  ts: "typescript",
-  html: "html",
-  css: "css",
-  xml: "xml",
-  json: "json",
-  md: "markdown",
-  r: "rust",
-};
+import { LANG_SHORT_FORMS } from "../../constants";
 
 export default function ParseBlogPostPurely(text: string) {
   // Replace double new lines with </p><p> and single new lines with a space
@@ -27,7 +11,7 @@ export default function ParseBlogPostPurely(text: string) {
   text = text.replace(
     /```([a-zA-Z0-9-]+)?(\r?\n)([\s\S]*?)\1```/g,
     (_match, lang, _newLine, code) => {
-      const finalLang = langShortForms[lang] || lang;
+      const finalLang = LANG_SHORT_FORMS[lang] || lang;
 
       return `<pre><code ${
         finalLang ? `class="language-${finalLang}"` : ""

@@ -3,22 +3,7 @@ import "./Blog.css";
 import BlogPreview from "./BlogPreview";
 import { useEffect, useState } from "react";
 import VideoModal, { VideoThumbnail } from "./VideoModal";
-
-const videoIds = [
-  "aVwxzDHniEw",
-  "3izFMB91K_Q",
-  "p8u_k2LIZyo",
-  "AE4yzLCuc3A",
-  "ltLUadnCyi0",
-  "x09IsbVZeXo",
-];
-
-const previewBlogs = [
-  "2023-08-08-1-euclid-complex-multiplication",
-  "2023-08-01-1-animperium",
-  "2023-08-02-5-square-hackathon",
-  "2023-08-02-2-bezier-turning-points",
-];
+import { PREVIEW_BLOGS, VIDEO_IDS } from "../../constants";
 
 export default function Blog() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -59,16 +44,10 @@ export default function Blog() {
     <div id="blog-page">
       <div className="page-content">
         <h1 className="blogpage-section-header">Featured Posts</h1>
-        <div className="x-content-list">
-          {previewBlogs.map((id) => (
-            <BlogPreview id={id} />
-          ))}
-        </div>
+        <div className="x-content-list">{PreviewBlogs()}</div>
         <h1 className="blogpage-section-header">Favourite Youtube Videos</h1>
         <div className="x-content-list" id="youtube-video-list">
-          {videoIds.map((videoId) => (
-            <VideoThumbnail openVideo={openVideo} videoId={videoId} />
-          ))}
+          {YouTubeVideos()}
         </div>
         <div className="spacer-xl"></div>
       </div>
@@ -79,4 +58,14 @@ export default function Blog() {
       />
     </div>
   );
+
+  function PreviewBlogs() {
+    return PREVIEW_BLOGS.map((id) => <BlogPreview id={id} />);
+  }
+
+  function YouTubeVideos() {
+    return VIDEO_IDS.map((videoId) => (
+      <VideoThumbnail openVideo={openVideo} videoId={videoId} />
+    ));
+  }
 }

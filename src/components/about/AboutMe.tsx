@@ -4,7 +4,6 @@ import { LINKS } from "../../constants";
 
 function AboutMe() {
   const title = "Osama Kawish";
-  const previewImgFile = "/about-bg.webp";
   const date = new Date("2023-07-28");
 
   return (
@@ -12,7 +11,7 @@ function AboutMe() {
       <div className="top-images">
         <img
           className="preview-img"
-          src={previewImgFile}
+          src="/about-bg.webp"
           alt="night stars as a cover background"
         />
         <img
