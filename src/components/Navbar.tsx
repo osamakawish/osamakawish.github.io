@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { pagePathsToTitles } from "../constants";
+import { PAGE_PATH_TITLES } from "../constants";
 import { Link } from "react-router-dom";
 
 type NavbarProps = {
@@ -34,7 +34,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
 
   return (
     <ul className="custom-navbar">
-      {Object.entries(pagePathsToTitles).map(([pagePath, pageTitle]) => (
+      {Object.entries(PAGE_PATH_TITLES).map(([pagePath, pageTitle]) => (
         <NavTitle
           key={pagePath}
           pageTitle={pageTitle}

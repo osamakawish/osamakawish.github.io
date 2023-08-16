@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./components/home/Home";
 import Blog from "./components/blog/Blog";
 import AboutMe from "./components/about/AboutMe";
-import { pagePathsToTitles } from "./constants";
+import { PAGE_PATH_TITLES } from "./constants";
 import "./App.css";
 import BlogPost from "./components/blog/BlogPost";
 import NotFound from "./components/NotFound";
@@ -25,7 +25,7 @@ function App() {
 
 function AppWithRouter() {
   const location = useLocation();
-  const currentPage = pagePathsToTitles[location.pathname] || "Unknown Page";
+  const currentPage = PAGE_PATH_TITLES[location.pathname] || "Unknown Page";
 
   return (
     <>

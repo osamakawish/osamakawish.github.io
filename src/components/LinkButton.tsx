@@ -1,5 +1,5 @@
 import "./LinkButton.css";
-import { links } from "../../globals";
+import { LINK_DATA } from "../constants";
 
 type LinkButtonProps = {
   name: string;
@@ -7,7 +7,7 @@ type LinkButtonProps = {
 };
 
 export default function LinkButton({ name, url }: LinkButtonProps) {
-  const link = links[name];
+  const link = LINK_DATA[name];
   const icon = link?.icon;
   const text = link?.text;
 

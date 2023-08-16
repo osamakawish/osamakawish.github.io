@@ -1,17 +1,11 @@
 import "./AboutMe.css";
 import LinkButton from "../LinkButton";
+import { LINKS } from "../../constants";
 
 function AboutMe() {
   const title = "Osama Kawish";
   const previewImgFile = "/about-bg.webp";
   const date = new Date("2023-07-28");
-
-  const links: [string, string][] = [
-    ["gmail", "mailto:osamakawish@gmail.com"],
-    ["linkedin", "https://www.linkedin.com/in/osama-kawish/"],
-    ["codewars", "https://www.codewars.com/users/osamakawish"],
-    ["github", "https://github.com/osamakawish"],
-  ];
 
   return (
     <>
@@ -32,11 +26,7 @@ function AboutMe() {
           <div className="header-content">
             <h1>{title}</h1>
             {date && <p className="blog-date">{date.toDateString()}</p>}
-            <div className="about-links">
-              {links.map(([name, url]) => (
-                <LinkButton key={name} name={name} url={url} />
-              ))}
-            </div>
+            <div className="about-links">{LinkButtons()}</div>
           </div>
           <div className="blog-children">
             <p>
@@ -93,6 +83,12 @@ function AboutMe() {
       </div>
     </>
   );
+
+  function LinkButtons() {
+    return LINKS.map(([name, url]) => (
+      <LinkButton key={name} name={name} url={url} />
+    ));
+  }
 }
 
 export default AboutMe;
