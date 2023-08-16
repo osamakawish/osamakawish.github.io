@@ -3,8 +3,7 @@ import LinkButton from "../LinkButton";
 import { LINKS } from "../../constants";
 
 function AboutMe() {
-  const title = "Osama Kawish";
-  const date = new Date("2023-07-28");
+  const DATE_UPDATED = new Date("2023-07-28");
 
   return (
     <>
@@ -23,8 +22,10 @@ function AboutMe() {
       <div className="post-content-flex" style={{ top: "240px" }}>
         <div className="post-content">
           <div className="header-content">
-            <h1>{title}</h1>
-            {date && <p className="blog-date">{date.toDateString()}</p>}
+            <h1>Osama Kawish</h1>
+            {DATE_UPDATED && (
+              <p className="blog-date">{DATE_UPDATED.toDateString()}</p>
+            )}
             <div className="about-links">{LinkButtons()}</div>
           </div>
           <div className="blog-children">
