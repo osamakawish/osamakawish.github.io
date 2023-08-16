@@ -29,8 +29,6 @@ export default function VideoModal({
   videoId,
   onClose,
 }: VideoModalProps) {
-  console.log("Modal isOpen:", isOpen);
-
   useEffect(() => {
     function handleKeydown(event: KeyboardEvent) {
       if (event.key === "Escape") {

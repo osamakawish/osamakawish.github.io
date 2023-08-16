@@ -13,12 +13,9 @@ import { pagePathsToTitles } from "./constants";
 import "./App.css";
 import BlogPost from "./components/blog/BlogPost";
 import NotFound from "./components/NotFound";
-import { useEffect } from "react";
 import { blogPosts } from "./BlogPostData";
 
 function App() {
-  console.log("App rendering 1");
-
   return (
     <Router>
       <AppWithRouter />
@@ -29,8 +26,6 @@ function App() {
 function AppWithRouter() {
   const location = useLocation();
   const currentPage = pagePathsToTitles[location.pathname] || "Unknown Page";
-
-  console.log("App rendering 2");
 
   return (
     <>
@@ -47,28 +42,12 @@ function AppWithRouter() {
 }
 
 function BlogPostWrapper() {
-  console.log("BlogPostWrapper rendering");
-
   const { id } = useParams();
 
-  if (!id) {
-    return <div>Invalid blog post ID</div>;
+  if (!id || !blogPosts[id]) {
+    return <NotFound />;
   }
 
-  const post = blogPosts[id];
-
-  console.log(`BlogPostWrapper log 2: id: ${id}, post: ${post}`);
-  const location = useLocation();
-
-  useEffect(() => {
-    console.log("Current route:", location.pathname);
-  }, [location]);
-
-  if (!post) {
-    return <div>Invalid blog post ID</div>;
-  }
-
-  console.log("BlogPostWrapper log 3: Returning BlogPost.");
   return <BlogPost />;
 }
 

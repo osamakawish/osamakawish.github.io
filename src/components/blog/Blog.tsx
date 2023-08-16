@@ -21,7 +21,6 @@ const previewBlogs = [
 ];
 
 export default function Blog() {
-  console.log("Blog rendering");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentVideo, setCurrentVideo] = useState("");
 
@@ -39,7 +38,6 @@ export default function Blog() {
       scrollContainer.addEventListener("wheel", scrollHandler);
     });
 
-    // Cleanup on component unmount
     return () => {
       scrollContainers.forEach((scrollContainer) => {
         scrollContainer.removeEventListener("wheel", scrollHandler);
