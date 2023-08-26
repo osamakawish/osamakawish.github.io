@@ -4,6 +4,7 @@ import "./buttons/CarouselSlideButton";
 import SlideButtonGroup from "./buttons/SlideButtonGroup";
 import "./Home.css";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 type CarouselSlideData = {
   imgFile: string;
@@ -111,6 +112,12 @@ function Home() {
 
   return (
     <>
+      <Helmet>
+        <meta
+          name="description"
+          content="Osama Kawish is a proficient software developer who is fluent in .Net/C# and Python who graduated from University of Toronto with a Bachelor's of Science (Honours) in Mathematics and Computer Science in July 2017."
+        />
+      </Helmet>
       <div className="carousel-container">
         <CarouselSlide
           key={slideIndex}
