@@ -1,5 +1,14 @@
-import { writeFileSync } from "fs";
-import blogPostsJson from "./src/blog-data.json" assert { type: "json" };
+import { writeFileSync, readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+// Since __dirname is not available in ES Modules, we need to derive it
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Read and parse the JSON data
+const rawData = readFileSync(`${__dirname}/src/blog-data.json`, "utf8");
+const blogPostsJson = JSON.parse(rawData);
 
 function generateSitemap() {
   const baseUrl = "https://osamakawish.com";
@@ -35,7 +44,7 @@ function generateSitemap() {
   sitemap += "\n</urlset>";
 
   // Write to sitemap.xml
-  writeFileSync("./public/sitemap.xml", sitemap);
+  writeFileSync(`${__dirname}/public/sitemap.xml`, sitemap);
   console.log("Sitemap generated!");
 }
 
