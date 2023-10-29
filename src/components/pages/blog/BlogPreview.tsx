@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./BlogPreview.css";
-import { blogPosts } from "../../BlogPostData";
-import { categoryColors } from "../../CategoryData";
+import { blogPosts } from "../../../BlogPostData";
+import { categoryColors } from "../../../CategoryData";
 
 export default function BlogPreview({ id }: { id: string }) {
   const post = blogPosts[id];

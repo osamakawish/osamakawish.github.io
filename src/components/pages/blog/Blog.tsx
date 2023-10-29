@@ -3,7 +3,7 @@ import "./Blog.css";
 import BlogPreview from "./BlogPreview";
 import { useEffect, useState } from "react";
 import VideoModal, { VideoThumbnail } from "./VideoModal";
-import { PREVIEW_BLOGS, VIDEO_IDS } from "../../constants";
+import { PREVIEW_BLOGS, VIDEO_IDS } from "../../../constants";
 
 export default function Blog() {
   const [isModalOpen, setIsModalOpen] = useState(false);

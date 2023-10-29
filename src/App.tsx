@@ -7,13 +7,14 @@ import {
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./components/home/Home";
-import Blog from "./components/blog/Blog";
-import AboutMe from "./components/about/AboutMe";
+import Blog from "./components/pages/blog/Blog";
+import AboutMe from "./components/pages/about/AboutMe";
 import { PAGE_PATH_TITLES } from "./constants";
 import "./App.css";
-import BlogPost from "./components/blog/BlogPost";
+import BlogPost from "./components/pages/blog/BlogPost";
 import NotFound from "./components/NotFound";
 import { blogPosts } from "./BlogPostData";
+import HireMe from "./components/pages/hire/HireMe";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function AppWithRouter() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/hire" element={<HireMe />} />
         <Route path="/blog/post/:id" element={<BlogPostWrapper />} />
         <Route path="/about" element={<AboutMe />} />
         <Route path="*" element={<NotFound />} />

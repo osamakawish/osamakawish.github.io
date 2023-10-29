@@ -1,6 +1,6 @@
 import "./AboutMe.css";
-import LinkButton from "../LinkButton";
-import { LINKS } from "../../constants";
+import LinkButton from "../../LinkButton";
+import { LINKS } from "../../../constants";
 
 function AboutMe() {
   const DATE_UPDATED = new Date("2023-07-28");

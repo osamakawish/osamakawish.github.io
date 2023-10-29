@@ -1,5 +1,5 @@
 import DOMPurify from "dompurify";
-import { LANG_SHORT_FORMS } from "../../constants";
+import { LANG_SHORT_FORMS } from "../../../constants";
 
 export default function ParseBlogPostPurely(text: string) {
   // Replace double new lines with </p><p> and single new lines with a space

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./BlogPost.css";
 import { useParams } from "react-router-dom";
-import { blogPosts, GetDateFromId } from "../../BlogPostData";
-import LinkButton from "../LinkButton";
+import { blogPosts, GetDateFromId } from "../../../BlogPostData";
+import LinkButton from "../../LinkButton";
 
 export type BlogPostProps = {
   postId: string;

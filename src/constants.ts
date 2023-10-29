@@ -28,6 +28,7 @@ export const LINK_DATA: LinkData = _linkData;
 export const PAGE_PATH_TITLES: { [key: string]: string } = {
   "/": "Home",
   "/blog": "Blog",
+  "/hire": "Hire Me",
   "/about": "About Me",
 };
 
