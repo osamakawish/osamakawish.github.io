@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import PriceCard from "./PriceCard";
-import { jobTypes, JobTypes, prices, PriceTier } from "./Prices";
+import { jobTypes, JobType, prices, PriceTier, priceTiers } from "./Prices";
 
 export default function HireMe() {
   const [searchParams, _] = useSearchParams();
@@ -16,14 +16,9 @@ export default function HireMe() {
       ))}
 
       {jobType &&
-        jobTypes.forEach((jobType) => {
-          prices[jobType as keyof typeof prices].map((priceInfo, index) => (
-            <PriceCard
-              key={index}
-              {...priceInfo}
-              features={priceInfo.features}
-            />
-          ));
+        priceTiers.forEach((priceTier) => {
+          const priceInfo = prices[jobType as JobType][priceTier as PriceTier];
+          <PriceCard {...priceInfo} />;
         })}
     </>
   );
