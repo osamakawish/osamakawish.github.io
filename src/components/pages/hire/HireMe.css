@@ -1,3 +1,27 @@
+:root {
+  --input-bg: #222;
+  --input-color: #fff;
+  --primary-color: tomato;
+}
+
+/* Change background color of autofilled inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--input-bg) inset !important;
+  -webkit-text-fill-color: var(--input-color) !important;
+}
+
+/* For Firefox */
+input:-moz-autofill,
+input:-moz-autofill:hover,
+input:-moz-autofill:focus,
+input:-moz-autofill:active {
+  background: var(--input-bg) !important;
+  color: var(--input-color) !important;
+}
+
 #hire-me-content {
   display: flex;
   flex-direction: column;
@@ -41,8 +65,8 @@
 #contact-form textarea,
 #contact-form button {
   margin-bottom: 1rem;
-  background: #222 !important;
-  color: white;
+  background: var(--input-bg);
+  color: var(--input-color);
   border: none;
   padding: 6px;
 }
@@ -50,20 +74,26 @@
 #contact-form input:focus,
 #contact-form textarea:focus {
   outline: none;
-  border: tomato 1px solid;
+  border: var(--primary-color) 1px solid;
+}
+
+#contact-form textarea {
+  height: 10rem;
 }
 
 #contact-form button {
   margin: 12px;
   align-self: center;
-  width: 100px;
-  height: 2rem;
+  width: 200px;
+  height: 3rem;
+  padding: 0;
 }
 
 #contact-form button:hover {
-  background: #202020;
-  color: tomato;
+  background: #1a1a1a;
+  color: var(--primary-color);
   transform: scale(1.08);
+  border: var(--primary-color) 1px solid;
 }
 
 .spacer-xl {
