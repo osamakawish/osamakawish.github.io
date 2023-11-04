@@ -1,0 +1,23 @@
+#hire-me-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#jobTypeButtonGroup {
+  display: flex;
+  width: 60%;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+#priceTierGroup {
+  display: flex;
+  width: 60%;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}

@@ -1,14 +1,27 @@
 import "./PriceCard.css";
-import { PriceInfo } from "./Prices";
+import { PriceInfo, PriceTier } from "./Prices";
+
+type Props = PriceInfo & {
+  priceTier: PriceTier;
+  selected: boolean;
+  updateParams: (newTier: PriceTier) => void;
+};
 
 export default function PriceCard({
+  priceTier,
   title,
   price,
   description,
   features,
-}: PriceInfo) {
+  selected,
+  updateParams,
+}: Props) {
   return (
-    <div>
+    <div
+      className="price-card"
+      id={selected ? "selectedPriceTier" : ""}
+      onClick={() => updateParams(priceTier)}
+    >
       <h2>{title}</h2>
       <h4>{price}</h4>
       <p>{description}</p>

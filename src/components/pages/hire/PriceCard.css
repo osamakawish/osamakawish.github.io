@@ -1,0 +1,24 @@
+.price-card {
+  width: min(30%, 300px);
+  background: #1a1a1a;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin: 10px;
+  padding: 20px;
+  display: inline-block;
+}
+
+.price-card:hover:not(#selectedPriceTier) {
+  background: #222;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: black 0px 0px 20px 6px;
+  cursor: pointer;
+}
+
+#selectedPriceTier {
+  color: tomato;
+  background: #202020;
+  border: tomato 1px solid;
+  transform: scale(1.05);
+}
