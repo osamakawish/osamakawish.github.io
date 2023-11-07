@@ -129,9 +129,10 @@ export default function HireMe() {
 
       <form
         name="contact"
-        data-netlify
         netlify-honeypot="bot-field"
         id="contact-form"
+        netlify
+        {...({} as any)}
       >
         <p hidden>
           <label>
