@@ -1,9 +1,9 @@
 .jobTypeButton {
-  width: 200px;
-  height: 60px;
+  padding: 6px 36px;
   background: transparent;
   color: white;
   border: none;
+  margin: 0 1rem;
 }
 
 .jobTypeButton:hover:not(#selectedJobType) {

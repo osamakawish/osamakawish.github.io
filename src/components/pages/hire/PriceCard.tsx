@@ -22,14 +22,22 @@ export default function PriceCard({
       id={selected ? "selectedPriceTier" : ""}
       onClick={() => updateParams(priceTier)}
     >
-      <h2>{title}</h2>
-      <h4>{price}</h4>
-      <p>{description}</p>
-      <ul>
-        {features.map((feature, index) => (
-          <li key={index}>{feature}</li>
-        ))}
-      </ul>
+      <img
+        src={`/hire/${priceTier.toLowerCase()}.png`}
+        className="price-tier-image"
+      />
+      <div className="price-card-text">
+        <p className="tier-p">Tier</p>
+        <h1>{priceTier}</h1>
+        <h3>{title}</h3>
+        <h4>{price}</h4>
+        <p>{description}</p>
+        <ul>
+          {features.map((feature, index) => (
+            <li key={index}>{feature}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

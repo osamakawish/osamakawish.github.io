@@ -24,10 +24,13 @@ input:-moz-autofill:active {
 
 #hire-me-content {
   display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 80%;
 }
 
 #hire-me-content section {
@@ -40,7 +43,7 @@ input:-moz-autofill:active {
 
 #jobTypeButtonGroup {
   display: flex;
-  width: 60%;
+  width: 75%;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 1rem;
@@ -48,7 +51,7 @@ input:-moz-autofill:active {
 
 #priceTierGroup {
   display: flex;
-  width: 60%;
+  width: 75%;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 1rem;
@@ -57,7 +60,7 @@ input:-moz-autofill:active {
 #contact-form {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 80%;
   margin-bottom: 1rem;
 }
 
@@ -89,6 +92,22 @@ input:-moz-autofill:active {
   padding: 0;
 }
 
+#instruction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: tomato;
+  font-size: 1rem;
+  filter: contrast(60%);
+  width: 60%;
+  height: 72px;
+  text-wrap: wrap;
+  text-align: center;
+  margin: 1rem;
+  line-height: 100%;
+}
+
 #contact-form button:hover {
   background: #1a1a1a;
   color: var(--primary-color);
@@ -98,4 +117,12 @@ input:-moz-autofill:active {
 
 .spacer-xl {
   height: 12rem;
+}
+
+#special-note {
+  font-size: 0.8rem;
+  filter: contrast(60%);
+  width: 60%;
+  text-wrap: wrap;
+  text-align: center;
 }
