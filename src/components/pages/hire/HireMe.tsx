@@ -11,12 +11,6 @@ export function convertCamelCaseToSpaced(string: string): string {
     .replace(/^./, (str) => str.toUpperCase());
 }
 
-const encode = (data: any) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
-
 export default function HireMe() {
   const [searchParams, setSearchParams] = useSearchParams();
   const jobType = searchParams.get("jobType");
