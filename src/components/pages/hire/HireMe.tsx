@@ -143,6 +143,7 @@ export default function HireMe() {
         <input type="hidden" name="priceTier" value={priceTier || ""} />
         <h5>Name*</h5>
         <input
+          title="Name"
           type="text"
           name="name"
           value={state.name}
@@ -151,6 +152,7 @@ export default function HireMe() {
         />
         <h5>Email*</h5>
         <input
+          title="Email"
           type="email"
           name="email"
           value={state.email}
@@ -159,6 +161,7 @@ export default function HireMe() {
         />
         <h5>Phone</h5>
         <input
+          title="Phone"
           type="tel"
           name="phone"
           value={state.phone}
@@ -166,6 +169,7 @@ export default function HireMe() {
         />
         <h5>Message</h5>
         <textarea
+          title="Message"
           name="message"
           value={state.message}
           onChange={handleInputChange}
