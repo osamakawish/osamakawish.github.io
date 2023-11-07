@@ -34,10 +34,6 @@ export default function HireMe() {
     return setSearchParams(newSearchParams, { replace: true });
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>): void {
-    e.preventDefault();
-  }
-
   function handleInputChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
@@ -135,7 +131,6 @@ export default function HireMe() {
         name="contact"
         data-netlify
         netlify-honeypot="bot-field"
-        onSubmit={handleSubmit}
         id="contact-form"
       >
         <p hidden>
