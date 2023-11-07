@@ -58,7 +58,7 @@ export default function HireMe() {
     } else if (!priceTier) {
       return (
         <div id="instruction">
-          <p>Select a price tier to get started.instruction.</p>
+          <p>Select a price tier to get started.</p>
           <p>
             If you're not sure what to choose, feel free to fill out the contact
             form and I'll get back to you as soon as possible.
@@ -131,8 +131,7 @@ export default function HireMe() {
         name="contact"
         netlify-honeypot="bot-field"
         id="contact-form"
-        netlify
-        {...({} as any)}
+        data-netlify
       >
         <p hidden>
           <label>
