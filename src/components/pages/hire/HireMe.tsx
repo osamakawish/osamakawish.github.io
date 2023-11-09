@@ -141,7 +141,7 @@ export default function HireMe() {
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="jobType" value={jobType || ""} />
         <input type="hidden" name="priceTier" value={priceTier || ""} />
-        <h5>Name*</h5>
+        <label>Name*</label>
         <input
           title="Name"
           type="text"
@@ -150,7 +150,7 @@ export default function HireMe() {
           onChange={handleInputChange}
           required
         />
-        <h5>Email*</h5>
+        <label>Email*</label>
         <input
           title="Email"
           type="email"
@@ -159,7 +159,7 @@ export default function HireMe() {
           onChange={handleInputChange}
           required
         />
-        <h5>Phone</h5>
+        <label>Phone</label>
         <input
           title="Phone"
           type="tel"
@@ -167,7 +167,7 @@ export default function HireMe() {
           value={state.phone}
           onChange={handleInputChange}
         />
-        <h5>Message</h5>
+        <label>Message</label>
         <textarea
           title="Message"
           name="message"
