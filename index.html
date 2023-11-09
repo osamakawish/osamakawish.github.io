@@ -45,6 +45,56 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <form
+      name="contact"
+      netlify-honeypot="bot-field"
+      id="contact-form"
+      data-netlify
+      hidden
+    >
+      <p hidden>
+        <label> Don’t fill this out: <input name="bot-field" /> </label>
+      </p>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="jobType" />
+      <input type="hidden" name="priceTier" />
+      <h5>Name*</h5>
+      <input
+        title="Name"
+        type="text"
+        name="name"
+        value="{state.name}"
+        onChange="{handleInputChange}"
+        required
+      />
+      <h5>Email*</h5>
+      <input
+        title="Email"
+        type="email"
+        name="email"
+        value="{state.email}"
+        onChange="{handleInputChange}"
+        required
+      />
+      <h5>Phone</h5>
+      <input
+        title="Phone"
+        type="tel"
+        name="phone"
+        value="{state.phone}"
+        onChange="{handleInputChange}"
+      />
+      <h5>Message</h5>
+      <textarea
+        title="Message"
+        name="message"
+        value="{state.message}"
+        onChange="{handleInputChange}"
+      />
+      <button type="submit">Send</button>
+    </form>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

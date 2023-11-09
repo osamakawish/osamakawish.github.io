@@ -95,12 +95,7 @@ function Home() {
 
   useEffect(() => {
     if (nextSlideIndex !== null) {
-      const timer = setTimeout(() => {
-        setSlideIndex(nextSlideIndex);
-        setNextSlideIndex(null);
-      }, 500); // Match the duration of your CSS transition
-
-      return () => clearTimeout(timer);
+      setSlideIndex(nextSlideIndex);
     }
   }, [nextSlideIndex]);
 
@@ -123,20 +118,9 @@ function Home() {
           key={slideIndex}
           imgFile={slidesInfo[slideIndex].imgFile}
           header={slidesInfo[slideIndex].header}
-          className={nextSlideIndex !== null ? "fade-out" : "fade-in"}
         >
           {slidesInfo[slideIndex].description}
         </CarouselSlide>
-        {nextSlideIndex !== null && (
-          <CarouselSlide
-            key={nextSlideIndex}
-            imgFile={slidesInfo[nextSlideIndex].imgFile}
-            header={slidesInfo[nextSlideIndex].header}
-            className="fade-in"
-          >
-            {slidesInfo[nextSlideIndex].description}
-          </CarouselSlide>
-        )}
       </div>
 
       <SlideButtonGroup
