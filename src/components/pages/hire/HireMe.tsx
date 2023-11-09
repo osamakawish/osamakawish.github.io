@@ -127,7 +127,7 @@ export default function HireMe() {
         )}
       </section>
 
-      <form netlify-honeypot="bot-field" id="contact-form" data-netlify>
+      <form netlify-honeypot="bot-field" id="contact-form" data-netlify="true">
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="jobType" value={jobType || ""} />
         <input type="hidden" name="priceTier" value={priceTier || ""} />
