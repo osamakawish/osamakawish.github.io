@@ -133,11 +133,6 @@ export default function HireMe() {
         id="contact-form"
         data-netlify
       >
-        <p hidden>
-          <label>
-            Don’t fill this out: <input name="bot-field" />
-          </label>
-        </p>
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="jobType" value={jobType || ""} />
         <input type="hidden" name="priceTier" value={priceTier || ""} />
