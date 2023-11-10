@@ -3,7 +3,7 @@ import PriceCard from "./PriceCard";
 import { jobTypes, JobType, prices, PriceTier, priceTiers } from "./Prices";
 import JobTypeButton from "./JobTypeButton";
 import "./HireMe.css";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 export function convertCamelCaseToSpaced(string: string): string {
   return string
@@ -75,6 +75,10 @@ export default function HireMe() {
     }
   }
 
+  function handleSubmit(event: FormEvent<HTMLButtonElement>): void {
+    event.preventDefault();
+  }
+
   return (
     <div id="hire-me-content">
       <section>
@@ -127,40 +131,50 @@ export default function HireMe() {
         )}
       </section>
 
-      <form netlify-honeypot="bot-field" id="contact-form" data-netlify="true">
+      <form
+        method="post"
+        action="/hire/success"
+        netlify-honeypot="bot-field"
+        id="contact-form"
+        data-netlify="true"
+      >
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="jobType" value={jobType || ""} />
         <input type="hidden" name="priceTier" value={priceTier || ""} />
-        <label>Name*</label>
+        <label htmlFor="name">Name*</label>
         <input
           title="Name"
           type="text"
           name="name"
+          id="name"
           value={state.name}
           onChange={handleInputChange}
           required
         />
-        <label>Email*</label>
+        <label htmlFor="email">Email*</label>
         <input
           title="Email"
           type="email"
           name="email"
+          id="email"
           value={state.email}
           onChange={handleInputChange}
           required
         />
-        <label>Phone</label>
+        <label htmlFor="phone">Phone</label>
         <input
           title="Phone"
           type="tel"
           name="phone"
+          id="phone"
           value={state.phone}
           onChange={handleInputChange}
         />
-        <label>Message</label>
+        <label htmlFor="message">Message</label>
         <textarea
           title="Message"
           name="message"
+          id="message"
           value={state.message}
           onChange={handleInputChange}
         />

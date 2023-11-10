@@ -15,6 +15,7 @@ import BlogPost from "./components/pages/blog/BlogPost";
 import NotFound from "./components/NotFound";
 import { blogPosts } from "./BlogPostData";
 import HireMe from "./components/pages/hire/HireMe";
+import HireSuccess from "./components/pages/hire/success/HireSuccess";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function AppWithRouter() {
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/hire" element={<HireMe />} />
+        <Route path="/hire/success" element={<HireSuccess />}></Route>
         <Route path="/blog/post/:id" element={<BlogPostWrapper />} />
         <Route path="/about" element={<AboutMe />} />
         <Route path="*" element={<NotFound />} />
