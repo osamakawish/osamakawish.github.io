@@ -58,7 +58,7 @@ export default function HireMe() {
     } else if (!priceTier) {
       return (
         <div id="instruction">
-          <p>Select a price tier to get started.</p>
+          <p>Select a price tier to continue.</p>
           <p>
             If you're not sure what to choose, feel free to fill out the contact
             form and I'll get back to you as soon as possible.
