@@ -35,8 +35,8 @@ function AppWithRouter() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/hire/success" element={<HireSuccess />} />
         <Route path="/hire" element={<HireMe />} />
-        <Route path="/hire/success" element={<HireSuccess />}></Route>
         <Route path="/blog/post/:id" element={<BlogPostWrapper />} />
         <Route path="/about" element={<AboutMe />} />
         <Route path="*" element={<NotFound />} />
