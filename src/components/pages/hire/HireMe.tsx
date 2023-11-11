@@ -3,7 +3,7 @@ import PriceCard from "./PriceCard";
 import { jobTypes, JobType, prices, PriceTier, priceTiers } from "./Prices";
 import JobTypeButton from "./JobTypeButton";
 import "./HireMe.css";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 
 export function convertCamelCaseToSpaced(string: string): string {
   return string
@@ -73,10 +73,6 @@ export default function HireMe() {
         </div>
       );
     }
-  }
-
-  function handleSubmit(event: FormEvent<HTMLButtonElement>): void {
-    event.preventDefault();
   }
 
   return (
