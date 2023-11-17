@@ -10,14 +10,16 @@ export default function Navbar({ currentPage }: NavbarProps) {
   function NavTitle({
     pageTitle,
     pagePath,
+    className,
   }: {
     pageTitle: string;
     pagePath: string;
+    className: string;
   }) {
     const isActivePage = currentPage === pageTitle;
 
     return (
-      <li className={isActivePage ? "active-page" : ""}>
+      <li className={(isActivePage ? "active-page" : "") + className}>
         {isActivePage ? (
           <span>{pageTitle}</span>
         ) : (
@@ -39,8 +41,12 @@ export default function Navbar({ currentPage }: NavbarProps) {
           key={pagePath}
           pageTitle={pageTitle}
           pagePath={pagePath}
+          className="page-link"
         ></NavTitle>
       ))}
+      <li className="mode-icon">
+        <img src="\icons\color_modes\settings.png" alt="" className="icon" />
+      </li>
     </ul>
   );
 }
