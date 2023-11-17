@@ -166,11 +166,11 @@ export default function HireMe() {
           value={state.phone}
           onChange={handleInputChange}
         />
-        <label htmlFor="message">Message</label>
+        <label htmlFor="form-message">Message</label>
         <textarea
           title="Message"
           name="message"
-          id="message"
+          id="form-message"
           value={state.message}
           onChange={handleInputChange}
         />
