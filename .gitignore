@@ -25,3 +25,5 @@ dist-ssr
 
 # Afdesign files that allow modification of images
 # *.afdesign
+public/icons/color_modes/light.afdesign~lock~
+public/icons/color_modes/dark.afdesign~lock~

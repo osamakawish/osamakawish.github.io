@@ -14,6 +14,16 @@
   align-items: center;
 }
 
+.mode-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.icon {
+  filter: contrast(0) brightness(200%);
+}
+
+/* custom-navbar li -> page-link */
 .custom-navbar li {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
