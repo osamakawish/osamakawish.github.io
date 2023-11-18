@@ -79,7 +79,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
           className="page-link"
         ></NavTitle>
       ))}
-      <li>
+      {/* <li>
         <button id="color-mode-dropdown-btn" onClick={showDropDown}>
           Mode
         </button>
@@ -88,7 +88,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
             <ModeDropdownContentButton mode={mode} />
           ))}
         </div>
-      </li>
+      </li> */}
     </ul>
   );
 }
