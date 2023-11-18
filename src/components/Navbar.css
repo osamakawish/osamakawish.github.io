@@ -4,7 +4,7 @@
   top: 0;
   background: black;
   color: #888;
-  padding: 6px 12px !important;
+  padding: 0 12px !important;
   margin: 0;
   list-style-type: none;
   z-index: 1000;
@@ -15,26 +15,54 @@
 }
 
 .mode-icon {
-  width: 24px;
-  height: 24px;
+  margin: 3px 12px;
 }
 
-.icon {
-  filter: contrast(0) brightness(200%);
-}
-
-/* custom-navbar li -> page-link */
-.custom-navbar li {
+.page-link {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-  margin: 3px 12px;
+  margin: 6px 12px;
   width: 100px;
 }
 
 /* Only if it doesn't belong to class active-page: */
-.custom-navbar li:not(.active-page):hover {
+.page-link:not(.active-page):hover {
   color: black;
   background: #ddd;
+}
+
+#color-mode-dropdown {
+  position: absolute;
+  z-index: 1000;
+  box-shadow: 0 0 6px black;
+}
+
+#color-mode-dropdown button {
+  text-align: left;
+  display: block;
+  border: none;
+  width: 96px;
+  padding: 12px;
+  background: #333;
+  color: #eee;
+}
+
+#color-mode-dropdown-btn {
+  background: none;
+  border: none;
+  width: 96px;
+  color: #eee;
+  padding: 12px 12px;
+  font-weight: bold;
+  z-index: 1002;
+}
+
+#color-mode-dropdown button:hover {
+  background: #444;
+}
+
+#color-mode-dropdown-btn:hover {
+  background: rgba(255, 99, 71, 0.267);
 }
 
 .active-page {
@@ -45,7 +73,7 @@
   padding: 3px 12px;
 }
 
-.custom-navbar li a {
+.page-link a {
   padding: 3px 12px;
   display: block;
   text-decoration: none;
@@ -53,7 +81,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .custom-navbar li {
+  .page-link {
     margin: 3px 6px;
     width: 12 0px;
   }
