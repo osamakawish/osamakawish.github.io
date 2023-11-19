@@ -13,7 +13,7 @@
 }
 
 #color-mode-dropdown {
-  visibility: visible;
+  visibility: hidden;
   position: absolute;
   z-index: -1000;
 }

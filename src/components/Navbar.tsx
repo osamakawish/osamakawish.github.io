@@ -1,7 +1,7 @@
 import "./Navbar.css";
 import { PAGE_PATH_TITLES } from "../constants";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type NavbarProps = {
   currentPage: string;
@@ -35,12 +35,13 @@ export default function Navbar({ currentPage }: NavbarProps) {
     );
   }
 
-  useState(() => {
+  useEffect(() => {
     const root = document.documentElement;
-    if (root.getAttribute("color-mode") === null) {
-      root.setAttribute("color-mode", "dark");
-    }
-  });
+    const savedMode = localStorage.getItem("color-mode");
+    const colorMode = savedMode || "dark";
+
+    root.setAttribute("color-mode", colorMode);
+  }, []);
 
   function colorModeDropdownButton(e: React.MouseEvent<HTMLButtonElement>) {
     const dropdown = document.getElementById("color-mode-dropdown");
@@ -53,6 +54,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
         : "light";
     }
 
+    localStorage.setItem("color-mode", colorMode);
     root.setAttribute("color-mode", colorMode);
     dropdown?.style.setProperty("visibility", "hidden");
   }
