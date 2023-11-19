@@ -2,7 +2,6 @@
   position: sticky;
   display: flex;
   top: 0;
-  background: black;
   padding: 0 12px !important;
   margin: 0;
   list-style-type: none;
@@ -13,8 +12,29 @@
   align-items: center;
 }
 
+#color-mode-dropdown {
+  position: absolute;
+  z-index: -1000;
+}
+
+#color-mode-dropdown button {
+  text-align: left;
+  display: block;
+  border: none;
+  width: 96px;
+  padding: 12px;
+}
+
 .mode-icon {
   margin: 3px 12px;
+}
+
+#color-mode-dropdown-btn {
+  background: none;
+  border: none;
+  width: 96px;
+  padding: 12px 12px;
+  z-index: 1002;
 }
 
 .page-link {
@@ -24,54 +44,9 @@
   width: 100px;
 }
 
-.page-link:not(.active-page) {
-  color: #888;
-}
-
-/* Only if it doesn't belong to class active-page: */
-.page-link:not(.active-page):hover {
-  color: black;
-  background: #ddd;
-}
-
-#color-mode-dropdown {
-  position: absolute;
-  z-index: 1000;
-  box-shadow: 0 0 6px black;
-}
-
-#color-mode-dropdown button {
-  text-align: left;
-  display: block;
-  border: none;
-  width: 96px;
-  padding: 12px;
-  background: #333;
-  color: #eee;
-}
-
-#color-mode-dropdown-btn {
-  background: none;
-  border: none;
-  width: 96px;
-  color: #eee;
-  padding: 12px 12px;
-  z-index: 1002;
-  list-style-type: circle;
-}
-
-#color-mode-dropdown button:hover {
-  background: #444;
-}
-
-#color-mode-dropdown-btn:hover {
-  background: rgba(255, 99, 71, 0.267);
-}
-
 .active-page {
   font-weight: bold;
   text-decoration-thickness: 2px;
-  color: white;
   text-underline-offset: 4px;
   padding: 3px 12px;
 }
@@ -88,4 +63,76 @@
     margin: 3px 6px;
     width: 12 0px;
   }
+}
+
+[color-mode="dark"] .custom-navbar {
+  background: black;
+}
+
+[color-mode="light"] .custom-navbar {
+  background: #aaa;
+}
+
+[color-mode="dark"] .page-link:not(.active-page) {
+  color: #888;
+}
+
+[color-mode="light"] .page-link:not(.active-page) {
+  color: #666;
+}
+
+[color-mode="dark"] #color-mode-dropdown {
+  box-shadow: 0 6px 6px black;
+}
+
+[color-mode="light"] #color-mode-dropdown {
+  box-shadow: 0 6px 6px #444;
+}
+
+.page-link:not(.active-page):hover {
+  color: black;
+  background: #ddd;
+}
+
+[color-mode="dark"] #color-mode-dropdown button {
+  background: #333;
+  color: #eee;
+}
+
+[color-mode="light"] #color-mode-dropdown button {
+  background: #eee;
+  color: #333;
+}
+
+[color-mode="dark"] #color-mode-dropdown-btn {
+  color: #eee;
+}
+
+[color-mode="light"] #color-mode-dropdown-btn {
+  color: #333;
+}
+
+/* This is for demonstrating how the custom attribute should work. */
+[color-mode="dark"] p {
+  background: orange;
+}
+
+[color-mode="dark"] #color-mode-dropdown button:hover {
+  background: #444;
+}
+
+[color-mode="light"] #color-mode-dropdown button:hover {
+  background: #ccc;
+}
+
+#color-mode-dropdown-btn:hover {
+  background: #ccc;
+}
+
+[color-mode="dark"] .active-page {
+  color: white;
+}
+
+[color-mode="light"] .active-page {
+  color: black;
 }

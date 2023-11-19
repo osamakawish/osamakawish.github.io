@@ -1,6 +1,23 @@
-.horizontalLine {
+[color-mode="dark"] .horizontalLine {
   stroke: #ddd;
+}
+
+[color-mode="light"] .horizontalLine {
+  stroke: #333;
+}
+
+.horizontalLine {
   stroke-width: 2;
+}
+
+[color-mode="dark"] .horizontalLine-active {
+  stroke: #fff;
+  stroke-width: 6;
+}
+
+[color-mode="light"] .horizontalLine-active {
+  stroke: #000;
+  stroke-width: 6;
 }
 
 .horizontalLine-active {

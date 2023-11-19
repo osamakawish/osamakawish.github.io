@@ -11,7 +11,14 @@
 .slide-header h2 {
   margin-bottom: 0;
   font-family: "Times";
+}
+
+[color-mode="dark"] .slide-header h2 {
   color: rgb(238, 238, 238);
+}
+
+[color-mode="light"] .slide-header h2 {
+  color: rgb(28, 28, 28);
 }
 
 .slide-header:hover {
@@ -28,6 +35,10 @@
   top: 50%;
   transform: translate(0%, -50%);
   width: min(5%, 48px);
+}
+
+[color-mode="light"] .arrow-btnx {
+  filter: contrast(1) brightness(0.4);
 }
 
 .arrow-btnx:hover {

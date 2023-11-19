@@ -12,14 +12,28 @@
 .text-block h1 {
   font-size: 60px;
   text-align: left;
+}
+
+[color-mode="dark"] .text-block h1 {
   color: white;
 }
 
+[color-mode="light"] .text-block h1 {
+  color: black;
+}
+
 .text-block p {
-  color: white;
   font-size: large;
   text-align: left;
   margin-bottom: 6px;
+}
+
+[color-mode="dark"] .text-block p {
+  color: white;
+}
+
+[color-mode="light"] .text-block p {
+  color: black;
 }
 
 .text-block {

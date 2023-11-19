@@ -1,6 +1,11 @@
-body {
+[color-mode="dark"] body {
   background: #141414 !important;
   color: #ddd !important;
+}
+
+[color-mode="light"] body {
+  background: #dddddd !important;
+  color: #333 !important;
 }
 
 h1,
@@ -24,10 +29,15 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  /* Color of the thumb */
-  background: #8888;
-  /* Radius for the thumb */
   border-radius: 6px;
+}
+
+[color-mode="dark"] ::-webkit-scrollbar-thumb {
+  background: #8888;
+}
+
+[color-mode="light"] ::-webkit-scrollbar-thumb {
+  background: #8888;
 }
 
 /* Firefox */
@@ -38,7 +48,6 @@ html {
 
 .spacer-xl {
   height: 160px;
-  background-color: aqua;
 }
 
 h1 {
@@ -70,7 +79,7 @@ p {
 }
 
 button {
-  animation: fadeIn 1.2s ease-in-out;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
 @keyframes fadeIn {
