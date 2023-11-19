@@ -1,13 +1,14 @@
 import "./Navbar.css";
 import { PAGE_PATH_TITLES } from "../constants";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 type NavbarProps = {
   currentPage: string;
+  openMenu: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-export default function Navbar({ currentPage }: NavbarProps) {
+export default function Navbar({ currentPage, openMenu }: NavbarProps) {
   function NavTitle({
     pageTitle,
     pagePath,
@@ -56,17 +57,17 @@ export default function Navbar({ currentPage }: NavbarProps) {
 
     localStorage.setItem("color-mode", colorMode);
     root.setAttribute("color-mode", colorMode);
-    dropdown?.style.setProperty("visibility", "hidden");
+    dropdown?.style.setProperty("display", "none");
   }
 
   function showDropDown(): void {
     const dropdown = document.getElementById("color-mode-dropdown");
-    const visibility = dropdown?.style.getPropertyValue("visibility");
+    const display = dropdown?.style.getPropertyValue("display");
 
-    if (visibility === "visible") {
-      dropdown?.style.setProperty("visibility", "hidden");
+    if (display === "block") {
+      dropdown?.style.setProperty("display", "none");
     } else {
-      dropdown?.style.setProperty("visibility", "visible");
+      dropdown?.style.setProperty("display", "block");
     }
   }
 
@@ -77,25 +78,30 @@ export default function Navbar({ currentPage }: NavbarProps) {
   const modes = ["Light", "Dark", "System"];
 
   return (
-    <ul className="custom-navbar">
-      {Object.entries(PAGE_PATH_TITLES).map(([pagePath, pageTitle]) => (
-        <NavTitle
-          key={pagePath}
-          pageTitle={pageTitle}
-          pagePath={pagePath}
-          className="page-link"
-        ></NavTitle>
-      ))}
-      <li>
-        <button id="color-mode-dropdown-btn" onClick={showDropDown}>
-          Mode
+    <>
+      <ul className="custom-navbar">
+        <button id="menu-button" onClick={openMenu}>
+          <img src="/icons/menu.png" alt="" />
         </button>
-        <div id="color-mode-dropdown">
-          {modes.map((mode) => (
-            <ModeDropdownContentButton mode={mode} />
-          ))}
-        </div>
-      </li>
-    </ul>
+        {Object.entries(PAGE_PATH_TITLES).map(([pagePath, pageTitle]) => (
+          <NavTitle
+            key={pagePath}
+            pageTitle={pageTitle}
+            pagePath={pagePath}
+            className="page-link"
+          ></NavTitle>
+        ))}
+        <li>
+          <button id="color-mode-dropdown-btn" onClick={showDropDown}>
+            Mode
+          </button>
+          <div id="color-mode-dropdown">
+            {modes.map((mode) => (
+              <ModeDropdownContentButton mode={mode} />
+            ))}
+          </div>
+        </li>
+      </ul>
+    </>
   );
 }

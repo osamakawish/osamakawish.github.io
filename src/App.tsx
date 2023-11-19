@@ -16,6 +16,7 @@ import NotFound from "./components/NotFound";
 import { blogPosts } from "./BlogPostData";
 import HireMe from "./components/pages/hire/HireMe";
 import HireSuccess from "./components/pages/hire/success/HireSuccess";
+import SideMenu from "./components/SideMenu";
 
 function App() {
   return (
@@ -29,9 +30,15 @@ function AppWithRouter() {
   const location = useLocation();
   const currentPage = PAGE_PATH_TITLES[location.pathname] || "Unknown Page";
 
+  function openSideMenu(): void {
+    const sideMenu = document.getElementById("sideMenu");
+    sideMenu?.style;
+  }
+
   return (
     <>
-      <Navbar currentPage={currentPage} />
+      <Navbar currentPage={currentPage} openMenu={openSideMenu} />
+      <SideMenu currentPage={currentPage} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<Blog />} />
