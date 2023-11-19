@@ -8,6 +8,19 @@
   color: #333;
 }
 
+.close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  transform: scale(1.2);
+}
+
 #side-menu {
   position: fixed;
   top: 0;
@@ -25,10 +38,4 @@
   text-align: left;
   margin: 6px 12px;
   width: 90%;
-}
-
-@media screen and (max-width: 768px) {
-  #side-menu {
-    display: block;
-  }
 }

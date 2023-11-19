@@ -4,9 +4,11 @@ import "./SideMenu.css";
 
 type Props = {
   currentPage: string;
+  close: () => void;
+  opened: boolean;
 };
 
-export default function SideMenu({ currentPage }: Props) {
+export default function SideMenu({ currentPage, opened, close }: Props) {
   function NavTitle({
     pageTitle,
     pagePath,
@@ -35,15 +37,23 @@ export default function SideMenu({ currentPage }: Props) {
   }
 
   return (
-    <div id="side-menu">
-      {Object.entries(PAGE_PATH_TITLES).map(([path, title]) => (
-        <NavTitle
-          key={path}
-          pageTitle={title}
-          pagePath={path}
-          className="page-link"
+    <>
+      <div id="side-menu" style={{ display: opened ? "block" : "none" }}>
+        <img
+          src="/icons/close.png"
+          alt="close button"
+          className="close-button"
+          onClick={close}
         />
-      ))}
-    </div>
+        {Object.entries(PAGE_PATH_TITLES).map(([path, title]) => (
+          <NavTitle
+            key={path}
+            pageTitle={title}
+            pagePath={path}
+            className="page-link"
+          />
+        ))}
+      </div>
+    </>
   );
 }

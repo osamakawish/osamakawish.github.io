@@ -17,6 +17,7 @@ import { blogPosts } from "./BlogPostData";
 import HireMe from "./components/pages/hire/HireMe";
 import HireSuccess from "./components/pages/hire/success/HireSuccess";
 import SideMenu from "./components/SideMenu";
+import { useState } from "react";
 
 function App() {
   return (
@@ -29,16 +30,26 @@ function App() {
 function AppWithRouter() {
   const location = useLocation();
   const currentPage = PAGE_PATH_TITLES[location.pathname] || "Unknown Page";
+  const [sideMenuOpened, setSideMenuOpened] = useState(false);
 
-  function openSideMenu(): void {
-    const sideMenu = document.getElementById("sideMenu");
-    sideMenu?.style;
+  function openSideMenu() {
+    if (document.documentElement.clientWidth > 768) return;
+
+    setSideMenuOpened(true);
+  }
+
+  function closeSideMenu() {
+    setSideMenuOpened(false);
   }
 
   return (
     <>
       <Navbar currentPage={currentPage} openMenu={openSideMenu} />
-      <SideMenu currentPage={currentPage} />
+      <SideMenu
+        currentPage={currentPage}
+        opened={sideMenuOpened}
+        close={closeSideMenu}
+      />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<Blog />} />

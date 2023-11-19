@@ -97,7 +97,7 @@ export default function Navbar({ currentPage, openMenu }: NavbarProps) {
           </button>
           <div id="color-mode-dropdown">
             {modes.map((mode) => (
-              <ModeDropdownContentButton mode={mode} />
+              <ModeDropdownContentButton key={mode} mode={mode} />
             ))}
           </div>
         </li>
