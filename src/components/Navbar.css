@@ -13,6 +13,7 @@
 }
 
 #color-mode-dropdown {
+  visibility: visible;
   position: absolute;
   z-index: -1000;
 }
@@ -71,6 +72,7 @@
 
 [color-mode="light"] .custom-navbar {
   background: #aaa;
+  box-shadow: 0 2px 6px #666;
 }
 
 [color-mode="dark"] .page-link:not(.active-page) {
@@ -108,13 +110,16 @@
   color: #eee;
 }
 
+[color-mode="dark"] #color-mode-dropdown-btn:hover {
+  background: #444;
+}
+
 [color-mode="light"] #color-mode-dropdown-btn {
   color: #333;
 }
 
-/* This is for demonstrating how the custom attribute should work. */
-[color-mode="dark"] p {
-  background: orange;
+[color-mode="light"] #color-mode-dropdown-btn:hover {
+  background: #ccc;
 }
 
 [color-mode="dark"] #color-mode-dropdown button:hover {

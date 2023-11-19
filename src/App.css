@@ -40,6 +40,22 @@ h6 {
   background: #8888;
 }
 
+[color-mode="dark"] button {
+  color: #ddd;
+}
+
+[color-mode="dark"] button:hover {
+  background: #444;
+}
+
+[color-mode="light"] button {
+  color: #333;
+}
+
+[color-mode="light"] button:hover {
+  background: #ccc;
+}
+
 /* Firefox */
 html {
   scrollbar-width: thin;
@@ -51,31 +67,31 @@ html {
 }
 
 h1 {
-  animation: fadeIn 0.75s ease-in-out;
+  animation: fadeIn 0.2s ease-in-out;
 }
 
 h2 {
-  animation: fadeIn 0.9s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 h3 {
-  animation: fadeIn 1.05s ease-in-out;
+  animation: fadeIn 0.4s ease-in-out;
 }
 
 h4 {
-  animation: fadeIn 1.2s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 h5 {
-  animation: fadeIn 1.35s ease-in-out;
+  animation: fadeIn 0.55s ease-in-out;
 }
 
 h6 {
-  animation: fadeIn 1.5s ease-in-out;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
 p {
-  animation: fadeIn 2s ease-in-out;
+  animation: fadeIn 0.75s ease-in-out;
 }
 
 button {

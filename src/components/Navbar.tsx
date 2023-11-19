@@ -54,13 +54,18 @@ export default function Navbar({ currentPage }: NavbarProps) {
     }
 
     root.setAttribute("color-mode", colorMode);
-    dropdown?.style.setProperty("display", "none");
+    dropdown?.style.setProperty("visibility", "hidden");
   }
 
   function showDropDown(): void {
     const dropdown = document.getElementById("color-mode-dropdown");
+    const visibility = dropdown?.style.getPropertyValue("visibility");
 
-    dropdown?.style.setProperty("display", "block");
+    if (visibility === "visible") {
+      dropdown?.style.setProperty("visibility", "hidden");
+    } else {
+      dropdown?.style.setProperty("visibility", "visible");
+    }
   }
 
   function ModeDropdownContentButton({ mode }: { mode: string }) {

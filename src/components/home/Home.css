@@ -38,7 +38,7 @@
 }
 
 [color-mode="light"] .arrow-btnx {
-  filter: contrast(1) brightness(0.4);
+  filter: contrast(1) brightness(0.3);
 }
 
 .arrow-btnx:hover {

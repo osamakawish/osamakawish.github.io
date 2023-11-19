@@ -1,19 +1,19 @@
+/* [color-mode="dark"]  */
+
 .jobTypeButton {
   padding: 6px 36px;
   background: transparent;
-  color: white;
+  /* color: white; */
   border: none;
   margin: 0 1rem;
 }
 
 .jobTypeButton:hover:not(#selectedJobType) {
-  background: #222;
-  color: white;
   transform: scale(1.08);
 }
 
 #selectedJobType {
   font-size: larger;
-  background: #202020;
+  /* background: #202020; */
   color: tomato;
 }

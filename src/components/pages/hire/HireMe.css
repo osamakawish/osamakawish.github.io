@@ -1,6 +1,12 @@
-:root {
+[color-mode="dark"]:root {
   --input-bg: #222;
   --input-color: #fff;
+  --primary-color: tomato;
+}
+
+[color-mode="light"]:root {
+  --input-bg: #fff;
+  --input-color: #222;
   --primary-color: tomato;
 }
 
@@ -99,7 +105,7 @@ input:-moz-autofill:active {
   justify-content: center;
   color: tomato;
   font-size: 1rem;
-  filter: contrast(60%);
+  /* filter: contrast(60%); */
   width: 60%;
   height: 72px;
   text-wrap: wrap;
@@ -109,7 +115,6 @@ input:-moz-autofill:active {
 }
 
 #contact-form button:hover {
-  background: #1a1a1a;
   color: var(--primary-color);
   transform: scale(1.08);
   border: var(--primary-color) 1px solid;
