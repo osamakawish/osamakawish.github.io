@@ -55,6 +55,12 @@ input:-moz-autofill:active {
   margin-bottom: 1rem;
 }
 
+@media screen and (max-width: 1200px) {
+  #jobTypeButtonGroup {
+    flex-direction: column;
+  }
+}
+
 #priceTierGroup {
   display: flex;
   width: 75%;
@@ -105,9 +111,8 @@ input:-moz-autofill:active {
   justify-content: center;
   color: tomato;
   font-size: 1rem;
-  /* filter: contrast(60%); */
   width: 60%;
-  height: 72px;
+  height: fit-content;
   text-wrap: wrap;
   text-align: center;
   margin: 1rem;

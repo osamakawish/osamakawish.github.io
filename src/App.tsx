@@ -39,17 +39,17 @@ function AppWithRouter() {
   }
 
   function closeSideMenu() {
+    // fade out the side menu
+
     setSideMenuOpened(false);
   }
 
   return (
     <>
       <Navbar currentPage={currentPage} openMenu={openSideMenu} />
-      <SideMenu
-        currentPage={currentPage}
-        opened={sideMenuOpened}
-        close={closeSideMenu}
-      />
+      {sideMenuOpened && (
+        <SideMenu currentPage={currentPage} close={closeSideMenu} />
+      )}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<Blog />} />

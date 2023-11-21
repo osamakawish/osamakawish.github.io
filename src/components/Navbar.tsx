@@ -80,9 +80,11 @@ export default function Navbar({ currentPage, openMenu }: NavbarProps) {
   return (
     <>
       <ul className="custom-navbar">
-        <button id="menu-button" onClick={openMenu}>
-          <img src="/icons/menu.png" alt="" />
-        </button>
+        <li>
+          <button id="menu-button" name="menu button" onClick={openMenu}>
+            <img src="/icons/menu.png" alt="" />
+          </button>
+        </li>
         {Object.entries(PAGE_PATH_TITLES).map(([pagePath, pageTitle]) => (
           <NavTitle
             key={pagePath}
@@ -92,7 +94,11 @@ export default function Navbar({ currentPage, openMenu }: NavbarProps) {
           ></NavTitle>
         ))}
         <li>
-          <button id="color-mode-dropdown-btn" onClick={showDropDown}>
+          <button
+            name="mode button"
+            id="color-mode-dropdown-btn"
+            onClick={showDropDown}
+          >
             Mode
           </button>
           <div id="color-mode-dropdown">

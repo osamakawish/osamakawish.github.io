@@ -30,7 +30,29 @@
   width: 300px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
   padding: 24px;
-  display: none;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+#side-menu.slide-out {
+  animation: slideOut 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 #side-menu .page-link {

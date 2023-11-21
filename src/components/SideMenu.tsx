@@ -5,10 +5,9 @@ import "./SideMenu.css";
 type Props = {
   currentPage: string;
   close: () => void;
-  opened: boolean;
 };
 
-export default function SideMenu({ currentPage, opened, close }: Props) {
+export default function SideMenu({ currentPage, close }: Props) {
   function NavTitle({
     pageTitle,
     pagePath,
@@ -28,6 +27,7 @@ export default function SideMenu({ currentPage, opened, close }: Props) {
           <Link
             to={pagePath}
             style={{ textDecoration: "none", color: "inherit" }}
+            onClick={close}
           >
             {pageTitle}
           </Link>
@@ -38,7 +38,7 @@ export default function SideMenu({ currentPage, opened, close }: Props) {
 
   return (
     <>
-      <div id="side-menu" style={{ display: opened ? "block" : "none" }}>
+      <div id="side-menu">
         <img
           src="/icons/close.png"
           alt="close button"
